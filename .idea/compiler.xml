@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EmployeePortal" />
+        <module name="employeeportal" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="employeeportal" target="1.8" />
       <module name="EmployeePortal" target="1.8" />
     </bytecodeTargetLevel>
   </component>
