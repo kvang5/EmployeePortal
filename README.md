@@ -31,3 +31,12 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
 * Site and database hosted on AWS
 * Unit Testing
   * JUnit tests to achieve 85% code coverage 
+  
+### Design
+
+* [Screen Design]()
+* [Database Design](DesignDocuments/employeePortalDB_1.png)
+
+### [Project Plan](ProjectPlan.md)
+
+### [Time Log](TimeLog.md) 
