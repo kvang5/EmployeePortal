@@ -2,7 +2,7 @@
 
 ![](images/golden-sun-home-care-logo.png)
 
-![Golden Sun Home Care Website](http://www.goldensunhomecare.com)
+<http://www.goldensunhomecare.com>
 
 ### Problem Statement
 Golden Sun Home Care is a Home Healthcare business that was establish in the year of 2017. Golden Sun Home Care is licenses with the State of North Carolina to cater to the elderly and individuals that are need of assistance. The clients are either Medicaid patients, private hired, or assigned by the state. With these clients, Golden Sun Home Care hired Register Nurses, Certified Nursing Assistants, and caregivers to assist the clients with plans to help the clients get better with illness, injuries or assistant around the house. 
