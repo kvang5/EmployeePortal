@@ -25,6 +25,9 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
 * Independent research topic (TBD)
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
+* UI Framework Styling and Responsive application
+  * Bootstrap
+  * CSS
 * Site and database hosted on AWS
 * Unit Testing
   * JUnit tests to achieve 85% code coverage 
