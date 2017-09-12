@@ -10,3 +10,21 @@ Golden Sun Home Care is a Home Healthcare business that was establish in the yea
 Golden Sun Home Care is a new business with business operations that are in need some assistant to keep them going. Golden Sun Home Care keeps track of time entry from employees care services, employee time sheet, care description for clients, and administrator duties to keep track of employees and client services. The problem with these situations is that Golden Sun Home Care is new to the business and has been keeping all their documentations through paper. As a business major and previous Manager at a restaurant, having to keep all the documentations via paper can be costly and could potentially cost the business lots of revenue loss.
 
 The solution to help Golden Sun Home Care is to set a Web Application employee portal that will enable all employees, like Agency Director to RNs to CNAs to caregivers, the ability to log in submit their time sheet, description of care and other concerns for clients to Golden Sun Home Care without having to fill paper work for care services. This will allow the business to grow and control revenues generated from clients and the state with services Golden Sun Home Care provide.
+
+### Project Technologies/Techniques 
+
+* Security/Authentication
+  * Admin role: create/read/update/delete (crud) of all data
+  * User role: submit time sheet, client care description, and concerns
+* Database (MySQL and Hibernate)
+  * Store users and roles
+  * Store employee time sheet
+  * Store client information and care description
+* Web Services or APIs
+  * Replicon API for timesheet
+* Independent research topic (TBD)
+* Logging
+  * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
+* Site and database hosted on AWS
+* Unit Testing
+  * JUnit tests to achieve 85% code coverage 

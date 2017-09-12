@@ -10,8 +10,8 @@
 - [X] Add project to repository
 - [X] Set up logging
 - [X] Set up unit testing
-- [ ] Create and complete problem statement
-- [ ] Create and complete project plan
+- [X] Create and complete problem statement
+- [X] Create and complete project plan
 - [ ] Create and complete screen design
 - [ ] Create database design
 - [ ] Complete Week 2 activities and exercise
