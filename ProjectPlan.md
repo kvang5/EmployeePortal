@@ -12,22 +12,22 @@
 - [X] Set up unit testing
 - [X] Create and complete problem statement
 - [X] Create and complete project plan
-- [ ] Create and complete screen design
-- [ ] Create database design
-- [ ] Complete Week 2 activities and exercise
-- [ ] Time log entries
+- [X] Create and complete screen design
+- [X] Create database design
+- [X] Complete Week 2 activities and exercise
+- [X] Time log entries
 
 ### Week 3
-- [ ] Complete Week 3 activities and exercise
+- [X] Complete Week 3 activities and exercise
 - [ ] Continue setup database and all tables/columns locally
-- [ ] Determine independent research topic
+- [X] Determine independent research topic (Spring Security)
 - [ ] Start JSPs - Home page, Log In/Out, Admin page
 - [ ] Time log entries
 
 
 ### Week 4
 - [ ] Complete Week 4 activities and exercise
-- [ ] Applay database
+- [ ] Apply database
 - [ ] Add Hibernate config
 - [ ] Create DAO for users and clients crud
 - [ ] Add unit tests for DAO
