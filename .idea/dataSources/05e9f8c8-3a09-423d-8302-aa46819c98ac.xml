@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="employeeportal@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="employeeportal">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="financetracker"/>
+    <schema id="4" parent="1" name="holiday_days"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="LoginTest"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="sample"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="ToDo"/>
+    <schema id="12" parent="1" name="week5_auth_exercise"/>
+    <table id="13" parent="2" name="ClientNotes"/>
+    <table id="14" parent="2" name="Clients"/>
+    <table id="15" parent="2" name="Employees"/>
+    <table id="16" parent="2" name="EmployeesClientsRoles"/>
+    <table id="17" parent="2" name="USstates"/>
+    <column id="18" parent="13" name="client_notesId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="13" name="date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="20" parent="13" name="care_time">
+      <Position>3</Position>
+      <DataType>decimal(10)|0</DataType>
+    </column>
+    <column id="21" parent="13" name="description">
+      <Position>4</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="22" parent="13" name="comments">
+      <Position>5</Position>
+      <DataType>longtext|0</DataType>
+    </column>
+    <column id="23" parent="13" name="Clients_clientId">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="13" name="fk_ClientNotes_Clients1_idx">
+      <ColNames>Clients_clientId</ColNames>
+    </index>
+    <key id="25" parent="13" name="PRIMARY">
+      <ColNames>client_notesId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="13" name="fk_ClientNotes_Clients1">
+      <ColNames>Clients_clientId</ColNames>
+      <RefSchemaName>employeeportal</RefSchemaName>
+      <RefTableName>Clients</RefTableName>
+      <RefColNames>clientId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="27" parent="14" name="clientId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="14" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="29" parent="14" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="30" parent="14" name="address1">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="31" parent="14" name="address2">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="32" parent="14" name="city">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="33" parent="14" name="postal_zip_code">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="34" parent="14" name="email">
+      <Position>8</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="35" parent="14" name="home_phone">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="36" parent="14" name="mobile_phone">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="37" parent="14" name="USstates_stateId">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="38" parent="14" name="fk_Clients_USstates1_idx">
+      <ColNames>USstates_stateId</ColNames>
+    </index>
+    <key id="39" parent="14" name="PRIMARY">
+      <ColNames>clientId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="14" name="fk_Clients_USstates1">
+      <ColNames>USstates_stateId</ColNames>
+      <RefSchemaName>employeeportal</RefSchemaName>
+      <RefTableName>USstates</RefTableName>
+      <RefColNames>stateId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="41" parent="15" name="employeeId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="42" parent="15" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="43" parent="15" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="44" parent="15" name="address1">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="45" parent="15" name="address2">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="46" parent="15" name="city">
+      <Position>6</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="47" parent="15" name="postal_zip_code">
+      <Position>7</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="48" parent="15" name="email">
+      <Position>8</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="49" parent="15" name="home_phone">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="50" parent="15" name="mobile_phone">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="51" parent="15" name="USstates_stateId">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="15" name="fk_Employees_USstates1_idx">
+      <ColNames>USstates_stateId</ColNames>
+    </index>
+    <key id="53" parent="15" name="PRIMARY">
+      <ColNames>employeeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="54" parent="15" name="fk_Employees_USstates1">
+      <ColNames>USstates_stateId</ColNames>
+      <RefSchemaName>employeeportal</RefSchemaName>
+      <RefTableName>USstates</RefTableName>
+      <RefColNames>stateId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="55" parent="16" name="employees_clients_rolesId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="16" name="Employees_employeeId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="57" parent="16" name="Clients_clientId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="58" parent="16" name="fk_EmployeesClientsRoles_Clients1_idx">
+      <ColNames>Clients_clientId</ColNames>
+    </index>
+    <index id="59" parent="16" name="fk_EmployeesClientsRoles_Employees_idx">
+      <ColNames>Employees_employeeId</ColNames>
+    </index>
+    <key id="60" parent="16" name="PRIMARY">
+      <ColNames>employees_clients_rolesId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="61" parent="16" name="fk_EmployeesClientsRoles_Employees">
+      <ColNames>Employees_employeeId</ColNames>
+      <RefSchemaName>employeeportal</RefSchemaName>
+      <RefTableName>Employees</RefTableName>
+      <RefColNames>employeeId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="62" parent="16" name="fk_EmployeesClientsRoles_Clients1">
+      <ColNames>Clients_clientId</ColNames>
+      <RefSchemaName>employeeportal</RefSchemaName>
+      <RefTableName>Clients</RefTableName>
+      <RefColNames>clientId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="63" parent="17" name="stateId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="17" name="state_code">
+      <Position>2</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="65" parent="17" name="state_name">
+      <Position>3</Position>
+      <DataType>varchar(128)|0</DataType>
+    </column>
+    <key id="66" parent="17" name="PRIMARY">
+      <ColNames>stateId</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

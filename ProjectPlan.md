@@ -19,15 +19,16 @@
 
 ### Week 3
 - [X] Complete Week 3 activities and exercise
-- [ ] Continue setup database and all tables/columns locally
+- [X] Continue setup database and all tables/columns locally
+- [X] Setup database on Intellij project
 - [X] Determine independent research topic (Spring Security)
 - [ ] Start JSPs - Home page, Log In/Out, Admin page
-- [ ] Time log entries
+- [X] Time log entries
 
 
 ### Week 4
 - [ ] Complete Week 4 activities and exercise
-- [ ] Apply database
+- [X] Apply database to project
 - [ ] Add Hibernate config
 - [ ] Create DAO for users and clients crud
 - [ ] Add unit tests for DAO

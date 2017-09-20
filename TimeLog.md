@@ -14,8 +14,9 @@
 | 9/10/17 | Create and complete Application Flow |  |  |
 | 9/17/17 | Complete Week 3 Activities and Exercise | 2.5 |  |
 | 9/19/17 | Add screen designs and new database design repository | .25 |  |
-|  |  |  |  |
-|  |  |  |  |
+| 9/19/17 | Continue setup database and all tables/columns locally | .75 |  |
+| 9/19/17 | Setup database on Intellij project | .25 |  |
+| 9/19/17 | Determine independent research topic (Spring Security) | .25 | Doing more research to implement into project |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
