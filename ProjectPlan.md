@@ -29,7 +29,8 @@
 ### Week 4
 - [ ] Complete Week 4 activities and exercise
 - [X] Apply database to project
-- [ ] Add Hibernate config
+- [X] Add Hibernate config
+- [X] Add Session Factory Provider class to persistence directory
 - [ ] Create DAO for users and clients crud
 - [ ] Add unit tests for DAO
 - [ ] Continue working JSPs - employee page, time entry, client page
