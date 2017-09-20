@@ -24,4 +24,27 @@ public class Employee {
     @Column(name = "last_name")
     private String last_name;
 
+    @Column(name = "address1")
+    private String address1;
+
+    @Column(name = "address2")
+    private String address2;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "postal_zip_code")
+    private String postal_zip_code;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "home_phone")
+    private String home_phone;
+
+    @Column(name = "mobile_phone")
+    private String mobile_phone;
+
+
+
 }
