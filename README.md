@@ -34,7 +34,7 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
   
 ### Design
 
-* [Screen Design](DesignDocuments/ScreenDesigns)
+* [Screen Design](DesignDocuments/Screens.md)
 * [Database Design](DesignDocuments/employeePortalDB_1.png)
 
 ### [Project Plan](ProjectPlan.md)
