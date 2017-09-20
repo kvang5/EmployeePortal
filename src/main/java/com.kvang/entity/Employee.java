@@ -1,5 +1,7 @@
 package com.kvang.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -7,9 +9,19 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table (name = "employeeportal")
+@Table (name = "Employees")
 public class Employee {
 
-    //@Id
-    //@GeneratedValue(generator = "increment")
+    @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @Column(name = "employeeId")
+    private int employeeId;
+
+    @Column(name = "first_name")
+    private String first_name;
+
+    @Column(name = "last_name")
+    private String last_name;
+
 }
