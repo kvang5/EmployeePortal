@@ -22,6 +22,7 @@
 
         <!-- List the annotated entity class/es -->
         <mapping class="com.kvang.entity.Employee"/>
+        <mapping class="com.kvang.entity.State"/>
 
     </session-factory>
 

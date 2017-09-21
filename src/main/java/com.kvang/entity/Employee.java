@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "Employees")
-public class Employee {
+public class Employee implements java.io.Serializable {
 
     @Id
     @GeneratedValue(generator = "increment")
@@ -45,7 +45,37 @@ public class Employee {
     @Column(name = "mobile_phone")
     private String mobile_phone;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USstates_stateId")
+    private State state;
 
+    public Employee() {
+    }
+
+    public Employee(String first_name, String last_name, String address1, String address2, String city, String postal_zip_code, String email, String home_phone, String mobile_phone) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.city = city;
+        this.postal_zip_code = postal_zip_code;
+        this.email = email;
+        this.home_phone = home_phone;
+        this.mobile_phone = mobile_phone;
+    }
+
+    public Employee(String first_name, String last_name, String address1, String address2, String city, String postal_zip_code, String email, String home_phone, String mobile_phone, State state) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.address1 = address1;
+        this.address2 = address2;
+        this.city = city;
+        this.postal_zip_code = postal_zip_code;
+        this.email = email;
+        this.home_phone = home_phone;
+        this.mobile_phone = mobile_phone;
+        this.state = state;
+    }
 
     public int getEmployeeId() {
         return employeeId;
@@ -127,6 +157,15 @@ public class Employee {
         this.mobile_phone = mobile_phone;
     }
 
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    /*
     @Override
     public String toString() {
         return "Employee{" +
@@ -140,6 +179,8 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", home_phone='" + home_phone + '\'' +
                 ", mobile_phone='" + mobile_phone + '\'' +
+                ", state=" + state +
                 '}';
     }
+    */
 }
