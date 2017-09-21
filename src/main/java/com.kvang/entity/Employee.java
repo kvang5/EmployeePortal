@@ -161,7 +161,7 @@ public class Employee implements java.io.Serializable {
         return state;
     }
 
-    public void setState(State state) {
+    public void setState(String state_code) {
         this.state = state;
     }
 
