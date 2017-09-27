@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+}
+
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px; /* Negative indent footer by its height */
+    padding: 0 0 60px; /* Pad bottom by footer height */
+}
+
+.panel {
+    margin: auto;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.login-form {
+    margin: auto;
+    width: 50%;
+}
+
+
+.footer {
+    background-color: #222;
+    color: #fff;
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}

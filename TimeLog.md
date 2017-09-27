@@ -18,6 +18,7 @@
 | 9/19/17 | Setup database on Intellij project | .25 |  |
 | 9/19/17 | Determine independent research topic (Spring Security) | .25 | Doing more research to implement into project |
 | 9/19/17 | Add Hibernate config file, dependency, Session Factory Provider class to persistence directory | .5 |  |
-| 9/26/17 | Complete Week 4 Activites and Exercise - Create DAO for employee and states crud & Add unit tests for Dao | 5 | Applied to project |
-|  |  |  |  |
+| 9/26/17 | Complete Week 4 Activities and Exercise - Create DAO for employee and states crud & Add unit tests for Dao | 5 | Applied to project |
+| 9/27/17 | Complete Week 5 Activities and Exercise | 1 |  |
+| 9/27/17 | Started home page - log in, add jsps (head, footer, taglib), directory folders for admin/employee, and img for logo | 2.5 |  |
 |  |  |  |  |

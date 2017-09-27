@@ -22,7 +22,7 @@
 - [X] Continue setup database and all tables/columns locally
 - [X] Setup database on Intellij project
 - [X] Determine independent research topic (Spring Security)
-- [ ] Start JSPs - Home page, Log In/Out, Admin page
+- [X] Start JSPs - Home page - Log In
 - [X] Time log entries
 
 
@@ -33,14 +33,15 @@
 - [X] Add Session Factory Provider class to persistence directory
 - [X] Create DAO for employee, states and clients crud
 - [X] Add unit tests for DAO
-- [ ] Continue working JSPs - employee page, time entry, client page
+- [ ] Continue working JSPs - Admin page, employee page, time entry, client page
 - [ ] Begin working on controllers
 - [X] Time log entries
 
 ### Week 5
+- [X] Complete Week 5 activities and exercise
+- [X] AWS setup
 - [ ] Apply custom tag to project (if needed)
 - [ ] Finish individual project check point 2
-- [ ] AWS setup
 - [ ] Deploy project on AWS
 - [ ] Complete feedback Week 5 professional development presentations
 - [ ] Continue working on controllers
