@@ -1,7 +1,7 @@
 package com.kvang.persistence;
 
 
-import com.kvang.entity.Employee;
+import com.kvang.entity.State;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -11,63 +11,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * EmployeeDao Class allows hibernate to assist in create(add), read(get), update, and delete (CRUD) for employees
- *
- * Created by kvang on 9/21/17.
+ * Created by kvang on 9/25/17.
  */
-public class EmployeeDao {
+public class StateDao {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
+    Logger logger = Logger.getLogger(this.getClass());
 
-    public List<Employee> getAllEmployees() {
-        List<Employee> employees = new ArrayList<Employee>();
+    public List<State> getAllStates() {
+        List<State> states = new ArrayList<State>();
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            employees = session.createCriteria(Employee.class).list();
+            states = session.createCriteria(State.class).list();
         } catch (HibernateException he) {
-            logger.error("Error getting all employees", he);
+            logger.error("Error getting all states", he);
         } catch (Exception e) {
-            logger.error("General exception is caught", e);
+            logger.error("General exception for getAllStates is caught", e);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
-        return employees;
+        return states;
     }
 
-    public Employee getEmployeeById(int id) {
-        Employee employee = null;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            employee = (Employee) session.get(Employee.class, id);
-        } catch (HibernateException he) {
-            logger.error("Error getting employee by id", he);
-        } catch (Exception e) {
-            logger.error("General exception for getEmployeeById() is caught", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return employee;
-    }
-
-
-    public int addEmployee(Employee employee) {
+    public int addState(State state) {
         int id = 0;
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            id = (int) session.save(employee);
+            id = (int) session.save(state);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error adding employee", he);
+            logger.error("Error adding state", he);
         } catch (Exception e) {
-            logger.error("General exception for addEmployee() is caught", e);
+            logger.error("General exception for addState() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -76,18 +55,36 @@ public class EmployeeDao {
         return id;
     }
 
-    public void deleteEmployee(int id) {
+    public State getStateById(int id) {
+        State state = null;
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            state = (State) session.get(State.class, id);
+        } catch (HibernateException he) {
+            logger.error("Error getting state by id", he);
+        } catch (Exception e) {
+            logger.error("General exception for getStateById() is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return state;
+    }
+
+    public void deleteState(int id) {
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            Employee employee = (Employee) session.load(Employee.class, id);
-            session.delete(employee);
+            State state = (State) session.load(State.class, id);
+            session.delete(state);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error deleting employee", he);
+            logger.error("Error deleting state", he);
         } catch (Exception e) {
-            logger.error("General exception for deleteEmployee() is caught", e);
+            logger.error("General exception for deleteState() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -95,23 +92,21 @@ public class EmployeeDao {
         }
     }
 
-    public void updateEmployee(Employee employee) {
+    public void updateState(State state) {
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            session.update(employee);
+            session.update(state);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error updating employee", he);
+            logger.error("Error updating state", he);
         } catch (Exception e) {
-            logger.error("General exception for updateEmployee() is caught", e);
+            logger.error("General exception for updateState() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
     }
-
-
 }
