@@ -3,7 +3,7 @@
 | Date | Task | Hours | Notes|
 |------|------|-------|------|
 | 8/28/17 | Week 0 set up | 1 |  |
-| 9/4/17 | Complete Week 1 Activities and Exercise 1 | 2 |  |
+| 9/4/17 | Complete Week 1 Activities and Exercise | 2 |  |
 | 9/7/17 | Complete Week 2 Activities and Exercise | 3 | Fixing issues feedback from Paula |
 | 9/10/17| Set up Individual Repository | .5 |  |
 | 9/10/17 | Create and complete Problem Statement | .75 |  |
@@ -18,7 +18,6 @@
 | 9/19/17 | Setup database on Intellij project | .25 |  |
 | 9/19/17 | Determine independent research topic (Spring Security) | .25 | Doing more research to implement into project |
 | 9/19/17 | Add Hibernate config file, dependency, Session Factory Provider class to persistence directory | .5 |  |
-|  |  |  |  |
-|  |  |  |  |
+| 9/26/17 | Complete Week 4 Activites and Exercise - Create DAO for employee and states crud & Add unit tests for Dao | 5 | Applied to project |
 |  |  |  |  |
 |  |  |  |  |
