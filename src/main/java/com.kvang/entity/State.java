@@ -26,7 +26,7 @@ public class State implements java.io.Serializable {
     @Column(name = "state_name")
     private String state_name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "state")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state")
     private Set<Employee> employees = new HashSet<Employee>(0);
 
     public State() {

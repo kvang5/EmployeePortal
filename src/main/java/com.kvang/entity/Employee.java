@@ -45,7 +45,7 @@ public class Employee implements java.io.Serializable {
     @Column(name = "mobile_phone")
     private String mobile_phone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "USstates_stateId")
     private State state;
 
@@ -161,7 +161,7 @@ public class Employee implements java.io.Serializable {
         return state;
     }
 
-    public void setState(String state_code) {
+    public void setState(State state) {
         this.state = state;
     }
 

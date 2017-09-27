@@ -43,6 +43,7 @@ public class EmployeeDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             employee = (Employee) session.get(Employee.class, id);
+
         } catch (HibernateException he) {
             logger.error("Error getting employee by id", he);
         } catch (Exception e) {
