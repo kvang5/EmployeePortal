@@ -21,4 +21,5 @@
 | 9/26/17 | Complete Week 4 Activities and Exercise - Create DAO for employee and states crud & Add unit tests for Dao | 5 | Applied to project |
 | 9/27/17 | Complete Week 5 Activities and Exercise | 1 |  |
 | 9/27/17 | Started home page - log in, add jsps (head, footer, taglib), directory folders for admin/employee, and img for logo | 2.5 |  |
-|  |  |  |  |
+| 9/27/17 | Copy DDL and create database for AWS MySQL instance | .25 |  |
+| 9/27/17 | Deploy project to AWS | .25 |  |

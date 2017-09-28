@@ -42,7 +42,8 @@
 - [X] AWS setup
 - [ ] Apply custom tag to project (if needed)
 - [ ] Finish individual project check point 2
-- [ ] Deploy project on AWS
+- [X] Copy DDL to AWS MySQL instance
+- [X] Deploy project on AWS
 - [ ] Complete feedback Week 5 professional development presentations
 - [ ] Continue working on controllers
 - [ ] Time log entries
