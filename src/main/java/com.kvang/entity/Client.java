@@ -16,7 +16,7 @@ public class Client {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "clientId")
-    private int employeeId;
+    private int clientId;
 
     @Column(name = "first_name")
     private String first_name;
@@ -78,12 +78,12 @@ public class Client {
         this.state = state;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public String getFirst_name() {
@@ -170,7 +170,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "employeeId=" + employeeId +
+                "clientId=" + clientId +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", address1='" + address1 + '\'' +

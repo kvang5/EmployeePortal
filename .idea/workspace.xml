@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b7e2656-c27d-4807-8cdb-94ba8fad54e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log4jLogs/MyAppLog.log" afterPath="$PROJECT_DIR$/log4jLogs/MyAppLog.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java" afterPath="$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com.kvang/entity/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/com.kvang/entity/Employee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com.kvang/entity/State.java" afterPath="$PROJECT_DIR$/src/main/java/com.kvang/entity/State.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com.kvang/persistence/ClientDao.java" afterPath="$PROJECT_DIR$/src/main/java/com.kvang/persistence/ClientDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/EmployeeDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/EmployeeDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/StateDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/StateDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -60,11 +55,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EmployeeDaoTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EmployeeDaoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/kvang/persistence/EmployeeDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="167">
+              <caret line="63" column="9" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="63" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -83,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientDaoTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClientDaoTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+            <state relative-caret-position="765">
+              <caret line="51" column="15" lean-forward="false" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,21 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/entity/State.java">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="31" column="85" lean-forward="false" selection-start-line="31" selection-start-column="85" selection-end-line="31" selection-end-column="85" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/entity/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+            <state relative-caret-position="385">
+              <caret line="185" column="6" lean-forward="false" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -118,8 +103,8 @@
       <file leaf-file-name="EmployeeDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/persistence/EmployeeDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="114" selection-end-column="5" />
+            <state relative-caret-position="-510">
+              <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -129,7 +114,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a9ddaa83-555c-4393-9f24-6881acf1b99b/console.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+              <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -156,6 +141,16 @@
         <option value="JUnit4 Test Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Employee</find>
+      <find>employee</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Client</replace>
+      <replace>client</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -194,12 +189,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com.kvang/persistence/Utilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.kvang/entity/State.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.kvang/entity/Employee.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/kvang/persistence/StateDaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com.kvang/persistence/ClientDao.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a9ddaa83-555c-4393-9f24-6881acf1b99b/console.sql" />
         <option value="$PROJECT_DIR$/src/test/java/com/kvang/persistence/EmployeeDaoTest.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a9ddaa83-555c-4393-9f24-6881acf1b99b/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java" />
       </list>
     </option>
   </component>
@@ -475,7 +470,7 @@
       <recent name="$PROJECT_DIR$/DesignDocuments" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeDaoTest">
+  <component name="RunManager" selected="JUnit.ClientDaoTest">
     <configuration default="false" name="EmployeeDaoTest.updateEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1131,10 +1126,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.EmployeeDaoTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.EmployeeDaoTest.updateEmployee" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ClientDaoTest.getAllClients" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ClientDaoTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ClientDaoTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.EmployeeDaoTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.EmployeeDaoTest.updateEmployee" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ClientDaoTest.getAllClients" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.EmployeeDaoTest.deleteEmployee" />
       </list>
     </recent_temporary>
@@ -1170,16 +1165,16 @@
       <workItem from="1506487792015" duration="972000" />
       <workItem from="1506547286107" duration="11321000" />
       <workItem from="1506619679694" duration="2215000" />
-      <workItem from="1506624560685" duration="4770000" />
+      <workItem from="1506624560685" duration="5629000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ClientDaoTest_getAllClients - 2017.09.29 at 22h 08m 23s.xml">
-      <configuration name="ClientDaoTest.getAllClients" configurationId="JUnit" />
+    <history-entry file="ClientDaoTest - 2017.09.30 at 03h 59m 37s.xml">
+      <configuration name="ClientDaoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="EmployeeDaoTest_updateEmployee - 2017.09.30 at 01h 42m 32s.xml">
-      <configuration name="EmployeeDaoTest.updateEmployee" configurationId="JUnit" />
+    <history-entry file="EmployeeDaoTest - 2017.09.30 at 01h 52m 30s.xml">
+      <configuration name="EmployeeDaoTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="EmployeeDaoTest_updateEmployee - 2017.09.30 at 01h 43m 59s.xml">
       <configuration name="EmployeeDaoTest.updateEmployee" configurationId="JUnit" />
@@ -1207,7 +1202,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64126000" />
+    <option name="totallyTimeSpent" value="64985000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1246,11 +1241,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35664335" sideWeight="0.4803082" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35664335" sideWeight="0.4803082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6" sideWeight="0.48689517" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3160839" sideWeight="0.48689517" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36923078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36923078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16809729" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1315,7 +1310,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1609,14 +1604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/persistence/StateDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-735">
@@ -1637,6 +1624,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a9ddaa83-555c-4393-9f24-6881acf1b99b/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/persistence/EmployeeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1668,37 +1671,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/entity/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com.kvang/persistence/EmployeeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="114" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a9ddaa83-555c-4393-9f24-6881acf1b99b/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        <state relative-caret-position="385">
+          <caret line="185" column="6" lean-forward="false" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/kvang/persistence/EmployeeDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="167">
+          <caret line="63" column="9" lean-forward="true" selection-start-line="57" selection-start-column="8" selection-end-line="63" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/kvang/persistence/ClientDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="15" lean-forward="false" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
