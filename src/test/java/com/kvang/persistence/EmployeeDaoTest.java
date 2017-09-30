@@ -88,9 +88,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee email not returned correctly", employee.getEmail(), employeeDao.getEmployeeById(newEmployee).getEmail());
         assertEquals("Employee home phone not returned correctly", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone not returned correctly", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
-        //assertEquals("Employee state not returned correctly", employee.getState(), employeeDao.getEmployeeById(newEmployee).getState());
-
-
+        assertEquals("Employee state not returned correctly", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
     }
 
     @Test
@@ -110,26 +108,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee email not returned correctly", employee.getEmail(), employeeDao.getEmployeeById(newEmployee).getEmail());
         assertEquals("Employee home phone not returned correctly", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone not returned correctly", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
-        //assertEquals("Employee state not returned correctly", employee.getState(), employeeDao.getEmployeeById(newEmployee).getState());
-
-        /*
-        logger.info("State Id: " + stateDao.getStateById(newState).getStateId());
-        logger.info("State Code: " + stateDao.getStateById(newState).getState_code());
-        logger.info("State Name: " + stateDao.getStateById(newState).getState_name());
-
-        logger.info("Employee Id: " + employeeDao.getEmployeeById(newEmployee).getEmployeeId());
-        logger.info("Employee first name: " + employeeDao.getEmployeeById(newEmployee).getFirst_name());
-        logger.info("Employee last name: " + employeeDao.getEmployeeById(newEmployee).getLast_name());
-        logger.info("Employee address1: " + employeeDao.getEmployeeById(newEmployee).getAddress1());
-        logger.info("Employee address2: " + employeeDao.getEmployeeById(newEmployee).getAddress2());
-        logger.info("Employee city: " + employeeDao.getEmployeeById(newEmployee).getCity());
-        logger.info("Employee postal zip code: " + employeeDao.getEmployeeById(newEmployee).getPostal_zip_code());
-        logger.info("Employee email: " + employeeDao.getEmployeeById(newEmployee).getEmail());
-        logger.info("Employee home phone: " + employeeDao.getEmployeeById(newEmployee).getHome_phone());
-        logger.info("Employee mobile phone: " + employeeDao.getEmployeeById(newEmployee).getMobile_phone());
-        logger.info("Employee state: " + employeeDao.getEmployeeById(newEmployee).getState().getStateId());
-        logger.info("Employee state with employee.getState(): " + employee.getState().getStateId());
-        */
+        assertEquals("Employee state not returned correctly", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
     }
 
     @Test
@@ -159,7 +138,7 @@ public class EmployeeDaoTest {
         employee.setEmail("pvang08@madisoncollege.edu");
         employee.setHome_phone("111-111-6682");
         employee.setMobile_phone("111-415-6682");
-        employee.setState(state);
+        //employee.setState(state);
 
         employeeDao.updateEmployee(employee);
         //assertEquals("State code not updated", state.getState_code(), stateDao.getStateById(newState).getState_code());
