@@ -26,7 +26,7 @@ public class State implements java.io.Serializable {
     @Column(name = "state_name")
     private String state_name;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state", cascade = CascadeType.ALL)
     private Set<Employee> employees = new HashSet<Employee>(0);
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "state", cascade = CascadeType.ALL)
