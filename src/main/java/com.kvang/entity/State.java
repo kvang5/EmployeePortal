@@ -29,7 +29,7 @@ public class State implements java.io.Serializable {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "state")
     private Set<Employee> employees = new HashSet<Employee>(0);
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state", cascade = CascadeType.ALL)
     private Set<Client> clients = new HashSet<Client>(0);
 
     public State() {

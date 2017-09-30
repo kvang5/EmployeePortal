@@ -78,8 +78,8 @@ public class StateDaoTest {
         newState = stateDao.addState(state);
         state.setState_code("LL");
         state.setState_name("LLLLLLL");
-
         stateDao.updateState(state);
+
         assertEquals("state code not updated", state.getState_code(), stateDao.getStateById(newState).getState_code());
         assertEquals("state name not updated", state.getState_name(), stateDao.getStateById(newState).getState_name());
 

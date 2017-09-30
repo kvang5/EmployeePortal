@@ -34,6 +34,8 @@ public class EmployeeDaoTest {
         state = new State();
         state.setState_name("Test");
         state.setState_code("TE");
+        //stateDao.getStateById(53);
+
 
         employeeDao = new EmployeeDao();
 
@@ -122,11 +124,7 @@ public class EmployeeDaoTest {
 
     @Test
     public void updateEmployee() throws Exception {
-        newState = stateDao.addState(state);
-        //state.setState_code("KO");
-        //state.setState_name("KOOK");
-
-        //stateDao.updateState(state);
+        state = stateDao.getStateById(101);
 
         newEmployee = employeeDao.addEmployee(employee);
         employee.setFirst_name("Peyton");
@@ -138,11 +136,11 @@ public class EmployeeDaoTest {
         employee.setEmail("pvang08@madisoncollege.edu");
         employee.setHome_phone("111-111-6682");
         employee.setMobile_phone("111-415-6682");
-        //employee.setState(state);
+        employee.setState(state);
+
+        state.getEmployees().add(employee);
 
         employeeDao.updateEmployee(employee);
-        //assertEquals("State code not updated", state.getState_code(), stateDao.getStateById(newState).getState_code());
-        //assertEquals("State name not updated", state.getState_name(), stateDao.getStateById(newState).getState_name());
 
         assertEquals("Employee first name not updated", employee.getFirst_name(), employeeDao.getEmployeeById(newEmployee).getFirst_name());
         assertEquals("Employee last name not updated", employee.getLast_name(), employeeDao.getEmployeeById(newEmployee).getLast_name());
@@ -153,8 +151,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee email name not updated", employee.getEmail(), employeeDao.getEmployeeById(newEmployee).getEmail());
         assertEquals("Employee home phone name not updated", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone name not updated", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
-        //assertEquals("Employee state not updated", employee.getState(), employeeDao.getEmployeeById(newEmployee).getState());
-
+        assertEquals("Employee state not updated", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
     }
 
 }
