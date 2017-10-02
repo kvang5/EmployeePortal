@@ -142,11 +142,9 @@ public class EmployeeDaoTest {
 
         employeeDao.updateEmployee(employee);
 
-        //logger.info("state.getEmployees().add(employee): " + state.getEmployees().add(employee));
-
+        assertNotNull("State is null: " + state);
+        assertNotNull("Employee is null: " + employee);
         assertEquals("Employee first name not updated", employee.getFirst_name(), employeeDao.getEmployeeById(newEmployee).getFirst_name());
-        logger.info("employee.getFirst_name():" + employee.getFirst_name());
-        logger.info("employeeDao.getEmployeeById(newEmployee).getFirst_name(): " + employeeDao.getEmployeeById(newEmployee).getFirst_name());
         assertEquals("Employee last name not updated", employee.getLast_name(), employeeDao.getEmployeeById(newEmployee).getLast_name());
         assertEquals("Employee address1 name not updated", employee.getAddress1(), employeeDao.getEmployeeById(newEmployee).getAddress1());
         assertEquals("Employee address2 name not updated", employee.getAddress2(), employeeDao.getEmployeeById(newEmployee).getAddress2());
@@ -158,5 +156,4 @@ public class EmployeeDaoTest {
         assertEquals("Employee state not updated", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
 
     }
-
 }

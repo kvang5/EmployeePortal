@@ -123,8 +123,6 @@ public class ClientDaoTest {
         state.setState_code(stateDao.getStateById(55).getState_code());
         state.setState_name(stateDao.getStateById(55).getState_name());
 
-        //logger.info(stateDao.getStateById(55).getState_name());
-
         newClient = clientDao.addClient(client);
         client.setFirst_name("Helen");
         client.setLast_name("Keller");
@@ -141,8 +139,8 @@ public class ClientDaoTest {
 
         clientDao.updateClient(client);
 
-        logger.info("newState: " + newState);
-
+        assertNotNull("State is null: " + state);
+        assertNotNull("Client is null: " + client);
         assertEquals("Client first name not updated", client.getFirst_name(), clientDao.getClientById(newClient).getFirst_name());
         assertEquals("Client last name not updated", client.getLast_name(), clientDao.getClientById(newClient).getLast_name());
         assertEquals("Client address1 name not updated", client.getAddress1(), clientDao.getClientById(newClient).getAddress1());
@@ -153,7 +151,5 @@ public class ClientDaoTest {
         assertEquals("Client home phone name not updated", client.getHome_phone(), clientDao.getClientById(newClient).getHome_phone());
         assertEquals("Client mobile phone name not updated", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not updated", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
-
     }
-
 }
