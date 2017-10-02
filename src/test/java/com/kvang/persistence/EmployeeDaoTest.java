@@ -17,25 +17,22 @@ import static org.junit.Assert.*;
 public class EmployeeDaoTest {
 
     private final Logger logger = Logger.getLogger(this.getClass());
-    State state;
     StateDao stateDao;
+    State state;
 
-    Employee employee;
     EmployeeDao employeeDao;
+    Employee employee;
 
-    int newEmployee = 0;
     int newState = 0;
-
+    int newEmployee = 0;
 
     @Before
     public void setUp() throws Exception {
         stateDao = new StateDao();
 
         state = new State();
-        state.setState_name("Test");
-        state.setState_code("TE");
-        //stateDao.getStateById(53);
-
+        state.setState_code("ET");
+        state.setState_name("Employee Testing");
 
         employeeDao = new EmployeeDao();
 
@@ -55,13 +52,13 @@ public class EmployeeDaoTest {
 
     @After
     public void tearDown() throws Exception {
-        if (newState != 0) {
+        /*if (newState != 0) {
             stateDao.deleteState(newState);
         }
 
         if (newEmployee != 0) {
             employeeDao.deleteEmployee(newEmployee);
-        }
+        }*/
 
 
     }
@@ -124,7 +121,10 @@ public class EmployeeDaoTest {
 
     @Test
     public void updateEmployee() throws Exception {
-        state = stateDao.getStateById(101);
+        newState = stateDao.addState(state);
+        state.setStateId(stateDao.getStateById(55).getStateId());
+        state.setState_code(stateDao.getStateById(55).getState_code());
+        state.setState_name(stateDao.getStateById(55).getState_name());
 
         newEmployee = employeeDao.addEmployee(employee);
         employee.setFirst_name("Peyton");
@@ -142,7 +142,11 @@ public class EmployeeDaoTest {
 
         employeeDao.updateEmployee(employee);
 
+        //logger.info("state.getEmployees().add(employee): " + state.getEmployees().add(employee));
+
         assertEquals("Employee first name not updated", employee.getFirst_name(), employeeDao.getEmployeeById(newEmployee).getFirst_name());
+        logger.info("employee.getFirst_name():" + employee.getFirst_name());
+        logger.info("employeeDao.getEmployeeById(newEmployee).getFirst_name(): " + employeeDao.getEmployeeById(newEmployee).getFirst_name());
         assertEquals("Employee last name not updated", employee.getLast_name(), employeeDao.getEmployeeById(newEmployee).getLast_name());
         assertEquals("Employee address1 name not updated", employee.getAddress1(), employeeDao.getEmployeeById(newEmployee).getAddress1());
         assertEquals("Employee address2 name not updated", employee.getAddress2(), employeeDao.getEmployeeById(newEmployee).getAddress2());
@@ -152,6 +156,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee home phone name not updated", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone name not updated", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not updated", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
+
     }
 
 }

@@ -25,13 +25,13 @@ public class ClientDaoTest {
     int newState = 0;
     int newClient = 0;
 
-
     @Before
     public void setUp() throws Exception {
         stateDao = new StateDao();
 
-        state = stateDao.getStateById(54);
-        //stateDao.getStateById(53);
+        state = new State();
+        state.setState_code("CT");
+        state.setState_name("Client Testing");
 
         clientDao = new ClientDao();
 
@@ -49,13 +49,13 @@ public class ClientDaoTest {
 
     @After
     public void tearDown() throws Exception {
-        if (newState != 0) {
+        /*if (newState != 0) {
             stateDao.deleteState(newState);
         }
 
         if (newClient != 0) {
             clientDao.deleteClient(newClient);
-        }
+        }*/
     }
 
     @Test
@@ -118,7 +118,12 @@ public class ClientDaoTest {
 
     @Test
     public void updateClient() throws Exception {
-        state = stateDao.getStateById(101);
+        newState = stateDao.addState(state);
+        state.setStateId(stateDao.getStateById(55).getStateId());
+        state.setState_code(stateDao.getStateById(55).getState_code());
+        state.setState_name(stateDao.getStateById(55).getState_name());
+
+        //logger.info(stateDao.getStateById(55).getState_name());
 
         newClient = clientDao.addClient(client);
         client.setFirst_name("Helen");
@@ -135,6 +140,8 @@ public class ClientDaoTest {
         state.getClients().add(client);
 
         clientDao.updateClient(client);
+
+        logger.info("newState: " + newState);
 
         assertEquals("Client first name not updated", client.getFirst_name(), clientDao.getClientById(newClient).getFirst_name());
         assertEquals("Client last name not updated", client.getLast_name(), clientDao.getClientById(newClient).getLast_name());
