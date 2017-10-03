@@ -45,7 +45,7 @@ public class Employee implements java.io.Serializable {
     @Column(name = "mobile_phone")
     private String mobile_phone;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "USstates_stateId")
     private State state;
 

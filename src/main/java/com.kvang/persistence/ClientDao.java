@@ -3,6 +3,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.Client;
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -41,7 +42,7 @@ public class ClientDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             client = (Client) session.get(Client.class, id);
-
+            Hibernate.initialize(client.getState());
         } catch (HibernateException he) {
             logger.error("Error getting client by id", he);
         } catch (Exception e) {

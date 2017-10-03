@@ -26,10 +26,10 @@ public class State implements java.io.Serializable {
     @Column(name = "state_name")
     private String state_name;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "state", cascade = CascadeType.ALL)
     private Set<Employee> employees = new HashSet<Employee>(0);
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "state", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "state", cascade = CascadeType.ALL)
     private Set<Client> clients = new HashSet<Client>(0);
 
     public State() {

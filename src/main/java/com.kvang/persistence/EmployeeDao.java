@@ -3,6 +3,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.Employee;
 import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -43,7 +44,7 @@ public class EmployeeDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             employee = (Employee) session.get(Employee.class, id);
-
+            Hibernate.initialize(employee.getState());
         } catch (HibernateException he) {
             logger.error("Error getting employee by id", he);
         } catch (Exception e) {
