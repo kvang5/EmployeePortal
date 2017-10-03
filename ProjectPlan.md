@@ -41,10 +41,11 @@
 - [X] Complete Week 5 activities and exercise
 - [X] AWS setup
 - [ ] Apply custom tag to project (if needed)
-- [ ] Finish individual project check point 2
+- [X] Finish individual project check point 2
 - [X] Copy DDL to AWS MySQL instance
 - [X] Deploy project on AWS
 - [ ] Complete feedback Week 5 professional development presentations
+- [X] Complete peer review 1
 - [ ] Continue working on controllers
 - [ ] Time log entries
 

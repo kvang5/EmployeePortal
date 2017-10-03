@@ -23,3 +23,6 @@
 | 9/27/17 | Started home page - log in, add jsps (head, footer, taglib), directory folders for admin/employee, and img for logo | 2.5 |  |
 | 9/27/17 | Copy DDL and create database for AWS MySQL instance | .25 |  |
 | 9/27/17 | Deploy project to AWS | .25 |  |
+| 10/1/17 | Fixed EmployeeDaoTest, ClientDaoTest and add new jsp| 2 |  |
+| 10/2/17 | Peer Code Reviews | 1 |  |
+|  |  |  |
