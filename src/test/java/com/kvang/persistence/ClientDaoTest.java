@@ -135,8 +135,6 @@ public class ClientDaoTest {
         client.setMobile_phone("342-576-0082");
         client.setState(state);
 
-        //state.getClients().add(client);
-
         clientDao.updateClient(client);
 
         assertNotNull("State is null: " + state);

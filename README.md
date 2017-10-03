@@ -22,7 +22,8 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
   * Store client information and care description
 * Web Services or APIs
   * Replicon API for timesheet
-* Independent research topic (TBD)
+* Independent research topic
+  * Apache Shiro - Web application authentication
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
 * UI Framework Styling and Responsive application

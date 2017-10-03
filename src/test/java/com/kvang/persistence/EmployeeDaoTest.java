@@ -138,8 +138,6 @@ public class EmployeeDaoTest {
         employee.setMobile_phone("111-415-6682");
         employee.setState(state);
 
-        state.getEmployees().add(employee);
-
         employeeDao.updateEmployee(employee);
 
         assertNotNull("State is null: " + state);
