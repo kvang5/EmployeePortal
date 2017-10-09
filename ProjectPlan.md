@@ -44,14 +44,12 @@
 - [X] Finish individual project check point 2
 - [X] Copy DDL to AWS MySQL instance
 - [X] Deploy project on AWS
-- [ ] Complete feedback Week 5 professional development presentations
 - [X] Complete peer review 1
 - [ ] Continue working on controllers
 - [ ] Time log entries
 
 ### Week 6
-- [ ] Complete Week 6 activities and exercise
-- [ ] Complete feedback Week 6 professional development presentations
+- [X] Complete Week 6 activities and exercise
 - [ ] Add security authentication
 - [ ] Time log entries
 

@@ -25,4 +25,4 @@
 | 9/27/17 | Deploy project to AWS | .25 |  |
 | 10/1/17 | Fixed EmployeeDaoTest, ClientDaoTest and add new jsp| 2 |  |
 | 10/2/17 | Peer Code Reviews | 1 |  |
-|  |  |  |
+| 10/3/17 | Complete Week 6 Activities and Exercise | 1.5 |  |
