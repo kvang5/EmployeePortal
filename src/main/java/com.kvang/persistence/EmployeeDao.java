@@ -115,5 +115,29 @@ public class EmployeeDao {
         }
     }
 
+    public Employee getEmployeeByFirstName(String first_name) {
+        Employee employee = null;
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            employee = (Employee) session.get(Employee.class, first_name);
+
+        } catch (HibernateException he) {
+            logger.error("Error getting employee by first name", he);
+        } catch (Exception e) {
+            logger.error("General exception for getEmployeeByFirstName() is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+        return employee;
+
+    }
+
+    public void getEmployeeByFirstName() {
+
+    }
 
 }

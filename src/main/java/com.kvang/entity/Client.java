@@ -49,6 +49,7 @@ public class Client {
     @JoinColumn(name = "USstates_stateId")
     private State state;
 
+
     public Client() {
 
     }
