@@ -45,11 +45,13 @@ public class Employee implements java.io.Serializable {
     @Column(name = "mobile_phone")
     private String mobile_phone;
 
-    @Column(name = "")
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "USstates_stateId")
     private State state;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "Title_titleId")
+    private Title title;
 
     public Employee() {
     }
@@ -66,7 +68,7 @@ public class Employee implements java.io.Serializable {
         this.mobile_phone = mobile_phone;
     }
 
-    public Employee(String first_name, String last_name, String address1, String address2, String city, String postal_zip_code, String email, String home_phone, String mobile_phone, State state) {
+    public Employee(String first_name, String last_name, String address1, String address2, String city, String postal_zip_code, String email, String home_phone, String mobile_phone, State state, Title title) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.address1 = address1;
@@ -77,6 +79,7 @@ public class Employee implements java.io.Serializable {
         this.home_phone = home_phone;
         this.mobile_phone = mobile_phone;
         this.state = state;
+        this.title = title;
     }
 
     public int getEmployeeId() {
@@ -167,7 +170,14 @@ public class Employee implements java.io.Serializable {
         this.state = state;
     }
 
-    /*
+    public Title getTitle() {
+        return title;
+    }
+
+    public void setTitle(Title title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -182,7 +192,7 @@ public class Employee implements java.io.Serializable {
                 ", home_phone='" + home_phone + '\'' +
                 ", mobile_phone='" + mobile_phone + '\'' +
                 ", state=" + state +
+                ", title=" + title +
                 '}';
     }
-    */
 }

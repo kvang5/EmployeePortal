@@ -2,6 +2,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.Employee;
 import com.kvang.entity.State;
+import com.kvang.entity.Title;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
@@ -20,10 +21,14 @@ public class EmployeeDaoTest {
     StateDao stateDao;
     State state;
 
+    TitleDao titleDao;
+    Title title;
+
     EmployeeDao employeeDao;
     Employee employee;
 
     int newState = 0;
+    int newTitle = 0;
     int newEmployee = 0;
 
     @Before
@@ -33,6 +38,11 @@ public class EmployeeDaoTest {
         state = new State();
         state.setState_code("ET");
         state.setState_name("Employee Testing");
+
+        titleDao = new TitleDao();
+
+        title = new Title();
+        title.setJobTitle("Test job title");
 
         employeeDao = new EmployeeDao();
 
@@ -46,6 +56,7 @@ public class EmployeeDaoTest {
         employee.setHome_phone("828-455-6682");
         employee.setMobile_phone("828-455-6682");
         employee.setState(state);
+        employee.setTitle(title);
 
     }
 
@@ -54,6 +65,10 @@ public class EmployeeDaoTest {
     public void tearDown() throws Exception {
         /*if (newState != 0) {
             stateDao.deleteState(newState);
+        }
+
+        if (newTitle != 0) {
+            titleDao.deleteTitle(newTitle);
         }
 
         if (newEmployee != 0) {
@@ -66,6 +81,7 @@ public class EmployeeDaoTest {
     @Test
     public void getAllEmployees() throws Exception {
         newState = stateDao.addState(state);
+        newTitle = titleDao.addTitle(title);
         newEmployee = employeeDao.addEmployee(employee);
         List<Employee> employees = employeeDao.getAllEmployees();
         assertTrue(employees.size() > 0);
@@ -74,6 +90,7 @@ public class EmployeeDaoTest {
     @Test
     public void getEmployeeById() throws Exception {
         newState = stateDao.addState(state);
+        newTitle = titleDao.addTitle(title);
         newEmployee = employeeDao.addEmployee(employee);
 
         assertNotEquals("No employee returned", 0, newEmployee);
@@ -88,12 +105,15 @@ public class EmployeeDaoTest {
         assertEquals("Employee home phone not returned correctly", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone not returned correctly", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not returned correctly", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
+        assertEquals("Employee job title not returned correctly", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
     }
 
     @Test
     public void addEmployee() throws Exception {
         newState = stateDao.addState(state);
         logger.info("newState: " + newState);
+        newTitle = titleDao.addTitle(title);
+        logger.info("newTitle: " + newTitle);
         newEmployee = employeeDao.addEmployee(employee);
 
         assertNotEquals("No new employee added", 0, newEmployee);
@@ -108,11 +128,13 @@ public class EmployeeDaoTest {
         assertEquals("Employee home phone not returned correctly", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone not returned correctly", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not returned correctly", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
+        assertEquals("Employee job title not returned correctly", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
     }
 
     @Test
     public void deleteEmployee() throws Exception {
         stateDao.addState(state);
+        titleDao.addTitle(title);
         employeeDao.addEmployee(employee);
         employeeDao.deleteEmployee(employee.getEmployeeId());
         assertNull("Employee not deleted", employeeDao.getEmployeeById(employee.getEmployeeId()));
@@ -126,6 +148,10 @@ public class EmployeeDaoTest {
         state.setState_code(stateDao.getStateById(55).getState_code());
         state.setState_name(stateDao.getStateById(55).getState_name());
 
+        newTitle = titleDao.addTitle(title);
+        title.setTitleId(titleDao.getTitleById(21).getTitleId());
+        title.setJobTitle(titleDao.getTitleById(21).getJobTitle());
+
         newEmployee = employeeDao.addEmployee(employee);
         employee.setFirst_name("Peyton");
         employee.setLast_name("Vang");
@@ -137,6 +163,7 @@ public class EmployeeDaoTest {
         employee.setHome_phone("111-111-6682");
         employee.setMobile_phone("111-415-6682");
         employee.setState(state);
+        employee.setTitle(title);
 
         employeeDao.updateEmployee(employee);
 
@@ -152,6 +179,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee home phone name not updated", employee.getHome_phone(), employeeDao.getEmployeeById(newEmployee).getHome_phone());
         assertEquals("Employee mobile phone name not updated", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not updated", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
+        assertEquals("Employee job title not updated", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
 
     }
 }

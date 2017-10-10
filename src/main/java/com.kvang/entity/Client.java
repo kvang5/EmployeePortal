@@ -167,7 +167,6 @@ public class Client {
         this.state = state;
     }
 
-    /*
     @Override
     public String toString() {
         return "Client{" +
@@ -184,5 +183,4 @@ public class Client {
                 ", state=" + state +
                 '}';
     }
-    */
 }

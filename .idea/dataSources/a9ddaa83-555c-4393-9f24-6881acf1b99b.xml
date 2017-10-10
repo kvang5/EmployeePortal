@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="employeeportal@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
     <root id="1"/>
     <schema id="2" parent="1" name="employeeportal">
       <Current>1</Current>
@@ -54,6 +54,7 @@
       <ColNames>Clients_clientId</ColNames>
     </index>
     <key id="27" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>client_notesId</ColNames>
       <Primary>1</Primary>
     </key>
@@ -62,8 +63,6 @@
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Clients</RefTableName>
       <RefColNames>clientId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <column id="29" parent="14" name="clientId">
       <Position>1</Position>
@@ -116,6 +115,7 @@
       <ColNames>USstates_stateId</ColNames>
     </index>
     <key id="41" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>clientId</ColNames>
       <Primary>1</Primary>
     </key>
@@ -124,8 +124,6 @@
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>USstates</RefTableName>
       <RefColNames>stateId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <column id="43" parent="15" name="Employees_employeeId">
       <Position>1</Position>
@@ -148,16 +146,12 @@
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Employees</RefTableName>
       <RefColNames>employeeId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <foreign-key id="48" parent="15" name="fk_EmployeeClient_Clients1">
       <ColNames>Clients_clientId</ColNames>
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Clients</RefTableName>
       <RefColNames>clientId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <column id="49" parent="16" name="employeeId">
       <Position>1</Position>
@@ -218,6 +212,7 @@
       <ColNames>Title_titleId</ColNames>
     </index>
     <key id="63" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>employeeId</ColNames>
       <Primary>1</Primary>
     </key>
@@ -226,16 +221,12 @@
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>USstates</RefTableName>
       <RefColNames>stateId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <foreign-key id="65" parent="16" name="fk_Employees_Title1">
       <ColNames>Title_titleId</ColNames>
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Title</RefTableName>
       <RefColNames>titleId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <column id="66" parent="17" name="employee_rolesId">
       <Position>1</Position>
@@ -256,6 +247,7 @@
       <ColNames>Employees_employeeId</ColNames>
     </index>
     <key id="70" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>employee_rolesId</ColNames>
       <Primary>1</Primary>
     </key>
@@ -264,8 +256,6 @@
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Employees</RefTableName>
       <RefColNames>employeeId</RefColNames>
-      <OnUpdate>no-action</OnUpdate>
-      <OnDelete>no-action</OnDelete>
     </foreign-key>
     <column id="72" parent="18" name="titleId">
       <Position>1</Position>
@@ -277,6 +267,7 @@
       <DataType>varchar(45)|0</DataType>
     </column>
     <key id="74" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>titleId</ColNames>
       <Primary>1</Primary>
     </key>
@@ -295,6 +286,7 @@
       <DataType>varchar(128)|0</DataType>
     </column>
     <key id="78" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>stateId</ColNames>
       <Primary>1</Primary>
     </key>

@@ -87,7 +87,6 @@ public class State implements java.io.Serializable {
         this.clients = clients;
     }
 
-    /* See if we need this one??????
     @Override
     public String toString() {
         return "State{" +
@@ -98,5 +97,4 @@ public class State implements java.io.Serializable {
                 ", clients=" + clients +
                 '}';
     }
-    */
 }
