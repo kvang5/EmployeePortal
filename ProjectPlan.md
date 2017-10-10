@@ -50,6 +50,7 @@
 
 ### Week 6
 - [X] Complete Week 6 activities and exercise
+- [X] Research Project Lombok
 - [ ] Add security authentication
 - [ ] Time log entries
 

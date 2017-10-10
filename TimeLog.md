@@ -26,3 +26,5 @@
 | 10/1/17 | Fixed EmployeeDaoTest, ClientDaoTest and add new jsp| 2 |  |
 | 10/2/17 | Peer Code Reviews | 1 |  |
 | 10/3/17 | Complete Week 6 Activities and Exercise | 1.5 |  |
+| 10/10/17 | Research and added Lombok to Week 1 Exercise | .5 |  |
+| 10/10/17 | Added new classes Title, TitleDao, TitleDaoTest, and update EmployeeDaoTest to work with new classes | 1 |  |
