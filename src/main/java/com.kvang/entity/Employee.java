@@ -53,6 +53,7 @@ public class Employee implements java.io.Serializable {
     @JoinColumn(name = "Title_titleId")
     private Title title;
 
+
     public Employee() {
     }
 

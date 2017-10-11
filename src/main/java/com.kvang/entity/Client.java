@@ -7,7 +7,6 @@ import javax.persistence.*;
 /**
  * Created by kvang on 9/27/17.
  */
-
 @Entity
 @Table(name = "Clients")
 public class Client {
@@ -48,7 +47,6 @@ public class Client {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "USstates_stateId")
     private State state;
-
 
     public Client() {
 
@@ -183,5 +181,4 @@ public class Client {
                 ", state=" + state +
                 '}';
     }
-
 }

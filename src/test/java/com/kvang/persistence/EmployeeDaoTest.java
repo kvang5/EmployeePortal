@@ -169,6 +169,7 @@ public class EmployeeDaoTest {
 
         assertNotNull("State is null: " + state);
         assertNotNull("Employee is null: " + employee);
+        assertNotNull("Title is null: " + title);
         assertEquals("Employee first name not updated", employee.getFirst_name(), employeeDao.getEmployeeById(newEmployee).getFirst_name());
         assertEquals("Employee last name not updated", employee.getLast_name(), employeeDao.getEmployeeById(newEmployee).getLast_name());
         assertEquals("Employee address1 name not updated", employee.getAddress1(), employeeDao.getEmployeeById(newEmployee).getAddress1());
