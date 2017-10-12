@@ -111,9 +111,9 @@ public class ClientDaoTest {
     public void deleteClient() throws Exception {
         stateDao.addState(state);
         clientDao.addClient(client);
-        clientDao.deleteClient(client.getClientId());
-        assertNull("Client not deleted", clientDao.getClientById(client.getClientId()));
+        assertNotNull("Client is null", clientDao.getClientById(client.getClientId()));
 
+        clientDao.deleteClient(client.getClientId());
     }
 
     @Test
@@ -137,8 +137,6 @@ public class ClientDaoTest {
 
         clientDao.updateClient(client);
 
-        assertNotNull("State is null: " + state);
-        assertNotNull("Client is null: " + client);
         assertEquals("Client first name not updated", client.getFirst_name(), clientDao.getClientById(newClient).getFirst_name());
         assertEquals("Client last name not updated", client.getLast_name(), clientDao.getClientById(newClient).getLast_name());
         assertEquals("Client address1 name not updated", client.getAddress1(), clientDao.getClientById(newClient).getAddress1());

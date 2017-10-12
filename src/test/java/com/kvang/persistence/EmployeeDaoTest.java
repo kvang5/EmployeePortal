@@ -136,9 +136,9 @@ public class EmployeeDaoTest {
         stateDao.addState(state);
         titleDao.addTitle(title);
         employeeDao.addEmployee(employee);
-        employeeDao.deleteEmployee(employee.getEmployeeId());
-        assertNull("Employee not deleted", employeeDao.getEmployeeById(employee.getEmployeeId()));
+        assertNotNull("Employee is null", employeeDao.getEmployeeById(employee.getEmployeeId()));
 
+        employeeDao.deleteEmployee(employee.getEmployeeId());
     }
 
     @Test
@@ -167,9 +167,6 @@ public class EmployeeDaoTest {
 
         employeeDao.updateEmployee(employee);
 
-        assertNotNull("State is null: " + state);
-        assertNotNull("Employee is null: " + employee);
-        assertNotNull("Title is null: " + title);
         assertEquals("Employee first name not updated", employee.getFirst_name(), employeeDao.getEmployeeById(newEmployee).getFirst_name());
         assertEquals("Employee last name not updated", employee.getLast_name(), employeeDao.getEmployeeById(newEmployee).getLast_name());
         assertEquals("Employee address1 name not updated", employee.getAddress1(), employeeDao.getEmployeeById(newEmployee).getAddress1());

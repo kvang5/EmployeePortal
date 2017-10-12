@@ -68,9 +68,8 @@ public class StateDaoTest {
     @Test
     public void deleteState() throws Exception {
         stateDao.addState(state);
+        assertNotNull("user is null", stateDao.getStateById(state.getStateId()));
         stateDao.deleteState(state.getStateId());
-
-        assertNull("user not deleted", stateDao.getStateById(state.getStateId()));
     }
 
     @Test

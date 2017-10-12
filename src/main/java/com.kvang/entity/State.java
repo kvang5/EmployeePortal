@@ -1,5 +1,8 @@
 package com.kvang.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,7 +12,9 @@ import java.util.Set;
 /**
  * Created by kvang on 9/21/17.
  */
-
+@Getter
+@Setter
+@Accessors
 @Entity
 @Table(name = "USstates")
 public class State implements java.io.Serializable {
@@ -31,70 +36,4 @@ public class State implements java.io.Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "state", cascade = CascadeType.ALL)
     private Set<Client> clients = new HashSet<Client>(0);
-
-    public State() {
-    }
-
-    public State(String state_code, String state_name) {
-        this.state_code = state_code;
-        this.state_name = state_name;
-    }
-
-    public State(String state_code, String state_name, Set<Employee> employees, Set<Client> clients) {
-        this.state_code = state_code;
-        this.state_name = state_name;
-        this.employees = employees;
-        this.clients = clients;
-    }
-
-    public int getStateId() {
-        return stateId;
-    }
-
-    public void setStateId(int stateId) {
-        this.stateId = stateId;
-    }
-
-    public String getState_code() {
-        return state_code;
-    }
-
-    public void setState_code(String state_code) {
-        this.state_code = state_code;
-    }
-
-    public String getState_name() {
-        return state_name;
-    }
-
-    public void setState_name(String state_name) {
-        this.state_name = state_name;
-    }
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
-
-    public Set<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(Set<Client> clients) {
-        this.clients = clients;
-    }
-
-    @Override
-    public String toString() {
-        return "State{" +
-                "stateId=" + stateId +
-                ", state_code='" + state_code + '\'' +
-                ", state_name='" + state_name + '\'' +
-                ", employees=" + employees +
-                ", clients=" + clients +
-                '}';
-    }
 }

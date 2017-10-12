@@ -61,9 +61,10 @@ public class TitleDaoTest {
     @Test
     public void deleteTitle() throws Exception {
         titleDao.addTitle(title);
+        assertNotNull("Title is null", titleDao.getTitleById(title.getTitleId()));
+
         titleDao.deleteTitle(title.getTitleId());
 
-        assertNull("Title not deleted", titleDao.getTitleById(title.getTitleId()));
     }
 
     @Test
