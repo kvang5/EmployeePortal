@@ -57,6 +57,7 @@ public class EmployeeDaoTest {
         employee.setMobile_phone("828-455-6682");
         employee.setState(state);
         employee.setTitle(title);
+        employee.setPassword("test");
 
     }
 
@@ -106,6 +107,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee mobile phone not returned correctly", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not returned correctly", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
         assertEquals("Employee job title not returned correctly", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
+        assertEquals("Employee password not returned correctly", employee.getPassword(), employeeDao.getEmployeeById(newEmployee).getPassword());
     }
 
     @Test
@@ -129,6 +131,8 @@ public class EmployeeDaoTest {
         assertEquals("Employee mobile phone not returned correctly", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not returned correctly", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
         assertEquals("Employee job title not returned correctly", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
+        assertEquals("Employee password not returned correctly", employee.getPassword(), employeeDao.getEmployeeById(newEmployee).getPassword());
+
     }
 
     @Test
@@ -144,13 +148,13 @@ public class EmployeeDaoTest {
     @Test
     public void updateEmployee() throws Exception {
         newState = stateDao.addState(state);
-        state.setStateId(stateDao.getStateById(55).getStateId());
-        state.setState_code(stateDao.getStateById(55).getState_code());
-        state.setState_name(stateDao.getStateById(55).getState_name());
+        state.setStateId(stateDao.getStateById(1).getStateId());
+        state.setState_code(stateDao.getStateById(1).getState_code());
+        state.setState_name(stateDao.getStateById(1).getState_name());
 
         newTitle = titleDao.addTitle(title);
-        title.setTitleId(titleDao.getTitleById(21).getTitleId());
-        title.setJobTitle(titleDao.getTitleById(21).getJobTitle());
+        title.setTitleId(titleDao.getTitleById(2).getTitleId());
+        title.setJobTitle(titleDao.getTitleById(2).getJobTitle());
 
         newEmployee = employeeDao.addEmployee(employee);
         employee.setFirst_name("Peyton");
@@ -164,6 +168,7 @@ public class EmployeeDaoTest {
         employee.setMobile_phone("111-415-6682");
         employee.setState(state);
         employee.setTitle(title);
+        employee.setPassword("test2");
 
         employeeDao.updateEmployee(employee);
 
@@ -178,6 +183,7 @@ public class EmployeeDaoTest {
         assertEquals("Employee mobile phone name not updated", employee.getMobile_phone(), employeeDao.getEmployeeById(newEmployee).getMobile_phone());
         assertEquals("Employee state not updated", employee.getState().getState_code(), employeeDao.getEmployeeById(newEmployee).getState().getState_code());
         assertEquals("Employee job title not updated", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
+        assertEquals("Employee password not returned correctly", employee.getPassword(), employeeDao.getEmployeeById(newEmployee).getPassword());
 
     }
 }

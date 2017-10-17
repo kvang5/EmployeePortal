@@ -6,6 +6,8 @@ import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by kvang on 9/19/17.
@@ -14,7 +16,7 @@ import javax.persistence.*;
 @Setter
 @Accessors
 @Entity
-@Table(name = "Employees")
+@Table(name = "Employee")
 public class Employee implements java.io.Serializable {
 
     @Id
@@ -51,10 +53,17 @@ public class Employee implements java.io.Serializable {
     private String mobile_phone;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "USstates_stateId")
+    @JoinColumn(name = "USstate_stateId")
     private State state;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "Title_titleId")
     private Title title;
+
+    @Column(name = "password")
+    private String password;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<EmployeeRole> employees = new HashSet<EmployeeRole>(0);
+
 }

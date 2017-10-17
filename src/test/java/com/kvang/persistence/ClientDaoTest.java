@@ -119,9 +119,9 @@ public class ClientDaoTest {
     @Test
     public void updateClient() throws Exception {
         newState = stateDao.addState(state);
-        state.setStateId(stateDao.getStateById(55).getStateId());
-        state.setState_code(stateDao.getStateById(55).getState_code());
-        state.setState_name(stateDao.getStateById(55).getState_name());
+        state.setStateId(stateDao.getStateById(1).getStateId());
+        state.setState_code(stateDao.getStateById(1).getState_code());
+        state.setState_name(stateDao.getStateById(1).getState_name());
 
         newClient = clientDao.addClient(client);
         client.setFirst_name("Helen");

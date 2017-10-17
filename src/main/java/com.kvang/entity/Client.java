@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 @Accessors
 @Entity
-@Table(name = "Clients")
+@Table(name = "Client")
 public class Client {
 
     @Id
@@ -51,6 +51,6 @@ public class Client {
     private String mobile_phone;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "USstates_stateId")
+    @JoinColumn(name = "USstate_stateId")
     private State state;
 }

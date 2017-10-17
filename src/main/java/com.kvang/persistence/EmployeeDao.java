@@ -46,6 +46,7 @@ public class EmployeeDao {
             employee = (Employee) session.get(Employee.class, id);
             Hibernate.initialize(employee.getState());
             Hibernate.initialize(employee.getTitle());
+            //Hibernate.initialize();
         } catch (HibernateException he) {
             logger.error("Error getting employee by id", he);
         } catch (Exception e) {

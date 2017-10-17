@@ -16,7 +16,7 @@ import java.util.Set;
 @Setter
 @Accessors
 @Entity
-@Table(name = "USstates")
+@Table(name = "USstate")
 public class State implements java.io.Serializable {
 
     @Id
