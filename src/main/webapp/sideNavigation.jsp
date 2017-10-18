@@ -31,8 +31,11 @@
     <!-- /.navbar -->
 </header>
 <div class="container-fluid">
+    <!-- These two divs are for Javascript -->
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="row-offcanvas row-offcanvas-right">
+
+            <!-- Left side bar Begins-->
             <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebarLeft" role="navigation">
 
                 <div class="well sidebar-nav">
@@ -51,6 +54,8 @@
                 <!--/.well -->
             </div>
             <!--/span-->
+            <!-- Left side bar Ends-->
+
 
             <div class="col-xs-12 col-sm-8">
 
@@ -106,6 +111,7 @@
             </div>
             <!--/span-->
 
+            <!-- Right side bar Begins-->
             <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebarRight" role="navigation">
 
                 <div class="well sidebar-nav">
@@ -125,6 +131,7 @@
                 <!--/.well -->
             </div>
             <!--/span-->
+            <!-- Right side bar Ends-->
 
         </div>
 
