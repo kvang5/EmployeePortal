@@ -16,14 +16,22 @@
                 </button>
                 <img src="../GSHCLogoImage/golden-sun-home-care-logo-resized.jpeg"/>
             </div>
+
+            <%
+                String username = request.getRemoteUser();
+            %>
+
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li>Hello, <%= username %></li>
+                    <li><a href="${pageContext.request.contextPath}/logout" class="navbar-brand">Logout</a></li>
                 </ul>
             </div>
             <!-- /.nav-collapse -->
+
 
         </div>
         <!-- /.container -->

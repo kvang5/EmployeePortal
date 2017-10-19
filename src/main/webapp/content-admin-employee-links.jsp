@@ -2,10 +2,10 @@
     <div class="jumbotron">
         <div class="container">
             <div>
-                <a href="AdminOnly/employeeSearch.jsp">Administrator Only</a>
+                <a href="${pageContext.request.contextPath}/login">Administrator Only</a>
             </div>
             <div>
-                <a href="#">Employees Only</a>
+                <a href="${pageContext.request.contextPath}/login">Employees Only</a>
             </div>
         </div>
     </div>
