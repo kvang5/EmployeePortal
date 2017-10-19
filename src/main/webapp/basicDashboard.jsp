@@ -1,8 +1,8 @@
-<%@include file="taglib.jsp"%>
+<%@include file="Includes/taglib.jsp"%>
 <c:set var="title" value="Dashboard"/>
 
 <html>
-<%@include file="head.jsp"%>
+<%@include file="Includes/head.jsp"%>
 <body>
     <%@include file="sideNavigation.jsp"%>
 

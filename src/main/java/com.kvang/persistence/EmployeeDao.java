@@ -3,10 +3,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.Employee;
 import org.apache.log4j.Logger;
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,12 +114,14 @@ public class EmployeeDao {
         }
     }
 
-    public Employee getEmployeeByFirstName(String first_name) {
-        Employee employee = null;
+    public List<Employee> getEmployeeByFirstName(String first_name) {
+        List<Employee> employees = null;
         Session session = null;
+        String sql = "SELECT E.first_name, E.last_name FROM Employee E WHERE first_name = " + first_name;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            employee = (Employee) session.get(Employee.class, first_name);
+            Query query = session.createQuery(sql);
+            employees = query.list();
 
         } catch (HibernateException he) {
             logger.error("Error getting employee by first name", he);
@@ -134,7 +133,7 @@ public class EmployeeDao {
             }
         }
 
-        return employee;
+        return employees;
 
     }
 

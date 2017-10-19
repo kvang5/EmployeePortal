@@ -1,8 +1,8 @@
-<%@include file="taglib.jsp"%>
+<%@include file="Includes/taglib.jsp"%>
 <c:set var="title" value="GSHC Log In"/>
 
 <html>
-<%@include file="head.jsp"%>
+<%@include file="Includes/head.jsp"%>
 <body>
 <!-- Login form goes here -->
 <div class="panel panel-warning">
@@ -17,7 +17,7 @@
                 <label for="password">Password:</label>
                 <input type="password" name="j_password" class="form-control" id="password">
             </div>
-            <button type="submit" class="btn btn-warning">Log In</button>
+            <button type="submit" class="btn btn-warning" name="login" value="login">Log In</button>
         </form>
     </div>
 </div>

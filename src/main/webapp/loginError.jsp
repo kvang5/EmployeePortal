@@ -1,8 +1,8 @@
-<%@include file="taglib.jsp"%>
+<%@include file="Includes/taglib.jsp"%>
 <c:set var="title" value="GSHC Log In"/>
 
 <html>
-<%@include file="head.jsp"%>
+<%@include file="Includes/head.jsp"%>
 <body>
 <!-- Login form goes here -->
 <div class="panel panel-warning">

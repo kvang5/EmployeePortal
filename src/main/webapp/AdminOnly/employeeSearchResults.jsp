@@ -1,20 +1,20 @@
-<%@include file="Includes/taglib.jsp"%>
-<c:set var="title" value="Employee Search"/>
+<%@include file="../Includes/taglib.jsp"%>
+<c:set var="title" value="Employee Search Results"/>
 
 <html>
-<%@include file="Includes/head.jsp"%>
+<%@include file="../Includes/head.jsp"%>
 <body>
-<%@include file="Includes/headNavBar.jsp"%>
+<%@include file="../Includes/headNavBar.jsp"%>
 <div class="container-fluid">
     <!-- These two divs are for Javascript -->
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="row-offcanvas row-offcanvas-right">
 
-            <%@include file="Includes/leftSideBar.jsp"%>
+            <%@include file="../Includes/leftSideBar.jsp"%>
 
-            <%@include file="content-admin-employee-links.jsp"%>
+            <%@include file="content-employee-search-results.jsp"%>
 
-            <%@include file="Includes/rightSideBar.jsp"%>
+            <%@include file="../Includes/rightSideBar.jsp"%>
 
         </div>
     </div>
@@ -28,6 +28,7 @@
     $('[data-toggle=offcanvasright]').click(function() {
         $('.row-offcanvas-right').toggleClass('active');
     });
+
 </script>
 </body>
 </html>
