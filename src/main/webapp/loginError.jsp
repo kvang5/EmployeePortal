@@ -10,7 +10,7 @@
     <div class="panel-body">
         <h1>
             Sorry, you have entered in the wrong email or password. <br>
-            Please go back to the <a href="index.jsp">login page</a> to try again.
+            Please go back to the <a href="login.jsp">login page</a> to try again.
         </h1>
     </div>
 </div>

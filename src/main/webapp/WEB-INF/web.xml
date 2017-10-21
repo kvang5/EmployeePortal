@@ -7,12 +7,37 @@
         version="2.5">
   <display-name>Archetype Created Web Application</display-name>
 
+  <servlet>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>com.kvang.controller.AuthServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/authServlet</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>authServlet</welcome-file>
+  </welcome-file-list>
 
   <!-- Protect everything within the "AdminOnlyJSPs" directory. -->
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>index</web-resource-name>
-      <url-pattern>/index.jsp</url-pattern>
+      <web-resource-name>AdminOnly</web-resource-name>
+      <url-pattern>/AdminOnly/*</url-pattern>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>administrator</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>AuthServlet</web-resource-name>
+      <url-pattern>/authServlet</url-pattern>
     </web-resource-collection>
     <web-resource-collection>
       <web-resource-name>Employee</web-resource-name>
@@ -20,16 +45,6 @@
     </web-resource-collection>
     <auth-constraint>
       <role-name>registered-user</role-name>
-      <role-name>administrator</role-name>
-    </auth-constraint>
-  </security-constraint>
-
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>Admin</web-resource-name>
-      <url-pattern>/AdminOnly/*</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
       <role-name>administrator</role-name>
     </auth-constraint>
   </security-constraint>

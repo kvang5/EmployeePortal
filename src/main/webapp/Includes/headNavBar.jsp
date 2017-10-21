@@ -14,7 +14,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="../GSHCLogoImage/golden-sun-home-care-logo-resized.jpeg"/>
+                <img src="GSHCLogoImage/golden-sun-home-care-logo-resized.jpeg"/>
             </div>
 
             <%
@@ -27,7 +27,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li>Hello, <%= username %></li>
-                    <li><a href="${pageContext.request.contextPath}/logout" class="navbar-brand">Logout</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout" class="navbar-brand pull-right">Logout</a></li>
                 </ul>
             </div>
             <!-- /.nav-collapse -->
