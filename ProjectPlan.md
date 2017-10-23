@@ -33,8 +33,8 @@
 - [X] Add Session Factory Provider class to persistence directory
 - [X] Create DAO for employee, states and clients crud
 - [X] Add unit tests for DAO
-- [ ] Continue working JSPs - Admin page, employee page, time entry, client page
-- [ ] Begin working on controllers
+- [X] Continue working JSPs - Admin page, employee page, time entry, client page
+- [X] Begin working on controllers
 - [X] Time log entries
 
 ### Week 5
@@ -45,26 +45,29 @@
 - [X] Copy DDL to AWS MySQL instance
 - [X] Deploy project on AWS
 - [X] Complete peer review 1
-- [ ] Continue working on controllers
-- [ ] Time log entries
+- [X] Continue working on controllers
+- [X] Time log entries
 
 ### Week 6
 - [X] Complete Week 6 activities and exercise
 - [X] Research Project Lombok
-- [ ] Add security authentication
-- [ ] Time log entries
+- [ ] Apache Shiro authentication research/demo
+- [X] Add security authentication
+- [X] Time log entries
 
 ### Week 7
 - [ ] Complete Week 7 activites
 - [ ] Complete individual project check point 3
-- [ ] Complete feedback Week 7 professional development presentations
-- [ ] Sign up team project
+- [X] Sign up team project
 - [ ] Add web services/SOAP services (if needed)
-- [ ] Time log entries
+- [X] Login/Logout controller
+- [X] Time log entries
 
 ### Week 8
 - [ ] Complete Week 8 exercise
-- [ ] Team project repository created
+- [X] Team project repository created
+- [X] Team project project plan/objectives created
+- [ ] Team project problem statement
 - [ ] Complete feedback Week 8 professional development presentations
 - [ ] Add RESTful Web Services (if needed)
 - [ ] Time log entries

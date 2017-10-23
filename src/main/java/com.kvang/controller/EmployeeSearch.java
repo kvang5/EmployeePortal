@@ -17,7 +17,9 @@ public class EmployeeSearch extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         EmployeeDao employeeDao = new EmployeeDao();
+
         if (req.getParameter("submit").equals("search")) {
             req.setAttribute("employees", employeeDao.getEmployeeByFirstName(req.getParameter("searchTerm")));
         } else {

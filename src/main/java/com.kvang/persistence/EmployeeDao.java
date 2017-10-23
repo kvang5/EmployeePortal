@@ -4,6 +4,7 @@ package com.kvang.persistence;
 import com.kvang.entity.Employee;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,18 +116,17 @@ public class EmployeeDao {
     }
 
     public List<Employee> getEmployeeByFirstName(String first_name) {
-        List<Employee> employees = null;
+        List<Employee> employees = new ArrayList<Employee>();
         Session session = null;
-        String sql = "SELECT E.first_name, E.last_name FROM Employee E WHERE first_name = " + first_name;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            Query query = session.createQuery(sql);
-            employees = query.list();
-
+            Criteria criteria = session.createCriteria(Employee.class);
+            criteria.add(Restrictions.eq("first_name", first_name));
+            employees = criteria.list();
         } catch (HibernateException he) {
-            logger.error("Error getting employee by first name", he);
+            logger.error("Error getting employee by last name", he);
         } catch (Exception e) {
-            logger.error("General exception for getEmployeeByFirstName() is caught", e);
+            logger.error("General exception for getEmployeeByLastName() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -134,10 +134,6 @@ public class EmployeeDao {
         }
 
         return employees;
-
-    }
-
-    public void getEmployeeByFirstName() {
 
     }
 

@@ -28,3 +28,17 @@
 | 10/3/17 | Complete Week 6 Activities and Exercise | 1.5 |  |
 | 10/10/17 | Research and added Lombok to Week 1 Exercise | .5 |  |
 | 10/10/17 | Added new classes Title, TitleDao, TitleDaoTest, and update EmployeeDaoTest to work with new classes | 1 |  |
+| 10/12/17 | Added Lombok to project | 1 |  |
+| 10/17/17 | Fixed database with employee roles | .5 |  |
+| 10/17/17 | Added JSPs for login and servlet for logout |  |  |
+| 10/17/17 | Apply authentication with Tomcat | 1.5 |  |
+| 10/18/17 | Team project - topic(Trivia generator), repository created, project plan and objective, and assigned tasks | 2 |  |
+| 10/21/17 | Added AuthServlet controller, fixed login issues, and fixed css issues | 3.5 | Got login for employee and admin working correctly |
+| 10/22/17 | Add employee search method, testing, and employee search controller for output | 3 |  |
+| 10//17 |  |  |  |
+| 10//17 |  |  |  |
+| 10//17 |  |  |  |
+| 10//17 |  |  |  |
+| 10//17 |  |  |  |
+| 10//17 |  |  |  |
+| 10//17 |  |  |  |
