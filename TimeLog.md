@@ -35,8 +35,8 @@
 | 10/18/17 | Team project - topic(Trivia generator), repository created, project plan and objective, and assigned tasks | 2 |  |
 | 10/21/17 | Added AuthServlet controller, fixed login issues, and fixed css issues | 3.5 | Got login for employee and admin working correctly |
 | 10/22/17 | Add employee search method, testing, and employee search controller for output | 3 |  |
-| 10//17 |  |  |  |
-| 10//17 |  |  |  |
+| 10/24/17 | Team project - Problem Statement and push to repository | .25 |  |
+| 10/26/17 | Complete Week 8 Activities and Exercise | 2 |  |
 | 10//17 |  |  |  |
 | 10//17 |  |  |  |
 | 10//17 |  |  |  |

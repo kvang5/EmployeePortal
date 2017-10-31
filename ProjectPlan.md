@@ -64,17 +64,14 @@
 - [X] Time log entries
 
 ### Week 8
-- [ ] Complete Week 8 exercise
+- [X] Complete Week 8 exercise
 - [X] Team project repository created
 - [X] Team project project plan/objectives created
-- [ ] Team project problem statement
-- [ ] Complete feedback Week 8 professional development presentations
-- [ ] Add RESTful Web Services (if needed)
-- [ ] Time log entries
+- [X] Team project problem statement
+- [ ] Add RESTful Web Services (Need to add Replicon Time Sheet)
+- [X] Time log entries
 
 ### Week 9
-- [ ] Complete Week 9 exercise
-- [ ] Complete feedback Week 9 professional development presentations
 - [ ] Finish Individual Project Code Reviews
 - [ ] Work on team project
 - [ ] Time log entries
