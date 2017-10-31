@@ -12,8 +12,8 @@ import java.util.Set;
 /**
  * Created by kvang on 9/19/17.
  */
-@Getter
 @Setter
+@Getter
 @Accessors
 @Entity
 @Table(name = "Employee")

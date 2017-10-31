@@ -21,7 +21,7 @@
     <welcome-file>authServlet</welcome-file>
   </welcome-file-list>
 
-  <!-- Protect everything within the "AdminOnlyJSPs" directory. -->
+  <!-- Protect everything within the "AdminOnly" directory. -->
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>AdminOnly</web-resource-name>
@@ -34,6 +34,7 @@
     </auth-constraint>
   </security-constraint>
 
+  <!-- Protect everything that is a register user -->
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>AuthServlet</web-resource-name>

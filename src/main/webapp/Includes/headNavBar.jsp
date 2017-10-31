@@ -1,5 +1,5 @@
 <header id="header" class="headroom">
-    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="navbar navbar-fixed-top" role="navigation">
         <div class="container-fluid">
 
             <div class="navbar-header">
@@ -22,12 +22,9 @@
             %>
 
             <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li>Hello, <%= username %></li>
-                    <li><a href="${pageContext.request.contextPath}/logout" class="navbar-brand pull-right">Logout</a></li>
+                <ul class="nav navbar-nav navbar-brand pull-right">
+                    <li style="padding-top: 14.5px">Hello, <%= username %></li>
+                    <li class=""><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
                 </ul>
             </div>
             <!-- /.nav-collapse -->

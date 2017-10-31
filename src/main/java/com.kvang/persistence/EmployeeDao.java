@@ -2,7 +2,7 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.Employee;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
@@ -14,9 +14,8 @@ import java.util.List;
  *
  * Created by kvang on 9/21/17.
  */
+@Log4j
 public class EmployeeDao {
-
-    private final Logger logger = Logger.getLogger(this.getClass());
 
     public List<Employee> getAllEmployees() {
         List<Employee> employees = new ArrayList<Employee>();
@@ -24,10 +23,11 @@ public class EmployeeDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             employees = session.createCriteria(Employee.class).list();
+            log.info("employees: " + employees);
         } catch (HibernateException he) {
-            logger.error("Error getting all employees", he);
+            log.error("Error getting all employees", he);
         } catch (Exception e) {
-            logger.error("General exception is caught", e);
+            log.error("General exception is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -46,9 +46,9 @@ public class EmployeeDao {
             Hibernate.initialize(employee.getTitle());
             //Hibernate.initialize();
         } catch (HibernateException he) {
-            logger.error("Error getting employee by id", he);
+            log.error("Error getting employee by id", he);
         } catch (Exception e) {
-            logger.error("General exception for getEmployeeById() is caught", e);
+            log.error("General exception for getEmployeeById() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -67,9 +67,9 @@ public class EmployeeDao {
             id = (int) session.save(employee);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error adding employee", he);
+            log.error("Error adding employee", he);
         } catch (Exception e) {
-            logger.error("General exception for addEmployee() is caught", e);
+            log.error("General exception for addEmployee() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -87,9 +87,9 @@ public class EmployeeDao {
             session.delete(employee);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error deleting employee", he);
+            log.error("Error deleting employee", he);
         } catch (Exception e) {
-            logger.error("General exception for deleteEmployee() is caught", e);
+            log.error("General exception for deleteEmployee() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -105,9 +105,9 @@ public class EmployeeDao {
             session.update(employee);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error updating employee", he);
+            log.error("Error updating employee", he);
         } catch (Exception e) {
-            logger.error("General exception for updateEmployee() is caught", e);
+            log.error("General exception for updateEmployee() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -124,9 +124,9 @@ public class EmployeeDao {
             criteria.add(Restrictions.eq("first_name", first_name));
             employees = criteria.list();
         } catch (HibernateException he) {
-            logger.error("Error getting employee by last name", he);
+            log.error("Error getting employee by last name", he);
         } catch (Exception e) {
-            logger.error("General exception for getEmployeeByLastName() is caught", e);
+            log.error("General exception for getEmployeeByLastName() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -136,5 +136,15 @@ public class EmployeeDao {
         return employees;
 
     }
+
+    /*public List<Employee> getListOfEmployees(String searchName) {
+        List<Employee> employees = new ArrayList<Employee>();
+        Session session;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            transaction = get
+        }
+    }*/
 
 }
