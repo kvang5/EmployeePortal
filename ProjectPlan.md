@@ -72,9 +72,10 @@
 - [X] Time log entries
 
 ### Week 9
-- [ ] Finish Individual Project Code Reviews
-- [ ] Work on team project
-- [ ] Time log entries
+- [X] Finish Individual Project Code Reviews
+- [X] Work on team project
+- [X] Create more jsps and controllers
+- [X] Time log entries
 
 ### Week 10
 - [ ] Complete Week 10 exercise

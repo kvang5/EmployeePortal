@@ -24,7 +24,7 @@
 | 9/27/17 | Copy DDL and create database for AWS MySQL instance | .25 |  |
 | 9/27/17 | Deploy project to AWS | .25 |  |
 | 10/1/17 | Fixed EmployeeDaoTest, ClientDaoTest and add new jsp| 2 |  |
-| 10/2/17 | Peer Code Reviews | 1 |  |
+| 10/2/17 | Peer Code Review 1 | 1 |  |
 | 10/3/17 | Complete Week 6 Activities and Exercise | 1.5 |  |
 | 10/10/17 | Research and added Lombok to Week 1 Exercise | .5 |  |
 | 10/10/17 | Added new classes Title, TitleDao, TitleDaoTest, and update EmployeeDaoTest to work with new classes | 1 |  |
@@ -37,8 +37,8 @@
 | 10/22/17 | Add employee search method, testing, and employee search controller for output | 3 |  |
 | 10/24/17 | Team project - Problem Statement and push to repository | .25 |  |
 | 10/26/17 | Complete Week 8 Activities and Exercise | 2 |  |
-| 10//17 |  |  |  |
-| 10//17 |  |  |  |
+| 10/31/17 | Team project - fix issues with project structure and gitignore file. Wrote entities and started DAOs for Category/Difficulty/Type | 2 |  |
+| 10/31/17 | Peer Code Review 2 | 2 | Great learning experience!! |
 | 10//17 |  |  |  |
 | 10//17 |  |  |  |
 | 10//17 |  |  |  |
