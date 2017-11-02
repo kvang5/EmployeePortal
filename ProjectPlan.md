@@ -73,7 +73,7 @@
 
 ### Week 9
 - [X] Finish Individual Project Code Reviews
-- [X] Work on team project
+- [X] Work on team project - Create DB, write entities and Daos
 - [X] Create more jsps and controllers
 - [X] Time log entries
 

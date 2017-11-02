@@ -39,6 +39,6 @@
 | 10/26/17 | Complete Week 8 Activities and Exercise | 2 |  |
 | 10/31/17 | Team project - fix issues with project structure and gitignore file. Wrote entities and started DAOs for Category/Difficulty/Type | 2 |  |
 | 10/31/17 | Peer Code Review 2 | 2 | Great learning experience!! |
-| 10//17 |  |  |  |
+| 11/1/17 | Team project - completed Category, Difficulty, and Type Dao for crud | 1 |  |
 | 10//17 |  |  |  |
 | 10//17 |  |  |  |
