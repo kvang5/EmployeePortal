@@ -52,10 +52,10 @@ public class AuthServlet extends HttpServlet{
         String adminUrl = "/AdminOnly/employeeSearch.jsp";
         String employeeUrl = "/Employee/employeeDashboard.jsp";
         String notAdminOrEmployeeUrl = "/loginError.jsp";
-        if (req.isUserInRole("administrator")) {
+        if (req.isUserInRole("Administrator")) {
             requestDispatcher = getServletContext().getRequestDispatcher(adminUrl);
             requestDispatcher.forward(req, resp);
-        } else if (req.isUserInRole("registered-user")) {
+        } else if (req.isUserInRole("Registered-user")) {
             requestDispatcher = getServletContext().getRequestDispatcher(employeeUrl);
             requestDispatcher.forward(req, resp);
         } else {

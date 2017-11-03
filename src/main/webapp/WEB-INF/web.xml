@@ -30,7 +30,7 @@
       <http-method>POST</http-method>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>administrator</role-name>
+      <role-name>Administrator</role-name>
     </auth-constraint>
   </security-constraint>
 
@@ -45,17 +45,17 @@
       <url-pattern>/Employee/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>registered-user</role-name>
-      <role-name>administrator</role-name>
+      <role-name>Registered-user</role-name>
+      <role-name>Administrator</role-name>
     </auth-constraint>
   </security-constraint>
 
   <security-role>
-    <role-name>registered-user</role-name>
+    <role-name>Registered-user</role-name>
   </security-role>
 
   <security-role>
-    <role-name>administrator</role-name>
+    <role-name>Administrator</role-name>
   </security-role>
 
 
