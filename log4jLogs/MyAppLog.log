@@ -163,3 +163,150 @@ newTitle: 4
 employees: [com.kvang.entity.Employee@40dd3977, com.kvang.entity.Employee@3a4e343, com.kvang.entity.Employee@6a1d204a, com.kvang.entity.Employee@62dae245]
 state id is: 17, state code is: Te, state name is: Test
 title id is: 12, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 19
+newState: 25
+newTitle: 20
+employees: [com.kvang.entity.Employee@ec0c838, com.kvang.entity.Employee@6e46d9f4, com.kvang.entity.Employee@5cc69cfe, com.kvang.entity.Employee@29cfd92b, com.kvang.entity.Employee@21c64522, com.kvang.entity.Employee@7997b197, com.kvang.entity.Employee@11dee337, com.kvang.entity.Employee@460f76a6, com.kvang.entity.Employee@55f3c410, com.kvang.entity.Employee@11acdc30, com.kvang.entity.Employee@770d4269, com.kvang.entity.Employee@4a8ab068, com.kvang.entity.Employee@1922e6d]
+state id is: 33, state code is: Te, state name is: Test
+title id is: 28, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 35
+newState: 41
+newTitle: 36
+employees: [com.kvang.entity.Employee@21c64522, com.kvang.entity.Employee@7997b197, com.kvang.entity.Employee@11dee337, com.kvang.entity.Employee@460f76a6, com.kvang.entity.Employee@55f3c410, com.kvang.entity.Employee@11acdc30, com.kvang.entity.Employee@770d4269, com.kvang.entity.Employee@4a8ab068, com.kvang.entity.Employee@1922e6d, com.kvang.entity.Employee@76a82f33, com.kvang.entity.Employee@6bab2585, com.kvang.entity.Employee@74bdc168, com.kvang.entity.Employee@644c78d4, com.kvang.entity.Employee@532a02d9, com.kvang.entity.Employee@611f8234, com.kvang.entity.Employee@7bb3a9fe, com.kvang.entity.Employee@7cbee484, com.kvang.entity.Employee@7f811d00, com.kvang.entity.Employee@62923ee6, com.kvang.entity.Employee@4089713, com.kvang.entity.Employee@f19c9d2, com.kvang.entity.Employee@7807ac2c]
+state id is: 49, state code is: Te, state name is: Test
+title id is: 44, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 51
+newState: 57
+newTitle: 52
+employees: [com.kvang.entity.Employee@55f3c410, com.kvang.entity.Employee@11acdc30, com.kvang.entity.Employee@770d4269, com.kvang.entity.Employee@4a8ab068, com.kvang.entity.Employee@1922e6d, com.kvang.entity.Employee@76a82f33, com.kvang.entity.Employee@6bab2585, com.kvang.entity.Employee@74bdc168, com.kvang.entity.Employee@644c78d4, com.kvang.entity.Employee@532a02d9, com.kvang.entity.Employee@611f8234, com.kvang.entity.Employee@7bb3a9fe, com.kvang.entity.Employee@7cbee484, com.kvang.entity.Employee@7f811d00, com.kvang.entity.Employee@62923ee6, com.kvang.entity.Employee@4089713, com.kvang.entity.Employee@f19c9d2, com.kvang.entity.Employee@7807ac2c, com.kvang.entity.Employee@b91d8c4, com.kvang.entity.Employee@4b6166aa, com.kvang.entity.Employee@a77614d, com.kvang.entity.Employee@4fd4cae3, com.kvang.entity.Employee@4a067c25, com.kvang.entity.Employee@a1217f9, com.kvang.entity.Employee@3bde62ff, com.kvang.entity.Employee@523424b5, com.kvang.entity.Employee@2baa8d82, com.kvang.entity.Employee@319dead1, com.kvang.entity.Employee@791cbf87, com.kvang.entity.Employee@a7e2d9d, com.kvang.entity.Employee@754777cd]
+state id is: 65, state code is: Te, state name is: Test
+title id is: 60, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 67
+newState: 73
+newTitle: 68
+employees: [com.kvang.entity.Employee@1922e6d, com.kvang.entity.Employee@76a82f33, com.kvang.entity.Employee@6bab2585, com.kvang.entity.Employee@74bdc168, com.kvang.entity.Employee@644c78d4, com.kvang.entity.Employee@532a02d9, com.kvang.entity.Employee@611f8234, com.kvang.entity.Employee@7bb3a9fe, com.kvang.entity.Employee@7cbee484, com.kvang.entity.Employee@7f811d00, com.kvang.entity.Employee@62923ee6, com.kvang.entity.Employee@4089713, com.kvang.entity.Employee@f19c9d2, com.kvang.entity.Employee@7807ac2c, com.kvang.entity.Employee@b91d8c4, com.kvang.entity.Employee@4b6166aa, com.kvang.entity.Employee@a77614d, com.kvang.entity.Employee@4fd4cae3, com.kvang.entity.Employee@4a067c25, com.kvang.entity.Employee@a1217f9, com.kvang.entity.Employee@3bde62ff, com.kvang.entity.Employee@523424b5, com.kvang.entity.Employee@2baa8d82, com.kvang.entity.Employee@319dead1, com.kvang.entity.Employee@791cbf87, com.kvang.entity.Employee@a7e2d9d, com.kvang.entity.Employee@754777cd, com.kvang.entity.Employee@2b52c0d6, com.kvang.entity.Employee@372ea2bc, com.kvang.entity.Employee@4cc76301, com.kvang.entity.Employee@2f08c4b, com.kvang.entity.Employee@3f19b8b3, com.kvang.entity.Employee@7de0c6ae, com.kvang.entity.Employee@a486d78, com.kvang.entity.Employee@cdc3aae, com.kvang.entity.Employee@7ef2d7a6, com.kvang.entity.Employee@5dcbb60, com.kvang.entity.Employee@4c36250e, com.kvang.entity.Employee@21526f6c, com.kvang.entity.Employee@49f5c307]
+state id is: 81, state code is: Te, state name is: Test
+title id is: 76, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 83
+newState: 89
+newTitle: 84
+employees: [com.kvang.entity.Employee@644c78d4, com.kvang.entity.Employee@532a02d9, com.kvang.entity.Employee@611f8234, com.kvang.entity.Employee@7bb3a9fe, com.kvang.entity.Employee@7cbee484, com.kvang.entity.Employee@7f811d00, com.kvang.entity.Employee@62923ee6, com.kvang.entity.Employee@4089713, com.kvang.entity.Employee@f19c9d2, com.kvang.entity.Employee@7807ac2c, com.kvang.entity.Employee@b91d8c4, com.kvang.entity.Employee@4b6166aa, com.kvang.entity.Employee@a77614d, com.kvang.entity.Employee@4fd4cae3, com.kvang.entity.Employee@4a067c25, com.kvang.entity.Employee@a1217f9, com.kvang.entity.Employee@3bde62ff, com.kvang.entity.Employee@523424b5, com.kvang.entity.Employee@2baa8d82, com.kvang.entity.Employee@319dead1, com.kvang.entity.Employee@791cbf87, com.kvang.entity.Employee@a7e2d9d, com.kvang.entity.Employee@754777cd, com.kvang.entity.Employee@2b52c0d6, com.kvang.entity.Employee@372ea2bc, com.kvang.entity.Employee@4cc76301, com.kvang.entity.Employee@2f08c4b, com.kvang.entity.Employee@3f19b8b3, com.kvang.entity.Employee@7de0c6ae, com.kvang.entity.Employee@a486d78, com.kvang.entity.Employee@cdc3aae, com.kvang.entity.Employee@7ef2d7a6, com.kvang.entity.Employee@5dcbb60, com.kvang.entity.Employee@4c36250e, com.kvang.entity.Employee@21526f6c, com.kvang.entity.Employee@49f5c307, com.kvang.entity.Employee@299266e2, com.kvang.entity.Employee@5471388b, com.kvang.entity.Employee@66ea1466, com.kvang.entity.Employee@1601e47, com.kvang.entity.Employee@3bffddff, com.kvang.entity.Employee@66971f6b, com.kvang.entity.Employee@50687efb, com.kvang.entity.Employee@517bd097, com.kvang.entity.Employee@142eef62, com.kvang.entity.Employee@4a9cc6cb, com.kvang.entity.Employee@5990e6c5, com.kvang.entity.Employee@56e07a08, com.kvang.entity.Employee@35d6ca49]
+state id is: 97, state code is: Te, state name is: Test
+title id is: 92, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 99
+newState: 105
+newTitle: 100
+employees: [com.kvang.entity.Employee@7cbee484, com.kvang.entity.Employee@7f811d00, com.kvang.entity.Employee@62923ee6, com.kvang.entity.Employee@4089713, com.kvang.entity.Employee@f19c9d2, com.kvang.entity.Employee@7807ac2c, com.kvang.entity.Employee@b91d8c4, com.kvang.entity.Employee@4b6166aa, com.kvang.entity.Employee@a77614d, com.kvang.entity.Employee@4fd4cae3, com.kvang.entity.Employee@4a067c25, com.kvang.entity.Employee@a1217f9, com.kvang.entity.Employee@3bde62ff, com.kvang.entity.Employee@523424b5, com.kvang.entity.Employee@2baa8d82, com.kvang.entity.Employee@319dead1, com.kvang.entity.Employee@791cbf87, com.kvang.entity.Employee@a7e2d9d, com.kvang.entity.Employee@754777cd, com.kvang.entity.Employee@2b52c0d6, com.kvang.entity.Employee@372ea2bc, com.kvang.entity.Employee@4cc76301, com.kvang.entity.Employee@2f08c4b, com.kvang.entity.Employee@3f19b8b3, com.kvang.entity.Employee@7de0c6ae, com.kvang.entity.Employee@a486d78, com.kvang.entity.Employee@cdc3aae, com.kvang.entity.Employee@7ef2d7a6, com.kvang.entity.Employee@5dcbb60, com.kvang.entity.Employee@4c36250e, com.kvang.entity.Employee@21526f6c, com.kvang.entity.Employee@49f5c307, com.kvang.entity.Employee@299266e2, com.kvang.entity.Employee@5471388b, com.kvang.entity.Employee@66ea1466, com.kvang.entity.Employee@1601e47, com.kvang.entity.Employee@3bffddff, com.kvang.entity.Employee@66971f6b, com.kvang.entity.Employee@50687efb, com.kvang.entity.Employee@517bd097, com.kvang.entity.Employee@142eef62, com.kvang.entity.Employee@4a9cc6cb, com.kvang.entity.Employee@5990e6c5, com.kvang.entity.Employee@56e07a08, com.kvang.entity.Employee@35d6ca49, com.kvang.entity.Employee@1950e8a6, com.kvang.entity.Employee@47289387, com.kvang.entity.Employee@12cd9150, com.kvang.entity.Employee@114a85c2, com.kvang.entity.Employee@f415a95, com.kvang.entity.Employee@cf65451, com.kvang.entity.Employee@724f138e, com.kvang.entity.Employee@37eeec90, com.kvang.entity.Employee@32fe9d0a, com.kvang.entity.Employee@c9413d8, com.kvang.entity.Employee@64da2a7, com.kvang.entity.Employee@46074492, com.kvang.entity.Employee@d78795]
+state id is: 113, state code is: Te, state name is: Test
+title id is: 108, job title is: Test Title
+HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+HHH000412: Hibernate Core {4.3.11.Final}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+HHH000041: Configured SessionFactory: null
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000401: using driver [com.mysql.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employeeportal-test]
+HHH000046: Connection properties: {user=root, password=****}
+HHH000006: Autocommit mode: false
+HHH000115: Hibernate connection pool size: 20 (min=1)
+HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+HHH000397: Using ASTQueryTranslatorFactory
+newState: 115
+newState: 121
+newTitle: 116
+employees: [com.kvang.entity.Employee@f19c9d2, com.kvang.entity.Employee@7807ac2c, com.kvang.entity.Employee@b91d8c4, com.kvang.entity.Employee@4b6166aa, com.kvang.entity.Employee@a77614d, com.kvang.entity.Employee@4fd4cae3, com.kvang.entity.Employee@4a067c25, com.kvang.entity.Employee@a1217f9, com.kvang.entity.Employee@3bde62ff, com.kvang.entity.Employee@523424b5, com.kvang.entity.Employee@2baa8d82, com.kvang.entity.Employee@319dead1, com.kvang.entity.Employee@791cbf87, com.kvang.entity.Employee@a7e2d9d, com.kvang.entity.Employee@754777cd, com.kvang.entity.Employee@2b52c0d6, com.kvang.entity.Employee@372ea2bc, com.kvang.entity.Employee@4cc76301, com.kvang.entity.Employee@2f08c4b, com.kvang.entity.Employee@3f19b8b3, com.kvang.entity.Employee@7de0c6ae, com.kvang.entity.Employee@a486d78, com.kvang.entity.Employee@cdc3aae, com.kvang.entity.Employee@7ef2d7a6, com.kvang.entity.Employee@5dcbb60, com.kvang.entity.Employee@4c36250e, com.kvang.entity.Employee@21526f6c, com.kvang.entity.Employee@49f5c307, com.kvang.entity.Employee@299266e2, com.kvang.entity.Employee@5471388b, com.kvang.entity.Employee@66ea1466, com.kvang.entity.Employee@1601e47, com.kvang.entity.Employee@3bffddff, com.kvang.entity.Employee@66971f6b, com.kvang.entity.Employee@50687efb, com.kvang.entity.Employee@517bd097, com.kvang.entity.Employee@142eef62, com.kvang.entity.Employee@4a9cc6cb, com.kvang.entity.Employee@5990e6c5, com.kvang.entity.Employee@56e07a08, com.kvang.entity.Employee@35d6ca49, com.kvang.entity.Employee@1950e8a6, com.kvang.entity.Employee@47289387, com.kvang.entity.Employee@12cd9150, com.kvang.entity.Employee@114a85c2, com.kvang.entity.Employee@f415a95, com.kvang.entity.Employee@cf65451, com.kvang.entity.Employee@724f138e, com.kvang.entity.Employee@37eeec90, com.kvang.entity.Employee@32fe9d0a, com.kvang.entity.Employee@c9413d8, com.kvang.entity.Employee@64da2a7, com.kvang.entity.Employee@46074492, com.kvang.entity.Employee@d78795, com.kvang.entity.Employee@2c715e84, com.kvang.entity.Employee@47428937, com.kvang.entity.Employee@3b9d6699, com.kvang.entity.Employee@7caa550, com.kvang.entity.Employee@21694e53, com.kvang.entity.Employee@72b16078, com.kvang.entity.Employee@22c86919, com.kvang.entity.Employee@70fab835, com.kvang.entity.Employee@1b0a7baf, com.kvang.entity.Employee@62417a16, com.kvang.entity.Employee@32057e6, com.kvang.entity.Employee@26be6ca7, com.kvang.entity.Employee@6ea1bcdc]
+state id is: 129, state code is: Te, state name is: Test
+title id is: 124, job title is: Test Title
