@@ -8,7 +8,6 @@
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
 .log4jLogs/MyAppLog.log
-.idea
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
@@ -49,4 +48,12 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# User added
+.idea/*
+.idea
+EmployeePortal/.idea
+target
+target/*
+EmployeePortal/target
 
