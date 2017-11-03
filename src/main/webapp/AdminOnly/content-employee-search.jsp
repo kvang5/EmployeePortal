@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-8">
     <div class="jumbotron">
         <div class="container">
-            <form action="searchEmployee" class="form-inline">
+            <form action="employeeSearch" class="form-inline">
                 <div class="form-group">
                     <label for="searchTerm">Search</label>
                     <input type="text" class="form-control" id="searchTerm" name="searchTerm" aria-describedby="searchTermHelp" placeholder="Enter Employee Name">
