@@ -3,15 +3,15 @@
 
     <div class="well sidebar-nav">
         <ul class="nav">
-            <li>Right Sidebar</li>
+            <li>This will be the TODO List for Admin</li>
             <li class="active"><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
-            <li>Sidebar</li>
-            <li><a href="#">Link</a></li>
+            <li>This will be links to USEFUL TASK</li>
+            <li><a href="AdminOnly/employeeSignUpForm.jsp">Register Employees</a></li>
             <li><a href="#">Link</a></li>
         </ul>
     </div>

@@ -2,6 +2,8 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.Employee;
+import com.kvang.entity.State;
+import com.kvang.entity.Title;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -137,14 +139,43 @@ public class EmployeeDao {
 
     }
 
-    /*public List<Employee> getListOfEmployees(String searchName) {
-        List<Employee> employees = new ArrayList<Employee>();
-        Session session;
+    // TODO Need to add password... have email send temporary password to employee email.
+    public int addEmployeeFromSignUp(String first_name, String last_name, String address1, String address2, String city,
+                                     State state, String postal_zip_code, String home_phone, String mobile_phone, Title title,
+                                     String email) {
+        StateDao stateDao = new StateDao();
+        TitleDao titleDao = new TitleDao();
+        int id = 0;
+        Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
-            transaction = get
+            Employee employee = new Employee();
+            employee.setFirst_name(first_name);
+            employee.setLast_name(last_name);
+            employee.setAddress1(address1);
+            employee.setAddress2(address2);
+            employee.setCity(city);
+            employee.setState(stateDao.getStateById(state.getStateId()));
+            employee.setPostal_zip_code(postal_zip_code);
+            employee.setHome_phone(home_phone);
+            employee.setMobile_phone(mobile_phone);
+            employee.setTitle(titleDao.getTitleById(title.getTitleId()));
+            employee.setEmail(email);
+            employee.setPassword("GoldenSun1");
+            id = (int) session.save(employee);
+            transaction.commit();
+            log.info(transaction);
+        } catch (HibernateException he) {
+            log.error("Error signing up employee from addEmployeeFromSignUp(): ", he);
+        } catch (Exception e) {
+            log.error("General exception for addEmployeeFromSignUp() is caught: ", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
         }
-    }*/
+        return id;
+    }
 
 }

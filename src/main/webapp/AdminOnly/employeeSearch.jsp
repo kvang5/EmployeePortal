@@ -10,11 +10,11 @@
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="row-offcanvas row-offcanvas-right">
 
-                <%@include file="../Includes/leftSideBar.jsp"%>
+                <%@include file="../Includes/leftSideBar-Admin.jsp"%>
 
                 <%@include file="content-employee-search.jsp"%>
 
-                <%@include file="../Includes/rightSideBar.jsp"%>
+                <%@include file="../Includes/rightSideBar-Admin.jsp"%>
 
             </div>
         </div>

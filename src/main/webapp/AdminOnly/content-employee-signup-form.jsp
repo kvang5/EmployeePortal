@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-8">
     <div class="jumbotron">
         <div class="container">
-            <form class="well form-horizontal" action="employeeSignupForm" method="post"  id="signup-form">
+            <form class="well form-horizontal" action="" method="post"  id="signup-form">
                 <fieldset>
 
                     <!-- Form Name -->
@@ -13,7 +13,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                <input  name="first_name" placeholder="First Name" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                <input name="last_name" placeholder="Last Name" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-                                <input name="address1" placeholder="Street Address" class="form-control"  type="text">
+                                <input name="address1" placeholder="Street Address" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-                                <input name="city" placeholder="City" class="form-control"  type="text">
+                                <input name="city" placeholder="City" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
-                                <input name="postal_zip_code" placeholder="Postal Zip Code" class="form-control"  type="text">
+                                <input name="postal_zip_code" placeholder="Postal Zip Code" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                                <input name="home_phone" placeholder="(608)" class="form-control" type="text">
+                                <input name="home_phone" placeholder="(608)" class="form-control" type="text" required>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input name="mobile_phone" placeholder="(608)" class="form-control" type="text">
+                                <input name="mobile_phone" placeholder="(608)" class="form-control" type="text" required>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input name="address2" placeholder="Apt 2" class="form-control"  type="text">
+                                <input name="email" placeholder="jsmith@mail.com" class="form-control"  type="text" required>
                             </div>
                         </div>
                     </div>
