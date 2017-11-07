@@ -195,7 +195,15 @@ public class EmployeeDaoTest {
         newEmployee = employeeDao.addEmployee(employee);
 
         List<Employee> employees = new ArrayList<Employee>();
+        employees.add(employee);
         assertEquals("Kyle", employee.getFirst_name());
+        assertEquals(1, employees.size());
+        logger.info("employees.size(): " + employees.size());
+        logger.info("employees: " + employees.toString());
     }
 
+    @Test
+    public void addEmployeeFromSignUp() throws Exception {
+
+    }
 }

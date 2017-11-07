@@ -1,8 +1,13 @@
 package com.kvang.controller;
 
+import com.kvang.entity.State;
+import com.kvang.entity.Title;
 import com.kvang.persistence.EmployeeDao;
+import com.kvang.persistence.StateDao;
+import com.kvang.persistence.TitleDao;
 import lombok.extern.log4j.Log4j;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,13 +22,32 @@ import java.io.IOException;
 )
 public class EmployeeSignUp extends HttpServlet {
 
+    private State state;
+    private StateDao stateDao;
+    private Title title;
+    private TitleDao titleDao;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+
+        HttpSession session = req.getSession();
+
+        if (session.getAttribute("state") != null) {
+            session.setAttribute("state", null);
+        }
+
+        stateDao = new StateDao();
+
+        session.setAttribute("state", stateDao.getAllStates());
+        log.info(session);
+
+        String employeeSignUpUrl = "AdminOnly/employeeSignUpForm.jsp";
+        RequestDispatcher dispatcher = req.getRequestDispatcher(employeeSignUpUrl);
+        dispatcher.forward(req, resp);
     }
 
     // This is employee signup form with employee information
-    @Override
+        @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession(true);

@@ -141,7 +141,7 @@ public class EmployeeDao {
 
     // TODO Need to add password... have email send temporary password to employee email.
     public int addEmployeeFromSignUp(String first_name, String last_name, String address1, String address2, String city,
-                                     State state, String postal_zip_code, String home_phone, String mobile_phone, Title title,
+                                     State stateId, String postal_zip_code, String home_phone, String mobile_phone, Title titleId,
                                      String email) {
         StateDao stateDao = new StateDao();
         TitleDao titleDao = new TitleDao();
@@ -156,11 +156,11 @@ public class EmployeeDao {
             employee.setAddress1(address1);
             employee.setAddress2(address2);
             employee.setCity(city);
-            employee.setState(stateDao.getStateById(state.getStateId()));
+            employee.setState(stateId);
             employee.setPostal_zip_code(postal_zip_code);
             employee.setHome_phone(home_phone);
             employee.setMobile_phone(mobile_phone);
-            employee.setTitle(titleDao.getTitleById(title.getTitleId()));
+            employee.setTitle(titleId);
             employee.setEmail(email);
             employee.setPassword("GoldenSun1");
             id = (int) session.save(employee);

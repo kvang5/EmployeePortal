@@ -2,6 +2,7 @@ package com.kvang.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Accessors
+@ToString
 @Entity
 @Table(name = "Employee")
 public class Employee implements java.io.Serializable {

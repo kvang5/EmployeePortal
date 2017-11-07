@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-8">
     <div class="jumbotron">
         <div class="container">
-            <form class="well form-horizontal" action="" method="post"  id="signup-form">
+            <form class="well form-horizontal" action="employeeSignUp" method="POST" id="signup-form">
                 <fieldset>
 
                     <!-- Form Name -->
@@ -69,8 +69,11 @@
                         <div class="col-md-4 selectContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                                <select name="state" class="form-control selectpicker">
+                                <select name="state" id="state" class="form-control selectpicker">
                                     <option value="">Select State</option>
+                                    <c:forEach var="state" items="${state}">
+                                        <option value="${state.stateId}">${state.state_name}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>

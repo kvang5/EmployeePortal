@@ -56,5 +56,5 @@ EmployeePortal/.idea
 target
 target/*
 EmployeePortal/target
-EmployeePortal/log4jLogs
+log4jLogs/*
 

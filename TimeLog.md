@@ -40,5 +40,23 @@
 | 10/31/17 | Team project - fix issues with project structure and gitignore file. Wrote entities and started DAOs for Category/Difficulty/Type | 2 |  |
 | 10/31/17 | Peer Code Review 2 | 2 | Great learning experience!! |
 | 11/1/17 | Team project - completed Category, Difficulty, and Type Dao for crud | 1 |  |
-| 10//17 |  |  |  |
-| 10//17 |  |  |  |
+| 11/1/17 | Update gitignore file | .25 |  |
+| 11/3/17 | Added EmployeeSignUp Servlet, fix and create JSPs/controllers, and added test database for testing. | 2.5 |  |
+| 11/3/17 | Added startup insert sql file to project and fix existing database with correct data | 1.5 |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+| 11//17 | | |  |
+
+
+
+

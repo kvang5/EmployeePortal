@@ -78,13 +78,15 @@
 - [X] Time log entries
 
 ### Week 10
-- [ ] Complete Week 10 exercise
-- [ ] Complete feedback Week 10 professional development presentations
-- [ ] Work on team project
+- [X] Complete Week 10 exercise
+- [X] Complete feedback Week 10 professional development presentations
+- [X] Work on team project
+- [X] Added startup sql inserts for Database, work on JSPs/controllers, and fix css issues
 - [ ] Add multithreading (if needed)
-- [ ] Time log entries
+- [X] Time log entries
 
 ### Week 11
+- [ ] Contact Replicon for student use of api
 - [ ] Finish team project
 - [ ] Practice for Team Project Presentation
 - [ ] Complete feedback Week 11 professional development presentations
