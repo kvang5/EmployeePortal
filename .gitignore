@@ -50,11 +50,7 @@ crashlytics-build.properties
 fabric.properties
 
 # User added
-.idea/*
 .idea
-EmployeePortal/.idea
 target
-target/*
-EmployeePortal/target
-log4jLogs/*
+log4jLogs
 
