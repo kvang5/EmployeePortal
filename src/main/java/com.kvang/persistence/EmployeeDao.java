@@ -2,8 +2,6 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.Employee;
-import com.kvang.entity.State;
-import com.kvang.entity.Title;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -140,7 +138,7 @@ public class EmployeeDao {
     }
 
     // TODO Need to add password... have email send temporary password to employee email.
-    public int addEmployeeFromSignUp(String first_name, String last_name, String address1, String address2, String city,
+    /*public int addEmployeeFromSignUp(String first_name, String last_name, String address1, String address2, String city,
                                      State stateId, String postal_zip_code, String home_phone, String mobile_phone, Title titleId,
                                      String email) {
         StateDao stateDao = new StateDao();
@@ -163,7 +161,7 @@ public class EmployeeDao {
             employee.setTitle(titleId);
             employee.setEmail(email);
             employee.setPassword("GoldenSun1");
-            id = (int) session.save(employee);
+            session.save(employee);
             transaction.commit();
             log.info(transaction);
         } catch (HibernateException he) {
@@ -176,6 +174,6 @@ public class EmployeeDao {
             }
         }
         return id;
-    }
+    }*/
 
 }

@@ -70,8 +70,8 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="state" id="state" class="form-control selectpicker">
-                                    <option value="">Select State</option>
-                                    <c:forEach var="state" items="${state}">
+                                    <option value="select state">Select State</option>
+                                    <c:forEach var="state" items="${states}">
                                         <option value="${state.stateId}">${state.state_name}</option>
                                     </c:forEach>
                                 </select>
@@ -121,6 +121,9 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="title" class="form-control selectpicker">
                                     <option value="">Select Title</option>
+                                    <c:forEach var="title" items="${titles}">
+                                        <option value="${title.titleId}">${title.jobTitle}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>
