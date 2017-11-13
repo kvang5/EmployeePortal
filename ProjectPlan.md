@@ -96,6 +96,8 @@
 
 ### Week 12
 - [ ] Team Project Presentation
+- [ ] Reconfigure DB with new client note checklist
+- [ ] Create JSP and controller for new client note checklist
 - [ ] Add asynchronous messaging (if needed - might use for employee messaging)
 - [ ] Time log entries
 
