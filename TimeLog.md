@@ -43,9 +43,9 @@
 | 11/1/17 | Update gitignore file | .25 |  |
 | 11/3/17 | Added EmployeeSignUp Servlet, fix and create JSPs/controllers, and added test database for testing. | 2.5 |  |
 | 11/3/17 | Added startup insert sql file to project and fix existing database with correct data | 1.5 |  |
-| 11//17 | | |  |
-| 11//17 | | |  |
-| 11//17 | | |  |
+| 11/8/17 | Employee Sign Up form and servlet complete/working | 1 |  |
+| 11/10/17 | Adding more files to .gitignore file | .25 |  |
+| 11/11/17 | Team project - completed all Dao tests | 2 |  |
 | 11//17 | | |  |
 | 11//17 | | |  |
 | 11//17 | | |  |

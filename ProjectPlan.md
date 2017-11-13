@@ -87,9 +87,11 @@
 
 ### Week 11
 - [ ] Contact Replicon for student use of api
+- [X] Completed Testes for Team Project
 - [ ] Finish team project
 - [ ] Practice for Team Project Presentation
 - [ ] Complete feedback Week 11 professional development presentations
+- [ ] Individual project - add Admin task assignment, query todo/task for employees/admin, create controllers/jsps
 - [ ] Time log entries
 
 ### Week 12

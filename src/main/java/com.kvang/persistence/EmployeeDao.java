@@ -137,7 +137,6 @@ public class EmployeeDao {
 
     }
 
-    // TODO Need to add password... have email send temporary password to employee email.
     /*public int addEmployeeFromSignUp(String first_name, String last_name, String address1, String address2, String city,
                                      State stateId, String postal_zip_code, String home_phone, String mobile_phone, Title titleId,
                                      String email) {

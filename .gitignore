@@ -7,7 +7,7 @@
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
-.log4jLogs/MyAppLog.log
+log4jLogs/MyAppLog.log
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
@@ -53,4 +53,9 @@ fabric.properties
 .idea
 target
 log4jLogs
+employeeportal.iml
+employeedb.sql
+resources
+
+
 

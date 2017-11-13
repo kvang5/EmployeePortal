@@ -58,6 +58,8 @@ public class EmployeeSignUp extends HttpServlet {
         @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession httpSession = req.getSession();
+
         String first_name = req.getParameter("first_name");
         String last_name = req.getParameter("last_name");
         String address1 = req.getParameter("address1");
@@ -110,5 +112,7 @@ public class EmployeeSignUp extends HttpServlet {
             }
         }
 
+        resp.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
+        resp.setHeader("Location", "/AdminOnly/employeeSearch.jsp");
     }
 }
