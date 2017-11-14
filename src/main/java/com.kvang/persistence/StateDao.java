@@ -2,10 +2,12 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.State;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +15,9 @@ import java.util.List;
 /**
  * Created by kvang on 9/25/17.
  */
+@Log4j
 public class StateDao {
-
-    Logger logger = Logger.getLogger(this.getClass());
-
+    
     public List<State> getAllStates() {
         List<State> states = new ArrayList<State>();
         Session session = null;
@@ -24,9 +25,9 @@ public class StateDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             states = session.createCriteria(State.class).list();
         } catch (HibernateException he) {
-            logger.error("Error getting all states", he);
+            log.error("Error getting all states", he);
         } catch (Exception e) {
-            logger.error("General exception for getAllStates is caught", e);
+            log.error("General exception for getAllStates is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -44,9 +45,9 @@ public class StateDao {
             id = (int) session.save(state);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error adding state", he);
+            log.error("Error adding state", he);
         } catch (Exception e) {
-            logger.error("General exception for addState() is caught", e);
+            log.error("General exception for addState() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -62,9 +63,9 @@ public class StateDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             state = (State) session.get(State.class, id);
         } catch (HibernateException he) {
-            logger.error("Error getting state by id", he);
+            log.error("Error getting state by id", he);
         } catch (Exception e) {
-            logger.error("General exception for getStateById() is caught", e);
+            log.error("General exception for getStateById() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -82,9 +83,9 @@ public class StateDao {
             session.delete(state);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error deleting state", he);
+            log.error("Error deleting state", he);
         } catch (Exception e) {
-            logger.error("General exception for deleteState() is caught", e);
+            log.error("General exception for deleteState() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -100,13 +101,36 @@ public class StateDao {
             session.update(state);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error updating state", he);
+            log.error("Error updating state", he);
         } catch (Exception e) {
-            logger.error("General exception for updateState() is caught", e);
+            log.error("General exception for updateState() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
+    }
+
+    public List<State> findByProperty(String propertyName, String value, MatchMode matchMode){
+        Session session = null;
+        List<State> items = new ArrayList<State>();
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            if (matchMode != null){
+                items =  session.createCriteria(State.class).add(Restrictions.ilike(propertyName, value, matchMode)).list();
+            }else{
+                items =  session.createCriteria(State.class).add(Restrictions.ilike(propertyName, value, MatchMode.EXACT)).list();
+            }
+        } catch (HibernateException he) {
+            log.error("Error getting State", he);
+        } catch (NullPointerException e) {
+            log.error("Error getting State they don't exist: ", e);
+
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return items;
     }
 }

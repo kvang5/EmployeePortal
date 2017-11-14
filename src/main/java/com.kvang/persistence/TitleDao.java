@@ -1,18 +1,19 @@
 package com.kvang.persistence;
 
 import com.kvang.entity.Title;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j
 public class TitleDao {
-
-    Logger logger = Logger.getLogger(this.getClass());
-
+    
     public List<Title> getAllTitles() {
         List<Title> titles = new ArrayList<Title>();
         Session session = null;
@@ -20,9 +21,9 @@ public class TitleDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             titles = session.createCriteria(Title.class).list();
         } catch (HibernateException he) {
-            logger.error("Error getting all titles", he);
+            log.error("Error getting all titles", he);
         } catch (Exception e) {
-            logger.error("General exception for getAllTitles is caught", e);
+            log.error("General exception for getAllTitles is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -40,9 +41,9 @@ public class TitleDao {
             id = (int) session.save(title);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error adding title", he);
+            log.error("Error adding title", he);
         } catch (Exception e) {
-            logger.error("General exception for addTitle() is caught", e);
+            log.error("General exception for addTitle() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -58,9 +59,9 @@ public class TitleDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             title = (Title) session.get(Title.class, id);
         } catch (HibernateException he) {
-            logger.error("Error getting title by id", he);
+            log.error("Error getting title by id", he);
         } catch (Exception e) {
-            logger.error("General exception for getTitleById() is caught", e);
+            log.error("General exception for getTitleById() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -78,9 +79,9 @@ public class TitleDao {
             session.delete(title);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error deleting title", he);
+            log.error("Error deleting title", he);
         } catch (Exception e) {
-            logger.error("General exception for deleteTitle() is caught", e);
+            log.error("General exception for deleteTitle() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -96,13 +97,36 @@ public class TitleDao {
             session.update(title);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error updating title", he);
+            log.error("Error updating title", he);
         } catch (Exception e) {
-            logger.error("General exception for updateTitle() is caught", e);
+            log.error("General exception for updateTitle() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
+    }
+
+    public List<Title> findByProperty(String propertyName, String value, MatchMode matchMode){
+        Session session = null;
+        List<Title> items = new ArrayList<Title>();
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            if (matchMode != null){
+                items =  session.createCriteria(Title.class).add(Restrictions.ilike(propertyName, value, matchMode)).list();
+            }else{
+                items =  session.createCriteria(Title.class).add(Restrictions.ilike(propertyName, value, MatchMode.EXACT)).list();
+            }
+        } catch (HibernateException he) {
+            log.error("Error getting Title", he);
+        } catch (NullPointerException e) {
+            log.error("Error getting Title they don't exist: ", e);
+
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return items;
     }
 }

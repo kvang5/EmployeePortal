@@ -63,7 +63,7 @@
                     </div>
 
                     <!-- Text input -- State -->
-                    <!-- Need jquery for state table -->
+                    <!-- Use HTTP doGet to populate states from state table to select option -->
                     <div class="form-group">
                         <label class="col-md-4 control-label">State</label>
                         <div class="col-md-4 selectContainer">
@@ -113,7 +113,7 @@
                     </div>
 
                     <!-- Text input -- Job Title -->
-                    <!-- Need jquery for title table -->
+                    <!-- Use HTTP doGet to populate titles from title table to select option -->
                     <div class="form-group">
                         <label class="col-md-4 control-label">Title</label>
                         <div class="col-md-4 selectContainer">
@@ -140,17 +140,17 @@
                         </div>
                     </div>
 
-                    <!-- Success message -->
-                    <!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>-->
-
                     <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
                         <div class="col-md-4"><br>
-                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" id="btn" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" id="btn" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
-
+                    <div id="success-message" style="text-align:center; color:#5cb85c;">
+                        <strong>${message}</strong>
+                        <c:remove var="message" scope="session"/>
+                    </div>
                 </fieldset>
             </form>
         </div>
@@ -158,6 +158,3 @@
 
 </div>
 <!--/span-->
-
-
-

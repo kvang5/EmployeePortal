@@ -2,11 +2,13 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.Client;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +16,8 @@ import java.util.List;
 /**
  * Created by kvang on 9/28/17.
  */
+@Log4j
 public class ClientDao {
-    private final Logger logger = Logger.getLogger(this.getClass());
-
 
     public List<Client> getAllClients() {
         List<Client> clients = new ArrayList<Client>();
@@ -25,9 +26,9 @@ public class ClientDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             clients = session.createCriteria(Client.class).list();
         } catch (HibernateException he) {
-            logger.error("Error getting all clients", he);
+            log.error("Error getting all clients", he);
         } catch (Exception e) {
-            logger.error("General exception is caught", e);
+            log.error("General exception is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -44,9 +45,9 @@ public class ClientDao {
             client = (Client) session.get(Client.class, id);
             Hibernate.initialize(client.getState());
         } catch (HibernateException he) {
-            logger.error("Error getting client by id", he);
+            log.error("Error getting client by id", he);
         } catch (Exception e) {
-            logger.error("General exception for getClientById() is caught", e);
+            log.error("General exception for getClientById() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -65,9 +66,9 @@ public class ClientDao {
             id = (int) session.save(client);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error adding client", he);
+            log.error("Error adding client", he);
         } catch (Exception e) {
-            logger.error("General exception for addClient() is caught", e);
+            log.error("General exception for addClient() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -85,9 +86,9 @@ public class ClientDao {
             session.delete(client);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error deleting client", he);
+            log.error("Error deleting client", he);
         } catch (Exception e) {
-            logger.error("General exception for deleteClient() is caught", e);
+            log.error("General exception for deleteClient() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -103,13 +104,36 @@ public class ClientDao {
             session.update(client);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error updating client", he);
+            log.error("Error updating client", he);
         } catch (Exception e) {
-            logger.error("General exception for updateClient() is caught", e);
+            log.error("General exception for updateClient() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
+    }
+
+    public List<Client> findByProperty(String propertyName, String value, MatchMode matchMode) {
+        Session session = null;
+        List<Client> items = new ArrayList<Client>();
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            if (matchMode != null) {
+                items = session.createCriteria(Client.class).add(Restrictions.ilike(propertyName, value, matchMode)).list();
+            } else {
+                items = session.createCriteria(Client.class).add(Restrictions.ilike(propertyName, value, MatchMode.EXACT)).list();
+            }
+        } catch (HibernateException he) {
+            log.error("Error getting Client", he);
+        } catch (NullPointerException e) {
+            log.error("Error getting Client they don't exist: ", e);
+
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return items;
     }
 }

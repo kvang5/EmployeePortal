@@ -3,7 +3,7 @@ package com.kvang.persistence;
 import com.kvang.entity.Employee;
 import com.kvang.entity.State;
 import com.kvang.entity.Title;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,9 +16,10 @@ import static org.junit.Assert.*;
 /**
  * Created by kvang on 9/21/17.
  */
+
+@Log4j
 public class EmployeeDaoTest {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
     StateDao stateDao;
     State state;
 
@@ -37,13 +38,13 @@ public class EmployeeDaoTest {
         stateDao = new StateDao();
 
         state = new State();
-        state.setState_code("ET");
-        state.setState_name("Employee Testing");
+        state.setState_code("WI");
+        state.setState_name("Wisconsin");
 
         titleDao = new TitleDao();
 
         title = new Title();
-        title.setJobTitle("Test job title");
+        title.setJobTitle("Registered Nurse");
 
         employeeDao = new EmployeeDao();
 
@@ -114,9 +115,9 @@ public class EmployeeDaoTest {
     @Test
     public void addEmployee() throws Exception {
         newState = stateDao.addState(state);
-        logger.info("newState: " + newState);
+        log.info("newState: " + newState);
         newTitle = titleDao.addTitle(title);
-        logger.info("newTitle: " + newTitle);
+        log.info("newTitle: " + newTitle);
         newEmployee = employeeDao.addEmployee(employee);
 
         assertNotEquals("No new employee added", 0, newEmployee);
@@ -198,8 +199,16 @@ public class EmployeeDaoTest {
         employees.add(employee);
         assertEquals("Kyle", employee.getFirst_name());
         assertEquals(1, employees.size());
-        logger.info("employees.size(): " + employees.size());
-        logger.info("employees: " + employees.toString());
+        log.info("employees.size(): " + employees.size());
+        log.info("employees: " + employees.toString());
+
+        /*
+        List<Employee> employees = employeeDao.getEmployeeByFirstName("Kyle");
+        //assertEquals("Kyle", employee.getFirst_name());
+        assertTrue(employees.size() > 0);
+        log.info("employees.size(): " + employees.size());
+        log.info("employees: " + employees.toString());
+        */
     }
 
     @Test

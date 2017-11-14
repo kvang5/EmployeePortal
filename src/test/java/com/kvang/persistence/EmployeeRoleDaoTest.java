@@ -4,7 +4,7 @@ import com.kvang.entity.Employee;
 import com.kvang.entity.EmployeeRole;
 import com.kvang.entity.State;
 import com.kvang.entity.Title;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +13,8 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Log4j
 public class EmployeeRoleDaoTest {
-
-    private final Logger logger = Logger.getLogger(this.getClass());
 
     StateDao stateDao;
     State state;

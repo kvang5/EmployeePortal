@@ -1,7 +1,8 @@
 package com.kvang.persistence;
 
 import com.kvang.entity.State;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
+import org.hibernate.criterion.MatchMode;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,9 +14,10 @@ import static org.junit.Assert.*;
 /**
  * Created by kvang on 9/26/17.
  */
+
+@Log4j
 public class StateDaoTest {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
     StateDao stateDao;
     State state;
     int newState = 0;
@@ -24,8 +26,8 @@ public class StateDaoTest {
     public void setUp() throws Exception {
         stateDao = new StateDao();
         state = new State();
-        state.setState_code("Te");
-        state.setState_name("Test");
+        state.setState_code("WI");
+        state.setState_name("Wisconsin");
 
     }
 
@@ -47,7 +49,7 @@ public class StateDaoTest {
     public void getStateById() throws Exception {
         newState = stateDao.addState(state);
         assertNotNull("No state returned", stateDao.getStateById(newState));
-        logger.info("state id is: " + stateDao.getStateById(newState).getStateId() + ", state code is: " + stateDao.getStateById(newState).getState_code() + ", state name is: " + stateDao.getStateById(newState).getState_name());
+        log.info("state id is: " + stateDao.getStateById(newState).getStateId() + ", state code is: " + stateDao.getStateById(newState).getState_code() + ", state name is: " + stateDao.getStateById(newState).getState_name());
         assertEquals("State Id not return correctly", state.getStateId(), stateDao.getStateById(newState).getStateId());
         assertEquals("State code not return correctly", state.getState_code(), stateDao.getStateById(newState).getState_code());
         assertEquals("State name not return correctly", state.getState_name(), stateDao.getStateById(newState).getState_name());
@@ -75,13 +77,24 @@ public class StateDaoTest {
     @Test
     public void updateState() throws Exception {
         newState = stateDao.addState(state);
-        state.setState_code("LL");
-        state.setState_name("LLLLLLL");
+        state.setState_code("NC");
+        state.setState_name("North Carolina");
         stateDao.updateState(state);
 
         assertEquals("state code not updated", state.getState_code(), stateDao.getStateById(newState).getState_code());
         assertEquals("state name not updated", state.getState_name(), stateDao.getStateById(newState).getState_name());
 
+    }
+
+    @Test
+    public void findByProperty() throws Exception {
+        List<State> states1 = stateDao.findByProperty("state_name", "W", MatchMode.ANYWHERE);
+
+        assertTrue(states1.size() > 0);
+
+        List<State> states2 = stateDao.findByProperty("state_name", "Wisconsin", MatchMode.EXACT);
+
+        assertTrue(states2.size() > 0);
     }
 
 }

@@ -16,6 +16,7 @@ import java.io.IOException;
 )
 public class EmployeeSearch extends HttpServlet{
 
+    //TODO Fix searching employees for admin
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

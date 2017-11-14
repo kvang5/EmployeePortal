@@ -1,7 +1,7 @@
 package com.kvang.persistence;
 
 import com.kvang.entity.EmployeeRole;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -10,10 +10,9 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
+@Log4j
 public class EmployeeRoleDao {
-
-    private final Logger logger = Logger.getLogger(this.getClass());
-
+    
     public List<EmployeeRole> getAllEmployeeRoles() {
         List<EmployeeRole> employeeRoles = new ArrayList<EmployeeRole>();
         Session session = null;
@@ -21,9 +20,9 @@ public class EmployeeRoleDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             employeeRoles = session.createCriteria(EmployeeRole.class).list();
         } catch (HibernateException he) {
-            logger.error("Error getting all employeeRoless", he);
+            log.error("Error getting all employeeRoless", he);
         } catch (Exception e) {
-            logger.error("General exception is caught", e);
+            log.error("General exception is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -40,9 +39,9 @@ public class EmployeeRoleDao {
             employeeRole = (EmployeeRole) session.get(EmployeeRole.class, id);
             Hibernate.initialize(employeeRole.getEmployee());
         } catch (HibernateException he) {
-            logger.error("Error getting employeeRoles by id", he);
+            log.error("Error getting employeeRoles by id", he);
         } catch (Exception e) {
-            logger.error("General exception for getEmployeeRolesById() is caught", e);
+            log.error("General exception for getEmployeeRolesById() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -61,9 +60,9 @@ public class EmployeeRoleDao {
             id = (int) session.save(employeeRole);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error adding employeeRoles", he);
+            log.error("Error adding employeeRoles", he);
         } catch (Exception e) {
-            logger.error("General exception for addEmployeeRoles() is caught", e);
+            log.error("General exception for addEmployeeRoles() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -81,9 +80,9 @@ public class EmployeeRoleDao {
             session.delete(employeeRole);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error deleting employeeRoles", he);
+            log.error("Error deleting employeeRoles", he);
         } catch (Exception e) {
-            logger.error("General exception for deleteEmployeeRoles() is caught", e);
+            log.error("General exception for deleteEmployeeRoles() is caught", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -99,9 +98,9 @@ public class EmployeeRoleDao {
             session.update(employeeRole);
             transaction.commit();
         } catch (HibernateException he) {
-            logger.error("Error updating employeeRoles", he);
+            log.error("Error updating employeeRoles", he);
         } catch (Exception e) {
-            logger.error("General exception for updateEmployeeRoles() is caught", e);
+            log.error("General exception for updateEmployeeRoles() is caught", e);
         } finally {
             if (session != null) {
                 session.close();

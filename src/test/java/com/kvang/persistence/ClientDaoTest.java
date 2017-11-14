@@ -2,7 +2,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.Client;
 import com.kvang.entity.State;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,8 +14,8 @@ import static org.junit.Assert.*;
 /**
  * Created by kvang on 9/29/17.
  */
+@Log4j
 public class ClientDaoTest {
-    private final Logger logger = Logger.getLogger(this.getClass());
     StateDao stateDao;
     State state;
 
@@ -30,8 +30,8 @@ public class ClientDaoTest {
         stateDao = new StateDao();
 
         state = new State();
-        state.setState_code("CT");
-        state.setState_name("Client Testing");
+        state.setState_code("WI");
+        state.setState_name("Wisconsin");
 
         clientDao = new ClientDao();
 
@@ -89,7 +89,7 @@ public class ClientDaoTest {
     @Test
     public void addClient() throws Exception {
         newState = stateDao.addState(state);
-        logger.info("newState: " + newState);
+        log.info("newState: " + newState);
         newClient = clientDao.addClient(client);
 
         assertNotEquals("No new client added", 0, newClient);

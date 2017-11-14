@@ -27,7 +27,6 @@ import java.io.IOException;
 public class EmployeeSignUp extends HttpServlet {
 
     private StateDao stateDao;
-    private Title title;
     private TitleDao titleDao;
 
     @Override
@@ -48,6 +47,7 @@ public class EmployeeSignUp extends HttpServlet {
 
         session.setAttribute("states", stateDao.getAllStates());
         session.setAttribute("titles", titleDao.getAllTitles());
+
 
         String employeeSignUpUrl = "AdminOnly/employeeSignUpForm.jsp";
         RequestDispatcher dispatcher = req.getRequestDispatcher(employeeSignUpUrl);
@@ -72,8 +72,8 @@ public class EmployeeSignUp extends HttpServlet {
         String titleId = req.getParameter("title");
         String email = req.getParameter("email");
 
-        log.info("stateId: " + stateId);
-        log.info("titleId: " + titleId);
+        //log.info("stateId: " + stateId);
+        //log.info("titleId: " + titleId);
 
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
@@ -112,7 +112,9 @@ public class EmployeeSignUp extends HttpServlet {
             }
         }
 
-        resp.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
-        resp.setHeader("Location", "/AdminOnly/employeeSearch.jsp");
+        // When successful - redirect to servlet and prompts message
+        String message = "New employee successfully added!";
+        httpSession.setAttribute("message", message);
+        resp.sendRedirect(req.getContextPath() + "/employeeSignUp");
     }
 }

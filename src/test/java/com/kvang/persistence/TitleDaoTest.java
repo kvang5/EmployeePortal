@@ -1,7 +1,8 @@
 package com.kvang.persistence;
 
 import com.kvang.entity.Title;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
+import org.hibernate.criterion.MatchMode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,9 +10,9 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Log4j
 public class TitleDaoTest {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
     TitleDao titleDao;
     Title title;
     int newTitle = 0;
@@ -20,7 +21,7 @@ public class TitleDaoTest {
     public void setUp() throws Exception {
         titleDao = new TitleDao();
         title = new Title();
-        title.setJobTitle("Test Title");
+        title.setJobTitle("Registered Nurse");
 
     }
 
@@ -42,7 +43,7 @@ public class TitleDaoTest {
     public void getTitleById() throws Exception {
         newTitle = titleDao.addTitle(title);
         assertNotNull("No title returned", titleDao.getTitleById(newTitle));
-        logger.info("title id is: " + titleDao.getTitleById(newTitle).getTitleId() +  ", job title is: " + titleDao.getTitleById(newTitle).getJobTitle());
+        log.info("title id is: " + titleDao.getTitleById(newTitle).getTitleId() +  ", job title is: " + titleDao.getTitleById(newTitle).getJobTitle());
         assertEquals("Title Id not return correctly", title.getTitleId(), titleDao.getTitleById(newTitle).getTitleId());
         assertEquals("Job title not return correctly", title.getJobTitle(), titleDao.getTitleById(newTitle).getJobTitle());
 
@@ -70,11 +71,22 @@ public class TitleDaoTest {
     @Test
     public void updateTitle() throws Exception {
         newTitle = titleDao.addTitle(title);
-        title.setJobTitle("Update Test");
+        title.setJobTitle("Certified Nurse Assistant");
         titleDao.updateTitle(title);
 
         assertEquals("Job title not updated", title.getJobTitle(), titleDao.getTitleById(newTitle).getJobTitle());
 
+    }
+
+    @Test
+    public void findByProperty() throws Exception {
+        List<Title> titles1 = titleDao.findByProperty("jobTitle", "R", MatchMode.ANYWHERE);
+
+        assertTrue(titles1.size() > 0);
+
+        List<Title> titles2 = titleDao.findByProperty("jobTitle", "Certified Nurse Assistant", MatchMode.EXACT);
+
+        assertTrue(titles2.size() > 0);
     }
 
 }
