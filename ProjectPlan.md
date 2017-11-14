@@ -92,7 +92,7 @@
 - [ ] Practice for Team Project Presentation
 - [ ] Complete feedback Week 11 professional development presentations
 - [ ] Individual project - add Admin task assignment, query todo/task for employees/admin, create controllers/jsps
-- [ ] Time log entries
+- [X] Time log entries
 
 ### Week 12
 - [ ] Team Project Presentation
