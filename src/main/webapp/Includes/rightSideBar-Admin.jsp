@@ -13,6 +13,7 @@
             <li>Administrator Extras</li> <!-- TODO: Find a better name for this section -->
             <li><a href="employeeSignUp">Register Employees</a></li>
             <li><a href="addNewClient">New Client</a></li>
+            <li><a href="assignClientToEmployee">Assign Client To Employee</a></li>
         </ul>
     </div>
     <!--/.well -->

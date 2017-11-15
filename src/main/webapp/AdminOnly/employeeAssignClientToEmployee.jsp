@@ -1,5 +1,5 @@
 <%@include file="../Includes/taglib.jsp"%>
-<c:set var="title" value="Employee Search"/>
+<c:set var="title" value="Employee Client Assignment"/>
 
 <html>
 <%@include file="../Includes/head.jsp"%>
