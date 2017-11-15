@@ -88,7 +88,7 @@
 ### Week 11
 - [ ] Contact Replicon for student use of api
 - [X] Completed Testes for Team Project
-- [ ] Finish team project
+- [ ] Finish team project and deploy to AWS
 - [ ] Practice for Team Project Presentation
 - [ ] Complete feedback Week 11 professional development presentations
 - [ ] Individual project - add Admin task assignment, query todo/task for employees/admin, create controllers/jsps
@@ -96,8 +96,7 @@
 
 ### Week 12
 - [ ] Team Project Presentation
-- [ ] Reconfigure DB with new client note checklist
-- [ ] Create JSP and controller for new client note checklist
+- [X] Create JSP and controller for new client and working
 - [ ] Add asynchronous messaging (if needed - might use for employee messaging)
 - [ ] Time log entries
 
