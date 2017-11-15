@@ -1,11 +1,10 @@
 package com.kvang.controller;
 
 import com.kvang.entity.Employee;
+import com.kvang.entity.EmployeeRole;
 import com.kvang.entity.State;
 import com.kvang.entity.Title;
-import com.kvang.persistence.SessionFactoryProvider;
-import com.kvang.persistence.StateDao;
-import com.kvang.persistence.TitleDao;
+import com.kvang.persistence.*;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -28,6 +27,9 @@ public class EmployeeSignUp extends HttpServlet {
 
     private StateDao stateDao;
     private TitleDao titleDao;
+    private EmployeeRoleDao employeeRoleDao;
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,16 +44,28 @@ public class EmployeeSignUp extends HttpServlet {
             session.setAttribute("titles", null);
         }
 
+        if (session.getAttribute("employee") != null) {
+            session.setAttribute("employees", null);
+        }
+
+        if (session.getAttribute("employeeRole") != null) {
+            session.setAttribute("employeeRoles", null);
+        }
+
         stateDao = new StateDao();
         titleDao = new TitleDao();
+        employeeRoleDao = new EmployeeRoleDao();
+
 
         session.setAttribute("states", stateDao.getAllStates());
         session.setAttribute("titles", titleDao.getAllTitles());
+        session.setAttribute("employeeRoles", employeeRoleDao.getAllEmployeeRoles());
+
 
 
         String employeeSignUpUrl = "AdminOnly/employeeSignUpForm.jsp";
-        RequestDispatcher dispatcher = req.getRequestDispatcher(employeeSignUpUrl);
-        dispatcher.forward(req, resp);
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(employeeSignUpUrl);
+        requestDispatcher.forward(req, resp);
     }
 
     // This is employee signup form with employee information
@@ -71,6 +85,7 @@ public class EmployeeSignUp extends HttpServlet {
         String mobile_phone = req.getParameter("mobile_phone");
         String titleId = req.getParameter("title");
         String email = req.getParameter("email");
+        String employeeRoleName = req.getParameter("employeeRoleName");
 
         //log.info("stateId: " + stateId);
         //log.info("titleId: " + titleId);
@@ -78,6 +93,7 @@ public class EmployeeSignUp extends HttpServlet {
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
         int tId = Integer.parseInt(titleId);
+        //int erId = Integer.parseInt(employeeRoleId);
 
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
@@ -86,6 +102,7 @@ public class EmployeeSignUp extends HttpServlet {
             tx = session.beginTransaction();
             State state = (State) session.get(State.class, sId);
             Title title = (Title) session.get(Title.class, tId);
+            //EmployeeRole empRole = (EmployeeRole) session.get(EmployeeRole.class, erId);
             Employee employee = new Employee();
             employee.setFirst_name(first_name);
             employee.setLast_name(last_name);
@@ -99,11 +116,16 @@ public class EmployeeSignUp extends HttpServlet {
             employee.setTitle(title);
             employee.setEmail(email);
             employee.setPassword("GoldenSun1");
+            EmployeeRole employeeRole = new EmployeeRole();
+            employeeRole.setEmail(email);
+            employeeRole.setRole_name(employeeRoleName);
+            employeeRole.setEmployee(employee);
             session.save(employee);
+            session.save(employeeRole);
             tx.commit();
         } catch (HibernateException he) {
             if (tx != null) tx.rollback();
-            log.info("Error saving employee: ", he);
+            log.info("Error saving employee with role: ", he);
         } catch (Exception e) {
             log.error("Employee was not added through sign up form: ", e);
         } finally {

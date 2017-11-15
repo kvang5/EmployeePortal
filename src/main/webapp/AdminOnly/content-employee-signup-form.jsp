@@ -140,6 +140,21 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Employee Role</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-copy"></i></span>
+                                <select name="employeeRoleName" class="form-control selectpicker">
+                                    <option value="">Select Employee Role</option>
+                                    <c:forEach var="employeeRole" items="${employeeRoles}">
+                                        <option value="${employeeRole.role_name}">${employeeRole.role_name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>

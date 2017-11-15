@@ -10,9 +10,8 @@
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
-            <li>This will be links to USEFUL TASK</li>
+            <li>Administrator Extras</li> <!-- TODO: Find a better name for this section -->
             <li><a href="employeeSignUp">Register Employees</a></li>
-            <li><a href="#">Link</a></li>
         </ul>
     </div>
     <!--/.well -->
