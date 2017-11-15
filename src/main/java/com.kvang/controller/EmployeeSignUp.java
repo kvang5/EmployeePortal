@@ -87,13 +87,9 @@ public class EmployeeSignUp extends HttpServlet {
         String email = req.getParameter("email");
         String employeeRoleName = req.getParameter("employeeRoleName");
 
-        //log.info("stateId: " + stateId);
-        //log.info("titleId: " + titleId);
-
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
         int tId = Integer.parseInt(titleId);
-        //int erId = Integer.parseInt(employeeRoleId);
 
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         Transaction tx = null;
@@ -102,7 +98,6 @@ public class EmployeeSignUp extends HttpServlet {
             tx = session.beginTransaction();
             State state = (State) session.get(State.class, sId);
             Title title = (Title) session.get(Title.class, tId);
-            //EmployeeRole empRole = (EmployeeRole) session.get(EmployeeRole.class, erId);
             Employee employee = new Employee();
             employee.setFirst_name(first_name);
             employee.setLast_name(last_name);

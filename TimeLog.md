@@ -47,7 +47,7 @@
 | 11/10/17 | Adding more files to .gitignore file | .25 |  |
 | 11/11/17 | Team project - completed all Dao tests | 2 |  |
 | 11/13/17 | Add success message for employee signup form, findByProperty method for Daos and wrote tests, new JSPs and controller for more functionality, and fixed css issues. | 2.5 | |
-| 11//17 | | |  |
+| 11/14/17 | Add employee role assignment to signup form and created jsps/controller for client functionality | 1 |  |
 | 11//17 | | |  |
 | 11//17 | | |  |
 | 11//17 | | |  |

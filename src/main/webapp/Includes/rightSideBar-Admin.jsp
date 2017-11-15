@@ -12,6 +12,7 @@
             <li><a href="#">Link</a></li>
             <li>Administrator Extras</li> <!-- TODO: Find a better name for this section -->
             <li><a href="employeeSignUp">Register Employees</a></li>
+            <li><a href="addNewClient">New Client</a></li>
         </ul>
     </div>
     <!--/.well -->

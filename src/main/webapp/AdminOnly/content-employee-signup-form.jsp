@@ -5,7 +5,7 @@
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend><h2><b>Registration Form</b></h2></legend><br>
+                    <legend><h2><b>Employee Sign Up Form</b></h2></legend><br>
 
                     <!-- Text input -- First Name -->
                     <div class="form-group">
