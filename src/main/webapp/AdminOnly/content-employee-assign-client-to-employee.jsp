@@ -2,11 +2,6 @@
     <div class="jumbotron">
         <div class="container">
             <form class="well form-horizontal" action="assignClientToEmployee" method="POST" id="assign-form">
-                <!-- TODO: create a form that will assign employee to client
-                    - select option with employees by name
-                    - select option with clients by name
-                    - button to assign client to employee
-                -->
                 <fieldset>
 
                     <!-- Form Name -->
