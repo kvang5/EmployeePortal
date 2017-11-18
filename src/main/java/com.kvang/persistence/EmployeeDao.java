@@ -23,7 +23,6 @@ public class EmployeeDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             employees = session.createCriteria(Employee.class).list();
-            log.info("employees: " + employees);
         } catch (HibernateException he) {
             log.error("Error getting all employees", he);
         } catch (Exception e) {
@@ -44,7 +43,6 @@ public class EmployeeDao {
             employee = (Employee) session.get(Employee.class, id);
             Hibernate.initialize(employee.getState());
             Hibernate.initialize(employee.getTitle());
-            //Hibernate.initialize();
         } catch (HibernateException he) {
             log.error("Error getting employee by id", he);
         } catch (Exception e) {

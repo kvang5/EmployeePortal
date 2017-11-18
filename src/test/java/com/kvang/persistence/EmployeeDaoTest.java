@@ -60,6 +60,7 @@ public class EmployeeDaoTest {
         employee.setState(state);
         employee.setTitle(title);
         employee.setPassword("test");
+        employee.setStatus(true);
 
     }
 

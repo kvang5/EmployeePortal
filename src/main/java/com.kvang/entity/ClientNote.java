@@ -16,7 +16,7 @@ import java.util.Date;
 @Accessors
 @Entity
 @Table(name = "ClientNote")
-public class ClientNote {
+public class ClientNote implements java.io.Serializable {
 
     @Id
     @GeneratedValue(generator = "increment")

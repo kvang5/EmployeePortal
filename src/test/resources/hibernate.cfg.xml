@@ -29,7 +29,7 @@
         <mapping class="com.kvang.entity.Client"/>
         <mapping class="com.kvang.entity.Title"/>
         <mapping class="com.kvang.entity.EmployeeRole"/>
-
+        <mapping class="com.kvang.entity.ClientNote"/>
     </session-factory>
 
 </hibernate-configuration>

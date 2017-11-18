@@ -12,6 +12,7 @@ import java.util.Set;
 /**
  * Created by kvang on 9/27/17.
  */
+@SuppressWarnings("JpaAttributeTypeInspection")
 @Getter
 @Setter
 @Accessors
@@ -61,4 +62,7 @@ public class Client {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
     private Set<ClientNote> clientNotes = new HashSet<ClientNote>(0);
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "clients")
+    private Set<Employee> employees = new HashSet<Employee>(0);
 }

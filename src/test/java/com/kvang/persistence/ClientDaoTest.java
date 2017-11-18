@@ -24,6 +24,7 @@ public class ClientDaoTest {
 
     int newState = 0;
     int newClient = 0;
+    int newClientNote = 0;
 
     @Before
     public void setUp() throws Exception {
@@ -32,6 +33,8 @@ public class ClientDaoTest {
         state = new State();
         state.setState_code("WI");
         state.setState_name("Wisconsin");
+
+
 
         clientDao = new ClientDao();
 
@@ -45,6 +48,7 @@ public class ClientDaoTest {
         client.setHome_phone("608-222-2345");
         client.setMobile_phone("608-223-2323");
         client.setState(state);
+        client.setStatus(true);
     }
 
     @After
