@@ -6,6 +6,8 @@ import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by kvang on 9/27/17.
@@ -53,4 +55,10 @@ public class Client {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "USstate_stateId")
     private State state;
+
+    @Column(name = "status")
+    private Boolean status;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+    private Set<ClientNote> clientNotes = new HashSet<ClientNote>(0);
 }

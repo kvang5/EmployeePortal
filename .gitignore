@@ -54,8 +54,9 @@ fabric.properties
 target
 log4jLogs
 employeeportal.iml
-employeedb.sql
+employeeportal-test_script.sql
+employeeportal_script.sql
 resources
-
+importStartup.sql
 
 

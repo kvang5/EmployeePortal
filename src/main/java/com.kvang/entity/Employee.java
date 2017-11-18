@@ -68,4 +68,9 @@ public class Employee implements java.io.Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<EmployeeRole> employees = new HashSet<EmployeeRole>(0);
 
+    @Column(name = "status")
+    private Boolean status;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<ClientNote> clientNotes = new HashSet<ClientNote>(0);
 }
