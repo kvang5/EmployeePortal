@@ -9,11 +9,11 @@
                 <p class="pull-right visible-xs">
                     <button id="offcanvasright" class="btn btn-xs" type="button" data-toggle="offcanvasright"><i class="glyphicon glyphicon-chevron-right"></i></button>
                 </p>
-                <button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
+                <!--<button class="navbar-toggle" type="button" data-target=".navbar-collapse" data-toggle="collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
+                </button>-->
                 <img src="GSHCLogoImage/golden-sun-home-care-logo-resized.jpeg"/>
             </div>
 

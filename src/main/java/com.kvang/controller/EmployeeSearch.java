@@ -16,13 +16,15 @@ import java.io.IOException;
 )
 public class EmployeeSearch extends HttpServlet{
 
+    EmployeeDao employeeDao;
+
     //TODO Fix searching employees for admin
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
 
-        EmployeeDao employeeDao = new EmployeeDao();
+        employeeDao = new EmployeeDao();
 
         if (req.getParameter("submit").equals("search")) {
             req.setAttribute("employees", employeeDao.getEmployeeByFirstName(req.getParameter("searchTerm")));
