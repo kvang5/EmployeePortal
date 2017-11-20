@@ -50,9 +50,9 @@
 | 11/14/17 | Add employee role assignment to signup form and created jsps/controller for client functionality | 1 |  |
 | 11/14/17 | Add new client jsp and controller working | .75 |  |
 | 11/14/17 | Add assign client to employee jsp/controller | .5 | |
-| 11//17 | | |  |
-| 11//17 | | |  |
-| 11//17 | | |  |
+| 11/15/17 | Changes to assign client to employee jsp | .25 |  |
+| 11/18/17 | Update Database, add new relationship for entities, and update hibernate config | 1 |  |
+| 11/19/17 | Create new dao for searching, add date converter class, write tests for new dao methods, and fix searching for client/employees | 2 |  |
 | 11//17 | | |  |
 | 11//17 | | |  |
 | 11//17 | | |  |
