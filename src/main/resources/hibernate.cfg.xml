@@ -20,6 +20,9 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+
+
         <!-- List the annotated entity class/es -->
         <mapping class="com.kvang.entity.Employee"/>
         <mapping class="com.kvang.entity.State"/>

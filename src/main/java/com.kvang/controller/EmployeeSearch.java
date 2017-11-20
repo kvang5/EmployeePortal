@@ -1,6 +1,7 @@
 package com.kvang.controller;
 
 import com.kvang.persistence.EmployeeDao;
+import org.hibernate.criterion.MatchMode;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +19,6 @@ public class EmployeeSearch extends HttpServlet{
 
     EmployeeDao employeeDao;
 
-    //TODO Fix searching employees for admin
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -27,7 +27,7 @@ public class EmployeeSearch extends HttpServlet{
         employeeDao = new EmployeeDao();
 
         if (req.getParameter("submit").equals("search")) {
-            req.setAttribute("employees", employeeDao.getEmployeeByFirstName(req.getParameter("searchTerm")));
+            req.setAttribute("employees", employeeDao.findByProperty("last_name", req.getParameter("searchTerm"), MatchMode.ANYWHERE));
         } else {
             req.setAttribute("employees", employeeDao.getAllEmployees());
         }

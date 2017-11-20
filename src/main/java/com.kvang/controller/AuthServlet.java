@@ -22,7 +22,7 @@ public class AuthServlet extends HttpServlet{
 
         RequestDispatcher requestDispatcher;
         String adminUrl = "/AdminOnly/employeeSearch.jsp";
-        String employeeUrl = "/Employee/employeeDashboard.jsp";
+        String employeeUrl = "/Employee/clientSearch.jsp";
         String notAdminOrEmployeeUrl = "/loginError.jsp";
         if (req.isUserInRole("Administrator")) {
             requestDispatcher = getServletContext().getRequestDispatcher(adminUrl);

@@ -2,10 +2,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.EmployeeRole;
 import lombok.extern.log4j.Log4j;
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +16,26 @@ public class EmployeeRoleDao {
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             employeeRoles = session.createCriteria(EmployeeRole.class).list();
+        } catch (HibernateException he) {
+            log.error("Error getting all employeeRoless", he);
+        } catch (Exception e) {
+            log.error("General exception is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return employeeRoles;
+    }
+
+    public List<EmployeeRole> getLimitEmployeeRoles() {
+        List<EmployeeRole> employeeRoles = new ArrayList<EmployeeRole>();
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(EmployeeRole.class);
+            criteria.setMaxResults(2);
+            employeeRoles = criteria.list();
         } catch (HibernateException he) {
             log.error("Error getting all employeeRoless", he);
         } catch (Exception e) {

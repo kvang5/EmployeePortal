@@ -84,6 +84,12 @@ public class EmployeeRoleDaoTest {
     }
 
     @Test
+    public void getLimitEmployeeRoles() throws Exception {
+        List<EmployeeRole> employeeRoles = employeeRoleDao.getLimitEmployeeRoles();
+        assertEquals(2, employeeRoles.size());
+    }
+
+    @Test
     public void getEmployeeRoleById() throws Exception {
         newState = stateDao.addState(state);
         newTitle = titleDao.addTitle(title);

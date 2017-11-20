@@ -4,6 +4,7 @@ import com.kvang.entity.Employee;
 import com.kvang.entity.State;
 import com.kvang.entity.Title;
 import lombok.extern.log4j.Log4j;
+import org.hibernate.criterion.MatchMode;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -208,4 +209,12 @@ public class EmployeeDaoTest {
 
     }
 
+    @Test
+    public void findByProperty() throws Exception {
+        List<Employee> employees1 = employeeDao.findByProperty("first_name", "k", MatchMode.ANYWHERE);
+        assertTrue(employees1.size() > 0);
+
+        List<Employee> employees2 = employeeDao.findByProperty("first_name", "Kyle", MatchMode.EXACT);
+        assertTrue(employees2.size() > 0);
+    }
 }

@@ -59,7 +59,7 @@ public class EmployeeSignUp extends HttpServlet {
 
         session.setAttribute("states", stateDao.getAllStates());
         session.setAttribute("titles", titleDao.getAllTitles());
-        session.setAttribute("employeeRoles", employeeRoleDao.getAllEmployeeRoles());
+        session.setAttribute("employeeRoles", employeeRoleDao.getLimitEmployeeRoles());
 
 
 

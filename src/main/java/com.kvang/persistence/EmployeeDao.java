@@ -4,6 +4,7 @@ package com.kvang.persistence;
 import com.kvang.entity.Employee;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.ArrayList;
@@ -133,6 +134,29 @@ public class EmployeeDao {
 
         return employees;
 
+    }
+
+    public List<Employee> findByProperty(String propertyName, String value, MatchMode matchMode){
+        Session session = null;
+        List<Employee> items = new ArrayList<Employee>();
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            if (matchMode != null){
+                items =  session.createCriteria(Employee.class).add(Restrictions.ilike(propertyName, value, matchMode)).list();
+            }else{
+                items =  session.createCriteria(Employee.class).add(Restrictions.ilike(propertyName, value, MatchMode.EXACT)).list();
+            }
+        } catch (HibernateException he) {
+            log.error("Error getting Employee by first name", he);
+        } catch (NullPointerException e) {
+            log.error("Error getting Employee, employee don't exist: ", e);
+
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return items;
     }
 
 
