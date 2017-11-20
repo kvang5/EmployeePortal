@@ -1,5 +1,6 @@
 package com.kvang.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,12 +14,12 @@ import java.util.Set;
 /**
  * Created by kvang on 9/19/17.
  */
-@SuppressWarnings("ALL")
 @Setter
 @Getter
 @Accessors
 @ToString
 @Entity
+@EqualsAndHashCode
 @Table(name = "Employee")
 public class Employee implements java.io.Serializable {
 

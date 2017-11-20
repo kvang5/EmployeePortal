@@ -1,5 +1,6 @@
 package com.kvang.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -8,10 +9,12 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 @Getter
 @Setter
 @Accessors
 @Entity
+@EqualsAndHashCode
 @Table(name = "Title")
 public class Title {
 

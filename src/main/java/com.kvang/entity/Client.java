@@ -1,5 +1,6 @@
 package com.kvang.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -12,11 +13,11 @@ import java.util.Set;
 /**
  * Created by kvang on 9/27/17.
  */
-@SuppressWarnings("JpaAttributeTypeInspection")
 @Getter
 @Setter
 @Accessors
 @Entity
+@EqualsAndHashCode
 @Table(name = "Client")
 public class Client {
 

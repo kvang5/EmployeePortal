@@ -1,5 +1,6 @@
 package com.kvang.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Setter
 @Accessors
 @Entity
+@EqualsAndHashCode
 @Table(name = "EmployeeRole")
 public class EmployeeRole {
 
