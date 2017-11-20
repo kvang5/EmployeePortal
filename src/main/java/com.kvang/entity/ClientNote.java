@@ -1,12 +1,13 @@
 package com.kvang.entity;
 
+import com.kvang.utility.LocalDateAttributeConverter;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by kvang on 9/27/17.
@@ -25,7 +26,8 @@ public class ClientNote implements java.io.Serializable {
     private int client_noteId;
 
     @Column(name = "date")
-    private Date date;
+    @Convert(converter = LocalDateAttributeConverter.class)
+    private LocalDate date;
 
     @Column(name = "care_time")
     private Double care_time;

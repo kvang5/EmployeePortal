@@ -24,7 +24,6 @@ public class ClientDaoTest {
 
     int newState = 0;
     int newClient = 0;
-    int newClientNote = 0;
 
     @Before
     public void setUp() throws Exception {
@@ -33,8 +32,6 @@ public class ClientDaoTest {
         state = new State();
         state.setState_code("WI");
         state.setState_name("Wisconsin");
-
-
 
         clientDao = new ClientDao();
 
@@ -87,6 +84,8 @@ public class ClientDaoTest {
         assertEquals("Client home phone not returned correctly", client.getHome_phone(), clientDao.getClientById(newClient).getHome_phone());
         assertEquals("Client mobile phone not returned correctly", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not returned correctly", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
+        assertEquals("Client status not returned correctly", client.getStatus(), clientDao.getClientById(newClient).getStatus());
+
 
     }
 
@@ -108,6 +107,7 @@ public class ClientDaoTest {
         assertEquals("Client home phone not returned correctly", client.getHome_phone(), clientDao.getClientById(newClient).getHome_phone());
         assertEquals("Client mobile phone not returned correctly", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not returned correctly", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
+        assertEquals("Client status not returned correctly", client.getStatus(), clientDao.getClientById(newClient).getStatus());
 
     }
 
@@ -123,9 +123,9 @@ public class ClientDaoTest {
     @Test
     public void updateClient() throws Exception {
         newState = stateDao.addState(state);
-        state.setStateId(stateDao.getStateById(1).getStateId());
-        state.setState_code(stateDao.getStateById(1).getState_code());
-        state.setState_name(stateDao.getStateById(1).getState_name());
+        state.setStateId(stateDao.getStateById(5).getStateId());
+        state.setState_code(stateDao.getStateById(5).getState_code());
+        state.setState_name(stateDao.getStateById(5).getState_name());
 
         newClient = clientDao.addClient(client);
         client.setFirst_name("Helen");
@@ -151,5 +151,7 @@ public class ClientDaoTest {
         assertEquals("Client home phone name not updated", client.getHome_phone(), clientDao.getClientById(newClient).getHome_phone());
         assertEquals("Client mobile phone name not updated", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not updated", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
+        assertEquals("Client status not returned correctly", client.getStatus(), clientDao.getClientById(newClient).getStatus());
+
     }
 }

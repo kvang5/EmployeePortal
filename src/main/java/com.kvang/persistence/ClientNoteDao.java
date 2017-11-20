@@ -2,13 +2,11 @@ package com.kvang.persistence;
 
 import com.kvang.entity.ClientNote;
 import lombok.extern.log4j.Log4j;
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -132,5 +130,27 @@ public class ClientNoteDao {
             }
         }
         return items;
+    }
+
+    public List<ClientNote> getClientNotesByDate(LocalDate date) {
+        List<ClientNote> clientNotes = new ArrayList<ClientNote>();
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Criteria criteria = session.createCriteria(ClientNote.class);
+            criteria.add(Restrictions.eq("date", date));
+            clientNotes = criteria.list();
+        } catch (HibernateException he) {
+            log.error("Error getting client notes by date", he);
+        } catch (Exception e) {
+            log.error("General exception for getClientNotesByDate() is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+        return clientNotes;
+
     }
 }

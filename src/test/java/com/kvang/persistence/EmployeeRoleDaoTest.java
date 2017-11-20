@@ -127,13 +127,13 @@ public class EmployeeRoleDaoTest {
     @Test
     public void updateEmployeeRole() throws Exception {
         newState = stateDao.addState(state);
-        state.setStateId(stateDao.getStateById(1).getStateId());
-        state.setState_code(stateDao.getStateById(1).getState_code());
-        state.setState_name(stateDao.getStateById(1).getState_name());
+        state.setStateId(stateDao.getStateById(4).getStateId());
+        state.setState_code(stateDao.getStateById(4).getState_code());
+        state.setState_name(stateDao.getStateById(4).getState_name());
 
         newTitle = titleDao.addTitle(title);
-        title.setTitleId(titleDao.getTitleById(2).getTitleId());
-        title.setJobTitle(titleDao.getTitleById(2).getJobTitle());
+        title.setTitleId(titleDao.getTitleById(5).getTitleId());
+        title.setJobTitle(titleDao.getTitleById(5).getJobTitle());
 
         newEmployee = employeeDao.addEmployee(employee);
         employee.setFirst_name(employeeDao.getEmployeeById(5).getFirst_name());
