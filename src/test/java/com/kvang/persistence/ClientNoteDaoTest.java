@@ -156,8 +156,8 @@ public class ClientNoteDaoTest {
     public void updateClientNote() throws Exception {
         state = stateDao.getStateById(30);
         title = titleDao.getTitleById(2);
-        employee = employeeDao.getEmployeeById(7);
-        client = clientDao.getClientById(7);
+        employee = employeeDao.getEmployeeById(2);
+        client = clientDao.getClientById(1);
 
         newClientNote = clientNoteDao.addClientNote(clientNote);
         clientNote.setDate(LocalDate.of(2017, 12, 1));

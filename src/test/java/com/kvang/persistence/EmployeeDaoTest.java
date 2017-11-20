@@ -217,4 +217,18 @@ public class EmployeeDaoTest {
         List<Employee> employees2 = employeeDao.findByProperty("first_name", "Kyle", MatchMode.EXACT);
         assertTrue(employees2.size() > 0);
     }
+
+    @Test
+    public void checkIfEmployeeExistInDB() throws Exception {
+        // compare with a email that exist in BD
+        Boolean isValid1 = employeeDao.checkIfEmployeeExistInDB("admin@admin.com");
+        log.info("test 1: " + isValid1);
+        assertTrue(isValid1 == true);
+
+        // compare with a not exist email in DB
+        Boolean isValid2 = employeeDao.checkIfEmployeeExistInDB("empNotExist@notExist.com");
+        log.info("test 2: " + isValid2);
+        assertTrue(isValid2 == false);
+
+    }
 }

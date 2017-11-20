@@ -107,7 +107,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input name="mobile_phone" placeholder="(608)" class="form-control" type="text" required>
+                                <input name="mobile_phone" placeholder="(608)" class="form-control" type="text">
                             </div>
                         </div>
                     </div>

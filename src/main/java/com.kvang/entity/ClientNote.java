@@ -1,7 +1,6 @@
 package com.kvang.entity;
 
 import com.kvang.utility.LocalDateAttributeConverter;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -17,7 +16,6 @@ import java.time.LocalDate;
 @Setter
 @Accessors
 @Entity
-@EqualsAndHashCode
 @Table(name = "ClientNote")
 public class ClientNote implements java.io.Serializable {
 

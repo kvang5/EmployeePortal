@@ -1,6 +1,5 @@
 package com.kvang.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -14,7 +13,6 @@ import java.util.Set;
 @Setter
 @Accessors
 @Entity
-@EqualsAndHashCode
 @Table(name = "Title")
 public class Title {
 

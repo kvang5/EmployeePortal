@@ -1,6 +1,5 @@
 package com.kvang.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -17,7 +16,6 @@ import java.util.Set;
 @Setter
 @Accessors
 @Entity
-@EqualsAndHashCode
 @Table(name = "USstate")
 public class State implements java.io.Serializable {
 

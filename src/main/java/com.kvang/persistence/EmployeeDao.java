@@ -159,4 +159,37 @@ public class EmployeeDao {
         return items;
     }
 
+    public boolean checkIfEmployeeExistInDB(String email) {
+        boolean employeeExist = true;
+
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            Query query = session.createQuery("from Employee where email = :email");
+            query.setParameter("email", email);
+            query.uniqueResult();
+
+            if (query.uniqueResult() == null) {
+                // returns false if email DOES NOT EXIST
+                log.info("Email does not exist in the DB.");
+                employeeExist = false;
+            } else {
+                // returns true if email DOES EXIST
+                log.info("Email exists.");
+                employeeExist = true;
+            }
+
+        } catch (HibernateException he) {
+            log.error("Hibernate Exception error", he);
+        } catch (Exception e) {
+            log.error("Exception error", e);
+        }finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return employeeExist;
+    }
 }
