@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import javax.persistence.AssociationOverride;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,8 +15,11 @@ import javax.persistence.Table;
 @ToString
 @Entity
 @Table(name = "EmployeeClient")
+@AssociationOverride(name = "pk.")
 public class EmployeeClient implements java.io.Serializable {
 
+    private Employee employeeId;
 
+    //private
 
 }

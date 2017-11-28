@@ -85,7 +85,7 @@ public class assignClientToEmployee extends HttpServlet{
             clients.add(client);
 
             employee.setClients(clients);
-            //session.save(employee); this saves another employee
+            //session.save(employee); //this saves another employee
             //session.update(employee); this updates existing employee with new client
             // TODO: Need to create a method to just add on to existing employee
             tx.commit();

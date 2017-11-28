@@ -10,12 +10,12 @@
     <div class="panel-body">
         <form class="login-form" action="j_security_check" method="POST">
             <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" name="j_username" class="form-control" id="email">
+                <label for="j_username">Email address:</label>
+                <input type="email" name="j_username" class="form-control" id="j_username">
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="j_password" class="form-control" id="password">
+                <label for="j_password">Password:</label>
+                <input type="password" name="j_password" class="form-control" id="j_password">
             </div>
             <button type="submit" class="btn btn-warning" name="login-btn" value="login">Log In</button>
         </form>

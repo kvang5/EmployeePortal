@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(
-        urlPatterns = {"/authSevlet"}
+        urlPatterns = {"/authServlet"}
 )
 public class AuthServlet extends HttpServlet{
 
@@ -20,20 +20,22 @@ public class AuthServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        System.out.println("In the auth servlet");
+
         RequestDispatcher requestDispatcher;
         String adminUrl = "/AdminOnly/employeeSearch.jsp";
         String employeeUrl = "/Employee/clientSearch.jsp";
         String notAdminOrEmployeeUrl = "/loginError.jsp";
-        if (req.isUserInRole("Administrator")) {
+        /*if (req.isUserInRole("Administrator")) {
             requestDispatcher = getServletContext().getRequestDispatcher(adminUrl);
             requestDispatcher.forward(req, resp);
-        } else if (req.isUserInRole("Registered-user")) {
-            requestDispatcher = getServletContext().getRequestDispatcher(employeeUrl);
-            requestDispatcher.forward(req, resp);
-        } else {
-            requestDispatcher = getServletContext().getRequestDispatcher(notAdminOrEmployeeUrl);
-            requestDispatcher.forward(req, resp);
-        }
+        } else /*if (req.isUserInRole("Registered-user")) *///{
+            //requestDispatcher = getServletContext().getRequestDispatcher(employeeUrl);
+            //requestDispatcher.forward(req, resp);
+        //} /*else {
+            //requestDispatcher = getServletContext().getRequestDispatcher(notAdminOrEmployeeUrl);
+            //requestDispatcher.forward(req, resp);
+        //}*/
     }
 
 }

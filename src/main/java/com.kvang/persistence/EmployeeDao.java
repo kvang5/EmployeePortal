@@ -192,4 +192,9 @@ public class EmployeeDao {
         }
         return employeeExist;
     }
+
+    public void addEmployee() {
+
+    }
+
 }
