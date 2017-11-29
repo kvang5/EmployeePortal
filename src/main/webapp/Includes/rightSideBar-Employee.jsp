@@ -11,7 +11,7 @@
             <li><a href="#">Link</a></li>
             <li>Employee Extras</li> <!-- TODO: Find a better name for this section -->
             <li><a href="clientSearch">Client Search</a></li><!-- TODO: fix client search link -->
-
+            <li><a href="/employeeportal/Employee/employeeClientNote.jsp">Client Note</a></li>
         </ul>
     </div>
     <!--/.well -->
