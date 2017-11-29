@@ -12,7 +12,7 @@
 
             <%@include file="../Includes/leftSideBar-Employee.jsp"%>
 
-            <%@include file="content-employee-client-aide-weekly-task-schedule.jsp"%>
+            <%@include file="content-employee-client-note.jsp"%>
 
             <%@include file="../Includes/rightSideBar-Employee.jsp"%>
 
