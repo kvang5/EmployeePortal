@@ -30,11 +30,11 @@ public class AuthServlet extends HttpServlet{
 
         RequestDispatcher requestDispatcher;
         String adminUrl = "/AdminOnly/employeeSearch.jsp";
-        //String googleCalender = "/Employee/googleCalendar.jsp"; // test calendar
+        String googleCalender = "/Employee/googleCalendar.jsp"; // test calendar
         String employeeUrl = "/Employee/clientSearch.jsp";
         String notAdminOrEmployeeUrl = "/loginError.jsp";
         if (req.isUserInRole("Administrator")) {
-            requestDispatcher = getServletContext().getRequestDispatcher(adminUrl);
+            requestDispatcher = getServletContext().getRequestDispatcher(googleCalender);
             requestDispatcher.forward(req, resp);
         } else if (req.isUserInRole("Registered-user")) {
             requestDispatcher = getServletContext().getRequestDispatcher(employeeUrl);

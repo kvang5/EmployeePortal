@@ -1,7 +1,6 @@
 package com.kvang.controller;
 
 import com.kvang.persistence.ClientDao;
-import org.hibernate.criterion.MatchMode;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -27,16 +25,9 @@ public class ClientSearch extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
+        String clientSearchUrl = "Employee/clientSearch.jsp";
 
-        clientDao = new ClientDao();
-
-        if (req.getParameter("submit").equals("search")) {
-            req.setAttribute("clients", clientDao.findByProperty("last_name", req.getParameter("searchTerm"), MatchMode.ANYWHERE));
-        } else {
-            req.setAttribute("clients", clientDao.getAllClients());
-        }
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("Employee/clientSearchResults.jsp");
-        requestDispatcher.forward(req, resp);
+        RequestDispatcher requestDispatcher1 = req.getRequestDispatcher(clientSearchUrl);
+        requestDispatcher1.forward(req, resp);
     }
 }
