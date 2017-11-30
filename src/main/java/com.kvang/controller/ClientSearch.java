@@ -1,7 +1,5 @@
 package com.kvang.controller;
 
-import com.kvang.persistence.ClientDao;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,17 +15,13 @@ import java.io.IOException;
         urlPatterns = {"/clientSearch"}
 )
 public class ClientSearch extends HttpServlet {
-    /**
-     * The Client dao.
-     */
-    ClientDao clientDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String clientSearchUrl = "Employee/clientSearch.jsp";
+        String clientSearchUrl = "/Employee/clientSearch.jsp";
 
-        RequestDispatcher requestDispatcher1 = req.getRequestDispatcher(clientSearchUrl);
+        RequestDispatcher requestDispatcher1 = getServletContext().getRequestDispatcher(clientSearchUrl);
         requestDispatcher1.forward(req, resp);
     }
 }

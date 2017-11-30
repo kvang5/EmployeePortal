@@ -28,16 +28,15 @@ public class AuthServlet extends HttpServlet{
 
         //System.out.println("In the auth servlet");
 
+        // TODO: Auth servlet sends admin and registered user to calender
         RequestDispatcher requestDispatcher;
-        String adminUrl = "/AdminOnly/employeeSearch.jsp";
         String googleCalender = "/Employee/googleCalendar.jsp"; // test calendar
-        String employeeUrl = "/Employee/clientSearch.jsp";
         String notAdminOrEmployeeUrl = "/loginError.jsp";
         if (req.isUserInRole("Administrator")) {
             requestDispatcher = getServletContext().getRequestDispatcher(googleCalender);
             requestDispatcher.forward(req, resp);
         } else if (req.isUserInRole("Registered-user")) {
-            requestDispatcher = getServletContext().getRequestDispatcher(employeeUrl);
+            requestDispatcher = getServletContext().getRequestDispatcher(googleCalender);
             requestDispatcher.forward(req, resp);
         } else {
             requestDispatcher = getServletContext().getRequestDispatcher(notAdminOrEmployeeUrl);
