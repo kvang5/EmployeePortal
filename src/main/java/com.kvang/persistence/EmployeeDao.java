@@ -12,12 +12,17 @@ import java.util.List;
 
 /**
  * EmployeeDao Class allows hibernate to assist in create(add), read(get), update, and delete (CRUD) for employees
- *
+ * <p>
  * Created by kvang on 9/21/17.
  */
 @Log4j
 public class EmployeeDao {
 
+    /**
+     * Gets all employees.
+     *
+     * @return the all employees
+     */
     public List<Employee> getAllEmployees() {
         List<Employee> employees = new ArrayList<Employee>();
         Session session = null;
@@ -36,6 +41,12 @@ public class EmployeeDao {
         return employees;
     }
 
+    /**
+     * Gets employee by id.
+     *
+     * @param id the id
+     * @return the employee by id
+     */
     public Employee getEmployeeById(int id) {
         Employee employee = null;
         Session session = null;
@@ -57,6 +68,12 @@ public class EmployeeDao {
     }
 
 
+    /**
+     * Add employee int.
+     *
+     * @param employee the employee
+     * @return the int
+     */
     public int addEmployee(Employee employee) {
         int id = 0;
         Session session = null;
@@ -77,6 +94,11 @@ public class EmployeeDao {
         return id;
     }
 
+    /**
+     * Delete employee.
+     *
+     * @param id the id
+     */
     public void deleteEmployee(int id) {
         Session session = null;
         try {
@@ -96,6 +118,11 @@ public class EmployeeDao {
         }
     }
 
+    /**
+     * Update employee.
+     *
+     * @param employee the employee
+     */
     public void updateEmployee(Employee employee) {
         Session session = null;
         try {
@@ -114,6 +141,12 @@ public class EmployeeDao {
         }
     }
 
+    /**
+     * Gets employee by first name.
+     *
+     * @param first_name the first name
+     * @return the employee by first name
+     */
     public List<Employee> getEmployeeByFirstName(String first_name) {
         List<Employee> employees = new ArrayList<Employee>();
         Session session = null;
@@ -136,6 +169,14 @@ public class EmployeeDao {
 
     }
 
+    /**
+     * Find by property list.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @param matchMode    the match mode
+     * @return the list
+     */
     public List<Employee> findByProperty(String propertyName, String value, MatchMode matchMode){
         Session session = null;
         List<Employee> items = new ArrayList<Employee>();
@@ -159,6 +200,12 @@ public class EmployeeDao {
         return items;
     }
 
+    /**
+     * Check if employee exist in db boolean.
+     *
+     * @param email the email
+     * @return the boolean
+     */
     public boolean checkIfEmployeeExistInDB(String email) {
         boolean employeeExist = true;
 
@@ -191,10 +238,6 @@ public class EmployeeDao {
             }
         }
         return employeeExist;
-    }
-
-    public void addEmployee() {
-
     }
 
 }

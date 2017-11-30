@@ -16,15 +16,38 @@ import static org.junit.Assert.*;
  */
 @Log4j
 public class ClientDaoTest {
+    /**
+     * The State dao.
+     */
     StateDao stateDao;
+    /**
+     * The State.
+     */
     State state;
 
+    /**
+     * The Client dao.
+     */
     ClientDao clientDao;
+    /**
+     * The Client.
+     */
     Client client;
 
+    /**
+     * The New state.
+     */
     int newState = 0;
+    /**
+     * The New client.
+     */
     int newClient = 0;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
         stateDao = new StateDao();
@@ -48,6 +71,11 @@ public class ClientDaoTest {
         client.setStatus(true);
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
         /*if (newState != 0) {
@@ -59,6 +87,11 @@ public class ClientDaoTest {
         }*/
     }
 
+    /**
+     * Gets all clients.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllClients() throws Exception {
         newState = stateDao.addState(state);
@@ -67,6 +100,11 @@ public class ClientDaoTest {
         assertTrue(clients.size() > 0);
     }
 
+    /**
+     * Gets client by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getClientById() throws Exception {
         newState = stateDao.addState(state);
@@ -89,6 +127,11 @@ public class ClientDaoTest {
 
     }
 
+    /**
+     * Add client.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addClient() throws Exception {
         newState = stateDao.addState(state);
@@ -111,6 +154,11 @@ public class ClientDaoTest {
 
     }
 
+    /**
+     * Delete client.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void deleteClient() throws Exception {
         stateDao.addState(state);
@@ -120,6 +168,11 @@ public class ClientDaoTest {
         clientDao.deleteClient(client.getClientId());
     }
 
+    /**
+     * Update client.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updateClient() throws Exception {
         newState = stateDao.addState(state);

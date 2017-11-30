@@ -7,6 +7,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+/**
+ * The type Employee role.
+ */
 @Getter
 @Setter
 @Accessors

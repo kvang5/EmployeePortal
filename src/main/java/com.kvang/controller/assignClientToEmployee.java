@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Assign client to employee.
+ */
 @Log4j
 @WebServlet (
         urlPatterns = {"/assignClientToEmployee"}
@@ -68,14 +71,12 @@ public class assignClientToEmployee extends HttpServlet{
 
         Session session = null;
         Transaction tx;
+        Employee employee;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            //Employee emp = (Employee) session.get(Employee.class, empId);
-            //Client cl = (Client) session.get(Client.class, clId);
 
-            Employee employee = new Employee();
             employee = employeeDao.getEmployeeById(empId);
 
             Client client = new Client();
@@ -83,6 +84,9 @@ public class assignClientToEmployee extends HttpServlet{
 
             Set<Client> clients = new HashSet<Client>();
             clients.add(client);
+
+            System.out.println("Checking if employee email exist");
+            System.out.println(employeeDao.checkIfEmployeeExistInDB(employee.getEmail()));
 
             employee.setClients(clients);
             //session.save(employee); //this saves another employee

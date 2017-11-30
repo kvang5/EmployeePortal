@@ -14,14 +14,27 @@ import static org.junit.Assert.*;
 /**
  * Created by kvang on 9/26/17.
  */
-
 @Log4j
 public class StateDaoTest {
 
+    /**
+     * The State dao.
+     */
     StateDao stateDao;
+    /**
+     * The State.
+     */
     State state;
+    /**
+     * The New state.
+     */
     int newState = 0;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
         stateDao = new StateDao();
@@ -31,6 +44,11 @@ public class StateDaoTest {
 
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
         if (newState != 0) {
@@ -38,6 +56,11 @@ public class StateDaoTest {
         }
     }
 
+    /**
+     * Gets all states.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllStates() throws Exception {
         newState = stateDao.addState(state);
@@ -45,6 +68,11 @@ public class StateDaoTest {
         assertTrue(states.size() > 0);
     }
 
+    /**
+     * Gets state by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getStateById() throws Exception {
         newState = stateDao.addState(state);
@@ -56,6 +84,11 @@ public class StateDaoTest {
 
     }
 
+    /**
+     * Add state.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addState() throws Exception {
         newState = stateDao.addState(state);
@@ -67,6 +100,11 @@ public class StateDaoTest {
     }
 
 
+    /**
+     * Delete state.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void deleteState() throws Exception {
         stateDao.addState(state);
@@ -74,6 +112,11 @@ public class StateDaoTest {
         stateDao.deleteState(state.getStateId());
     }
 
+    /**
+     * Update state.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updateState() throws Exception {
         newState = stateDao.addState(state);
@@ -86,6 +129,11 @@ public class StateDaoTest {
 
     }
 
+    /**
+     * Find by property.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void findByProperty() throws Exception {
         List<State> states1 = stateDao.findByProperty("state_name", "W", MatchMode.ANYWHERE);

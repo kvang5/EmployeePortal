@@ -19,6 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Employee sign up.
+ */
 @Log4j
 @WebServlet (
         urlPatterns = {"/employeeSignUp"}

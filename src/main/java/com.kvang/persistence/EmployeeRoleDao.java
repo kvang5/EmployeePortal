@@ -7,9 +7,17 @@ import org.hibernate.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Employee role dao.
+ */
 @Log4j
 public class EmployeeRoleDao {
-    
+
+    /**
+     * Gets all employee roles.
+     *
+     * @return the all employee roles
+     */
     public List<EmployeeRole> getAllEmployeeRoles() {
         List<EmployeeRole> employeeRoles = new ArrayList<EmployeeRole>();
         Session session = null;
@@ -28,6 +36,11 @@ public class EmployeeRoleDao {
         return employeeRoles;
     }
 
+    /**
+     * Gets limit employee roles.
+     *
+     * @return the limit employee roles
+     */
     public List<EmployeeRole> getLimitEmployeeRoles() {
         List<EmployeeRole> employeeRoles = new ArrayList<EmployeeRole>();
         Session session = null;
@@ -48,6 +61,12 @@ public class EmployeeRoleDao {
         return employeeRoles;
     }
 
+    /**
+     * Gets employee role by id.
+     *
+     * @param id the id
+     * @return the employee role by id
+     */
     public EmployeeRole getEmployeeRoleById(int id) {
         EmployeeRole employeeRole = null;
         Session session = null;
@@ -68,6 +87,12 @@ public class EmployeeRoleDao {
     }
 
 
+    /**
+     * Add employee role int.
+     *
+     * @param employeeRole the employee role
+     * @return the int
+     */
     public int addEmployeeRole(EmployeeRole employeeRole) {
         int id = 0;
         Session session = null;
@@ -88,6 +113,11 @@ public class EmployeeRoleDao {
         return id;
     }
 
+    /**
+     * Delete employee role.
+     *
+     * @param id the id
+     */
     public void deleteEmployeeRole(int id) {
         Session session = null;
         try {
@@ -107,6 +137,11 @@ public class EmployeeRoleDao {
         }
     }
 
+    /**
+     * Update employee role.
+     *
+     * @param employeeRole the employee role
+     */
     public void updateEmployeeRole(EmployeeRole employeeRole) {
         Session session = null;
         try {

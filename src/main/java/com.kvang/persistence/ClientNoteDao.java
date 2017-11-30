@@ -10,9 +10,17 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Client note dao.
+ */
 @Log4j
 public class ClientNoteDao {
-    
+
+    /**
+     * Gets all client notes.
+     *
+     * @return the all client notes
+     */
     public List<ClientNote> getAllClientNotes() {
         List<ClientNote> clientNotes = new ArrayList<ClientNote>();
         Session session = null;
@@ -31,6 +39,12 @@ public class ClientNoteDao {
         return clientNotes;
     }
 
+    /**
+     * Gets client note by id.
+     *
+     * @param id the id
+     * @return the client note by id
+     */
     public ClientNote getClientNoteById(int id) {
         ClientNote clientNote = null;
         Session session = null;
@@ -52,6 +66,12 @@ public class ClientNoteDao {
     }
 
 
+    /**
+     * Add client note int.
+     *
+     * @param clientNote the client note
+     * @return the int
+     */
     public int addClientNote(ClientNote clientNote) {
         int id = 0;
         Session session = null;
@@ -72,6 +92,11 @@ public class ClientNoteDao {
         return id;
     }
 
+    /**
+     * Delete client note.
+     *
+     * @param id the id
+     */
     public void deleteClientNote(int id) {
         Session session = null;
         try {
@@ -91,6 +116,11 @@ public class ClientNoteDao {
         }
     }
 
+    /**
+     * Update client note.
+     *
+     * @param clientNote the client note
+     */
     public void updateClientNote(ClientNote clientNote) {
         Session session = null;
         try {
@@ -109,6 +139,14 @@ public class ClientNoteDao {
         }
     }
 
+    /**
+     * Find by property list.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @param matchMode    the match mode
+     * @return the list
+     */
     public List<ClientNote> findByProperty(String propertyName, String value, MatchMode matchMode) {
         Session session = null;
         List<ClientNote> items = new ArrayList<ClientNote>();
@@ -132,6 +170,12 @@ public class ClientNoteDao {
         return items;
     }
 
+    /**
+     * Gets client notes by date.
+     *
+     * @param date the date
+     * @return the client notes by date
+     */
     public List<ClientNote> getClientNotesByDate(LocalDate date) {
         List<ClientNote> clientNotes = new ArrayList<ClientNote>();
         Session session = null;

@@ -11,31 +11,87 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Client note dao test.
+ */
 @Log4j
 public class ClientNoteDaoTest {
+    /**
+     * The Now.
+     */
     LocalDate now = LocalDate.now();
 
+    /**
+     * The State dao.
+     */
     StateDao stateDao;
+    /**
+     * The State.
+     */
     State state;
 
+    /**
+     * The Title dao.
+     */
     TitleDao titleDao;
+    /**
+     * The Title.
+     */
     Title title;
 
+    /**
+     * The Employee dao.
+     */
     EmployeeDao employeeDao;
+    /**
+     * The Employee.
+     */
     Employee employee;
 
+    /**
+     * The Client dao.
+     */
     ClientDao clientDao;
+    /**
+     * The Client.
+     */
     Client client;
 
+    /**
+     * The Client note dao.
+     */
     ClientNoteDao clientNoteDao;
+    /**
+     * The Client note.
+     */
     ClientNote clientNote;
 
+    /**
+     * The New state.
+     */
     int newState;
+    /**
+     * The New title.
+     */
     int newTitle;
+    /**
+     * The New employee.
+     */
     int newEmployee;
+    /**
+     * The New client.
+     */
     int newClient;
+    /**
+     * The New client note.
+     */
     int newClientNote;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
 
@@ -92,10 +148,20 @@ public class ClientNoteDaoTest {
 
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
     }
 
+    /**
+     * Gets all client notes.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllClientNotes() throws Exception {
         newState = stateDao.addState(state);
@@ -107,6 +173,11 @@ public class ClientNoteDaoTest {
         assertTrue(clientNotes.size() > 0);
     }
 
+    /**
+     * Gets client note by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getClientNoteById() throws Exception {
         newState = stateDao.addState(state);
@@ -119,6 +190,11 @@ public class ClientNoteDaoTest {
         assertEquals("Client note Id not returned correctly", clientNote.getClient_noteId(), clientNoteDao.getClientNoteById(newClientNote).getClient_noteId());
     }
 
+    /**
+     * Add client note.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addClientNote() throws Exception {
         newState = stateDao.addState(state);
@@ -138,6 +214,11 @@ public class ClientNoteDaoTest {
 
     }
 
+    /**
+     * Delete client note.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void deleteClientNote() throws Exception {
         newState = stateDao.addState(state);
@@ -152,6 +233,11 @@ public class ClientNoteDaoTest {
 
     }
 
+    /**
+     * Update client note.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updateClientNote() throws Exception {
         state = stateDao.getStateById(30);
@@ -181,12 +267,22 @@ public class ClientNoteDaoTest {
 
     }
 
+    /**
+     * Find by property.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void findByProperty() throws Exception {
 
         //List<ClientNote> clientNotes = clientNoteDao.findByProperty("Clien_clientId", "")
     }
 
+    /**
+     * Gets client notes by date.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getClientNotesByDate() throws Exception {
         List<ClientNote> clientNotes = clientNoteDao.getClientNotesByDate(LocalDate.of(2017, 12, 1));

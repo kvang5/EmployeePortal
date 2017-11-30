@@ -18,6 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Client add new client.
+ */
 @Log4j
 @WebServlet (
         urlPatterns = {"/addNewClient"}

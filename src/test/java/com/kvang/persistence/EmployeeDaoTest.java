@@ -17,23 +17,54 @@ import static org.junit.Assert.*;
 /**
  * Created by kvang on 9/21/17.
  */
-
 @Log4j
 public class EmployeeDaoTest {
 
+    /**
+     * The State dao.
+     */
     StateDao stateDao;
+    /**
+     * The State.
+     */
     State state;
 
+    /**
+     * The Title dao.
+     */
     TitleDao titleDao;
+    /**
+     * The Title.
+     */
     Title title;
 
+    /**
+     * The Employee dao.
+     */
     EmployeeDao employeeDao;
+    /**
+     * The Employee.
+     */
     Employee employee;
 
+    /**
+     * The New state.
+     */
     int newState = 0;
+    /**
+     * The New title.
+     */
     int newTitle = 0;
+    /**
+     * The New employee.
+     */
     int newEmployee = 0;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
         stateDao = new StateDao();
@@ -66,6 +97,11 @@ public class EmployeeDaoTest {
     }
 
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
         /*if (newState != 0) {
@@ -83,6 +119,11 @@ public class EmployeeDaoTest {
 
     }
 
+    /**
+     * Gets all employees.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllEmployees() throws Exception {
         newState = stateDao.addState(state);
@@ -92,6 +133,11 @@ public class EmployeeDaoTest {
         assertTrue(employees.size() > 0);
     }
 
+    /**
+     * Gets employee by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getEmployeeById() throws Exception {
         newState = stateDao.addState(state);
@@ -115,6 +161,11 @@ public class EmployeeDaoTest {
         assertEquals("Employee status not returned correctly", employee.getStatus(), employeeDao.getEmployeeById(newEmployee).getStatus());
     }
 
+    /**
+     * Add employee.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addEmployee() throws Exception {
         newState = stateDao.addState(state);
@@ -141,6 +192,11 @@ public class EmployeeDaoTest {
 
     }
 
+    /**
+     * Delete employee.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void deleteEmployee() throws Exception {
         stateDao.addState(state);
@@ -151,6 +207,11 @@ public class EmployeeDaoTest {
         employeeDao.deleteEmployee(employee.getEmployeeId());
     }
 
+    /**
+     * Update employee.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updateEmployee() throws Exception {
         newState = stateDao.addState(state);
@@ -194,6 +255,11 @@ public class EmployeeDaoTest {
 
     }
 
+    /**
+     * Gets employee by first name.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getEmployeeByFirstName() throws Exception {
         newState = stateDao.addState(state);
@@ -209,6 +275,11 @@ public class EmployeeDaoTest {
 
     }
 
+    /**
+     * Find by property.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void findByProperty() throws Exception {
         List<Employee> employees1 = employeeDao.findByProperty("first_name", "k", MatchMode.ANYWHERE);
@@ -218,6 +289,11 @@ public class EmployeeDaoTest {
         assertTrue(employees2.size() > 0);
     }
 
+    /**
+     * Check if employee exist in db.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void checkIfEmployeeExistInDB() throws Exception {
         // compare with a email that exist in BD

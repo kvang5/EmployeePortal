@@ -17,7 +17,12 @@ import java.util.List;
  */
 @Log4j
 public class StateDao {
-    
+
+    /**
+     * Gets all states.
+     *
+     * @return the all states
+     */
     public List<State> getAllStates() {
         List<State> states = new ArrayList<State>();
         Session session = null;
@@ -36,6 +41,12 @@ public class StateDao {
         return states;
     }
 
+    /**
+     * Add state int.
+     *
+     * @param state the state
+     * @return the int
+     */
     public int addState(State state) {
         int id = 0;
         Session session = null;
@@ -56,6 +67,12 @@ public class StateDao {
         return id;
     }
 
+    /**
+     * Gets state by id.
+     *
+     * @param id the id
+     * @return the state by id
+     */
     public State getStateById(int id) {
         State state = null;
         Session session = null;
@@ -74,6 +91,11 @@ public class StateDao {
         return state;
     }
 
+    /**
+     * Delete state.
+     *
+     * @param id the id
+     */
     public void deleteState(int id) {
         Session session = null;
         try {
@@ -93,6 +115,11 @@ public class StateDao {
         }
     }
 
+    /**
+     * Update state.
+     *
+     * @param state the state
+     */
     public void updateState(State state) {
         Session session = null;
         try {
@@ -111,6 +138,14 @@ public class StateDao {
         }
     }
 
+    /**
+     * Find by property list.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @param matchMode    the match mode
+     * @return the list
+     */
     public List<State> findByProperty(String propertyName, String value, MatchMode matchMode){
         Session session = null;
         List<State> items = new ArrayList<State>();

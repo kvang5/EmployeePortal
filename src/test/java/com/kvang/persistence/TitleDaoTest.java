@@ -10,13 +10,30 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Title dao test.
+ */
 @Log4j
 public class TitleDaoTest {
 
+    /**
+     * The Title dao.
+     */
     TitleDao titleDao;
+    /**
+     * The Title.
+     */
     Title title;
+    /**
+     * The New title.
+     */
     int newTitle = 0;
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
         titleDao = new TitleDao();
@@ -32,6 +49,11 @@ public class TitleDaoTest {
         }
     }*/
 
+    /**
+     * Gets all titles.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllTitles() throws Exception {
         newTitle = titleDao.addTitle(title);
@@ -39,6 +61,11 @@ public class TitleDaoTest {
         assertTrue(titles.size() > 0);
     }
 
+    /**
+     * Gets title by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getTitleById() throws Exception {
         newTitle = titleDao.addTitle(title);
@@ -49,6 +76,11 @@ public class TitleDaoTest {
 
     }
 
+    /**
+     * Add title.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addTitle() throws Exception {
         newTitle = titleDao.addTitle(title);
@@ -59,6 +91,11 @@ public class TitleDaoTest {
     }
 
 
+    /**
+     * Delete title.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void deleteTitle() throws Exception {
         titleDao.addTitle(title);
@@ -68,6 +105,11 @@ public class TitleDaoTest {
 
     }
 
+    /**
+     * Update title.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updateTitle() throws Exception {
         newTitle = titleDao.addTitle(title);
@@ -78,6 +120,11 @@ public class TitleDaoTest {
 
     }
 
+    /**
+     * Find by property.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void findByProperty() throws Exception {
         List<Title> titles1 = titleDao.findByProperty("jobTitle", "R", MatchMode.ANYWHERE);

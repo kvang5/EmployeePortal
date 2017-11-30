@@ -1,5 +1,6 @@
 package com.kvang.entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Accessors
 @ToString
 @Entity
+@EqualsAndHashCode
 @Table(name = "Employee")
 public class Employee implements java.io.Serializable {
 
@@ -74,10 +76,11 @@ public class Employee implements java.io.Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<ClientNote> clientNotes = new HashSet<ClientNote>(0);
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "EmployeeClient", joinColumns = {
             @JoinColumn(name = "Employee_employeeId", nullable = false, updatable = false) },
             inverseJoinColumns = { @JoinColumn(name = "Client_clientId",
                     nullable = false, updatable = false) })
     private Set<Client> clients = new HashSet<Client>(0);
+
 }

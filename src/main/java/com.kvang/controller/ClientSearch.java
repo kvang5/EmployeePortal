@@ -12,10 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Client search.
+ */
 @WebServlet (
         urlPatterns = {"/clientSearch"}
 )
 public class ClientSearch extends HttpServlet {
+    /**
+     * The Client dao.
+     */
     ClientDao clientDao;
 
     @Override

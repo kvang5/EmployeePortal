@@ -12,11 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Employee search.
+ */
 @WebServlet(
         urlPatterns = {"/employeeSearch"}
 )
 public class EmployeeSearch extends HttpServlet{
 
+    /**
+     * The Employee dao.
+     */
     EmployeeDao employeeDao;
 
     @Override

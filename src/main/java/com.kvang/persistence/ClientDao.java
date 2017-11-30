@@ -19,6 +19,11 @@ import java.util.List;
 @Log4j
 public class ClientDao {
 
+    /**
+     * Gets all clients.
+     *
+     * @return the all clients
+     */
     public List<Client> getAllClients() {
         List<Client> clients = new ArrayList<Client>();
         Session session = null;
@@ -37,6 +42,12 @@ public class ClientDao {
         return clients;
     }
 
+    /**
+     * Gets client by id.
+     *
+     * @param id the id
+     * @return the client by id
+     */
     public Client getClientById(int id) {
         Client client = null;
         Session session = null;
@@ -57,6 +68,12 @@ public class ClientDao {
     }
 
 
+    /**
+     * Add client int.
+     *
+     * @param client the client
+     * @return the int
+     */
     public int addClient(Client client) {
         int id = 0;
         Session session = null;
@@ -77,6 +94,11 @@ public class ClientDao {
         return id;
     }
 
+    /**
+     * Delete client.
+     *
+     * @param id the id
+     */
     public void deleteClient(int id) {
         Session session = null;
         try {
@@ -96,6 +118,11 @@ public class ClientDao {
         }
     }
 
+    /**
+     * Update client.
+     *
+     * @param client the client
+     */
     public void updateClient(Client client) {
         Session session = null;
         try {
@@ -114,6 +141,14 @@ public class ClientDao {
         }
     }
 
+    /**
+     * Find by property list.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @param matchMode    the match mode
+     * @return the list
+     */
     public List<Client> findByProperty(String propertyName, String value, MatchMode matchMode) {
         Session session = null;
         List<Client> items = new ArrayList<Client>();

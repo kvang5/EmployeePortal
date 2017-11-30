@@ -11,9 +11,17 @@ import org.hibernate.criterion.Restrictions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Title dao.
+ */
 @Log4j
 public class TitleDao {
-    
+
+    /**
+     * Gets all titles.
+     *
+     * @return the all titles
+     */
     public List<Title> getAllTitles() {
         List<Title> titles = new ArrayList<Title>();
         Session session = null;
@@ -32,6 +40,12 @@ public class TitleDao {
         return titles;
     }
 
+    /**
+     * Add title int.
+     *
+     * @param title the title
+     * @return the int
+     */
     public int addTitle(Title title) {
         int id = 0;
         Session session = null;
@@ -52,6 +66,12 @@ public class TitleDao {
         return id;
     }
 
+    /**
+     * Gets title by id.
+     *
+     * @param id the id
+     * @return the title by id
+     */
     public Title getTitleById(int id) {
         Title title = null;
         Session session = null;
@@ -70,6 +90,11 @@ public class TitleDao {
         return title;
     }
 
+    /**
+     * Delete title.
+     *
+     * @param id the id
+     */
     public void deleteTitle(int id) {
         Session session = null;
         try {
@@ -89,6 +114,11 @@ public class TitleDao {
         }
     }
 
+    /**
+     * Update title.
+     *
+     * @param title the title
+     */
     public void updateTitle(Title title) {
         Session session = null;
         try {
@@ -107,6 +137,14 @@ public class TitleDao {
         }
     }
 
+    /**
+     * Find by property list.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @param matchMode    the match mode
+     * @return the list
+     */
     public List<Title> findByProperty(String propertyName, String value, MatchMode matchMode){
         Session session = null;
         List<Title> items = new ArrayList<Title>();

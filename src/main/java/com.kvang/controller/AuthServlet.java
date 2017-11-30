@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+/**
+ * The type Auth servlet.
+ *
+ * TODO: finish all java doc for all methods
+ */
 @Log4j
 @WebServlet(
         urlPatterns = {"/authServlet"}
@@ -24,6 +30,7 @@ public class AuthServlet extends HttpServlet{
 
         RequestDispatcher requestDispatcher;
         String adminUrl = "/AdminOnly/employeeSearch.jsp";
+        //String googleCalender = "/Employee/googleCalendar.jsp"; // test calendar
         String employeeUrl = "/Employee/clientSearch.jsp";
         String notAdminOrEmployeeUrl = "/loginError.jsp";
         if (req.isUserInRole("Administrator")) {

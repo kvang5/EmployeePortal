@@ -13,27 +13,71 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+/**
+ * The type Employee role dao test.
+ */
 @Log4j
 public class EmployeeRoleDaoTest {
 
+    /**
+     * The State dao.
+     */
     StateDao stateDao;
+    /**
+     * The State.
+     */
     State state;
 
+    /**
+     * The Title dao.
+     */
     TitleDao titleDao;
+    /**
+     * The Title.
+     */
     Title title;
 
+    /**
+     * The Employee dao.
+     */
     EmployeeDao employeeDao;
+    /**
+     * The Employee.
+     */
     Employee employee;
 
+    /**
+     * The Employee role dao.
+     */
     EmployeeRoleDao employeeRoleDao;
+    /**
+     * The Employee role.
+     */
     EmployeeRole employeeRole;
 
+    /**
+     * The New state.
+     */
     int newState;
+    /**
+     * The New title.
+     */
     int newTitle;
+    /**
+     * The New employee.
+     */
     int newEmployee;
+    /**
+     * The New employee role.
+     */
     int newEmployeeRole;
 
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception {
         stateDao = new StateDao();
@@ -69,10 +113,20 @@ public class EmployeeRoleDaoTest {
 
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception {
     }
 
+    /**
+     * Gets all employee roles.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getAllEmployeeRoles() throws Exception {
         newState = stateDao.addState(state);
@@ -83,12 +137,22 @@ public class EmployeeRoleDaoTest {
         assertTrue(employeeRoles.size() > 0);
     }
 
+    /**
+     * Gets limit employee roles.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getLimitEmployeeRoles() throws Exception {
         List<EmployeeRole> employeeRoles = employeeRoleDao.getLimitEmployeeRoles();
         assertEquals(2, employeeRoles.size());
     }
 
+    /**
+     * Gets employee role by id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void getEmployeeRoleById() throws Exception {
         newState = stateDao.addState(state);
@@ -103,6 +167,11 @@ public class EmployeeRoleDaoTest {
         assertEquals("Employee id not returned correctly", employeeRole.getEmployee().getFirst_name(), employeeRoleDao.getEmployeeRoleById(newEmployeeRole).getEmployee().getFirst_name());
     }
 
+    /**
+     * Add employee role.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addEmployeeRole() throws Exception {
         newState = stateDao.addState(state);
@@ -118,6 +187,11 @@ public class EmployeeRoleDaoTest {
 
     }
 
+    /**
+     * Delete employee role.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void deleteEmployeeRole() throws Exception {
         stateDao.addState(state);
@@ -130,6 +204,11 @@ public class EmployeeRoleDaoTest {
 
     }
 
+    /**
+     * Update employee role.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void updateEmployeeRole() throws Exception {
         newState = stateDao.addState(state);
