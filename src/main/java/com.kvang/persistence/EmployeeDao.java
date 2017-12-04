@@ -208,6 +208,7 @@ public class EmployeeDao {
      */
     public boolean checkIfEmployeeExistInDB(String email) {
         boolean employeeExist = true;
+        //String emailExistMessage = "";
 
         Session session = null;
         try {
@@ -224,6 +225,7 @@ public class EmployeeDao {
                 employeeExist = false;
             } else {
                 // returns true if email DOES EXIST
+                //emailExistMessage = "This email is already in use, please select another one.."
                 log.info("Email exists.");
                 employeeExist = true;
             }

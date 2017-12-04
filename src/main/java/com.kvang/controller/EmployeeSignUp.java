@@ -31,7 +31,8 @@ public class EmployeeSignUp extends HttpServlet {
     private StateDao stateDao;
     private TitleDao titleDao;
     private EmployeeRoleDao employeeRoleDao;
-
+    private Employee employee;
+    private Boolean statusChecked = false;
 
 
     @Override
@@ -59,12 +60,9 @@ public class EmployeeSignUp extends HttpServlet {
         titleDao = new TitleDao();
         employeeRoleDao = new EmployeeRoleDao();
 
-
         session.setAttribute("states", stateDao.getAllStates());
         session.setAttribute("titles", titleDao.getAllTitles());
         session.setAttribute("employeeRoles", employeeRoleDao.getLimitEmployeeRoles());
-
-
 
         String employeeSignUpUrl = "AdminOnly/employeeSignUpForm.jsp";
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(employeeSignUpUrl);
@@ -72,7 +70,7 @@ public class EmployeeSignUp extends HttpServlet {
     }
 
     // This is employee signup form with employee information
-        @Override
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession httpSession = req.getSession();
@@ -90,6 +88,12 @@ public class EmployeeSignUp extends HttpServlet {
         String email = req.getParameter("email");
         String employeeRoleName = req.getParameter("employeeRoleName");
 
+        if (req.getParameter("status") == null) {
+            statusChecked = false;
+        } else {
+            statusChecked = true;
+        }
+
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
         int tId = Integer.parseInt(titleId);
@@ -101,7 +105,7 @@ public class EmployeeSignUp extends HttpServlet {
             tx = session.beginTransaction();
             State state = (State) session.get(State.class, sId);
             Title title = (Title) session.get(Title.class, tId);
-            Employee employee = new Employee();
+            employee = new Employee();
             employee.setFirst_name(first_name);
             employee.setLast_name(last_name);
             employee.setAddress1(address1);
@@ -114,6 +118,7 @@ public class EmployeeSignUp extends HttpServlet {
             employee.setTitle(title);
             employee.setEmail(email);
             employee.setPassword("GoldenSun1");
+            employee.setStatus(statusChecked);
             EmployeeRole employeeRole = new EmployeeRole();
             employeeRole.setEmail(email);
             employeeRole.setRole_name(employeeRoleName);
