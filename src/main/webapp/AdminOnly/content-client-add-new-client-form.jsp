@@ -42,7 +42,7 @@
 
                     <!-- Text input -- Address2/Apt -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" >Apartment</label>
+                        <label class="col-md-4 control-label" >Apartment (Optional)</label>
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
@@ -70,7 +70,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                                 <select name="state" id="state" class="form-control selectpicker">
-                                    <option value="select state">Select State</option>
+                                    <option value="">Select State</option>
                                     <c:forEach var="state" items="${states}">
                                         <option value="${state.stateId}">${state.state_name}</option>
                                     </c:forEach>
@@ -96,18 +96,18 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
-                                <input name="home_phone" placeholder="(608)" class="form-control" type="text">
+                                <input name="home_phone" placeholder="(608)123-4567" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
 
                     <!-- Text input -- Mobile Phone -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Mobile No.</label>
+                        <label class="col-md-4 control-label">Mobile No. (Optional)</label>
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input name="mobile_phone" placeholder="(608)" class="form-control" type="text">
+                                <input name="mobile_phone" placeholder="(608)123-4567" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
 
                     <!-- Checkbox -- Status -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" ></label>
+                        <label class="col-md-4 control-label" >Status?</label>
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-check"></i></span>
@@ -142,10 +142,10 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" id="btn" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
-                    <div id="success-message" style="text-align:center; color:#5cb85c;">
-                        <strong>${message}</strong>
-                        <c:remove var="message" scope="session"/>
-                    </div>
+
+                    <!-- Success message -->
+                    <div class="alert alert-success" id="success_message" style="display: none; text-align: center;"></div>
+
                 </fieldset>
             </form>
         </div>
@@ -153,3 +153,5 @@
 
 </div>
 <!--/span-->
+
+<script src="JSFiles/signupValidation.js"></script>

@@ -32,6 +32,7 @@ public class EmployeeSignUp extends HttpServlet {
     private TitleDao titleDao;
     private EmployeeRoleDao employeeRoleDao;
     private Employee employee;
+    //private EmployeeDao employeeDao;
     private Boolean statusChecked = false;
 
 
@@ -137,9 +138,10 @@ public class EmployeeSignUp extends HttpServlet {
             }
         }
 
+        // This is now handled by validation rules
         // When successful - redirect to servlet and prompts message
-        String message = "New employee successfully added!";
+        /*String message = "New employee successfully added!";
         httpSession.setAttribute("message", message);
-        resp.sendRedirect(req.getContextPath() + "/employeeSignUp");
+        resp.sendRedirect(req.getContextPath() + "/employeeSignUp");*/
     }
 }

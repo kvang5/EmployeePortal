@@ -11,7 +11,7 @@
             <li><a href="employeeSignUp">Register Employees</a></li>
             <li><a href="addNewClient">New Client</a></li>
             <li><a href="assignClientToEmployee">Assign Client To Employee</a></li>
-            <li><a href="employeeSearch">Search Employee</a></li><!-- TODO: fix employee search and client search links -->
+            <li><a href="employeeSearch">Search Employee</a></li>
             <li><a href="clientSearch">Search Client</a></li>
             <li><a href="#">Link</a></li>
         </ul>

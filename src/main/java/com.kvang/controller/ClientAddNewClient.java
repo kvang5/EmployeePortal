@@ -28,6 +28,8 @@ import java.io.IOException;
 public class ClientAddNewClient extends HttpServlet {
 
     private StateDao stateDao;
+    private Boolean statusChecked = false;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,6 +64,12 @@ public class ClientAddNewClient extends HttpServlet {
         String mobile_phone = req.getParameter("mobile_phone");
         String email = req.getParameter("email");
 
+        if (req.getParameter("status") == null) {
+            statusChecked = false;
+        } else {
+            statusChecked = true;
+        }
+
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
 
@@ -84,13 +92,14 @@ public class ClientAddNewClient extends HttpServlet {
             client.setEmail(email);
             client.setHome_phone(home_phone);
             client.setMobile_phone(mobile_phone);
+            client.setStatus(statusChecked);
             session.save(client);
             tx.commit();
         } catch (HibernateException he) {
             if (tx != null) tx.rollback();
-            log.info("Error saving employee with role: ", he);
+            log.info("Error saving client: ", he);
         } catch (Exception e) {
-            log.error("Employee was not added through sign up form: ", e);
+            log.error("Client was not added through sign up form: ", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -98,8 +107,8 @@ public class ClientAddNewClient extends HttpServlet {
         }
 
         // When successful - redirect to servlet and prompts message
-        String message = "New client successfully added!";
+        /*String message = "New client successfully added!";
         httpSession.setAttribute("message", message);
-        resp.sendRedirect(req.getContextPath() + "/addNewClient");
+        resp.sendRedirect(req.getContextPath() + "/addNewClient");*/
     }
 }

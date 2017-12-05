@@ -188,7 +188,7 @@ public class EmployeeDao {
                 items =  session.createCriteria(Employee.class).add(Restrictions.ilike(propertyName, value, MatchMode.EXACT)).list();
             }
         } catch (HibernateException he) {
-            log.error("Error getting Employee by first name", he);
+            log.error("Error getting Employee by propertyName", he);
         } catch (NullPointerException e) {
             log.error("Error getting Employee, employee don't exist: ", e);
 
