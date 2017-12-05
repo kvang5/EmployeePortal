@@ -103,10 +103,15 @@
 - [X] Time log entries
 
 ### Week 13
-- [ ] Time log entries
+- [ ] 
+- [ ] 
+- [ ] 
+- [X] Time log entries
 
 ### Week 14
-- [ ] Time log entries
+- [X] Sign up for final presentation
+- [ ] Peer code review (Sarah)
+- [X] Time log entries
 - [ ] Create final presentation
 
 ### Week 15

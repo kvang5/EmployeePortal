@@ -53,9 +53,20 @@
 | 11/15/17 | Changes to assign client to employee jsp | .25 |  |
 | 11/18/17 | Update Database, add new relationship for entities, and update hibernate config | 1 |  |
 | 11/19/17 | Create new dao for searching, add date converter class, write tests for new dao methods, and fix searching for client/employees | 2 |  |
-| 11//17 | | |  |
-| 11//17 | | |  |
-| 11//17 | | |  |
+| 11/20/17 | Fix create drop testing DB | 1 | Testing DB drop and create every time test runs |
+| 11/28/17 | Worked with Paula in fixing AWS -- login not working (Unsuccessful) | 2 |  |
+| 11/29/17 | Add jsp/controller for client note | 1 |  |
+| 11/30/17 | Create new controllers for admin and client search to fix url links, added some java docs, and add google calendar iframe to jsp | 2.5 | Still need to finish java docs and calendar using employee emails |
+| 12/4/17 | Made changes to side bar output based on role, changes to employee/client form, and add employee profile jsp/controller | 3 |  |
+| 12/5/17 | Added validations to employee/client signup forms | 3 |  |
+| 12//17 |  | |  |
+| 12//17 |  | |  |
+| 12//17 |  | |  |
+| 12//17 |  | |  |
+| 12//17 |  | |  |
+
+
+
 
 
 
