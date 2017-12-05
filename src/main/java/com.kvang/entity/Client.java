@@ -1,6 +1,5 @@
 package com.kvang.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -17,7 +16,6 @@ import java.util.Set;
 @Setter
 @Accessors
 @Entity
-@EqualsAndHashCode
 @Table(name = "Client")
 public class Client {
 
@@ -67,5 +65,8 @@ public class Client {
     @ManyToMany(/*fetch = FetchType.LAZY,*/ mappedBy = "clients"/*, cascade = {CascadeType.PERSIST, CascadeType.MERGE}*/)
     private Set<Employee> employees = new HashSet<Employee>(0);
 
+    public void addEmployee(Employee employee) {
+        this.employees.add(employee);
+    }
 
 }

@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * The type Assign client to employee.
@@ -59,8 +57,6 @@ public class AssignClientToEmployee extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO: finish and figure how to assign client to employee using many to many relationship
-
         HttpSession httpSession = req.getSession();
 
         String employeeId = req.getParameter("employee");
@@ -72,26 +68,19 @@ public class AssignClientToEmployee extends HttpServlet{
         Session session = null;
         Transaction tx;
         Employee employee;
+        Client client;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             tx = session.beginTransaction();
 
             employee = employeeDao.getEmployeeById(empId);
-
-            Client client = new Client();
             client = clientDao.getClientById(clId);
 
-            Set<Client> clients = new HashSet<Client>();
-            clients.add(client);
+            employee.addClient(client);
+            client.addEmployee(employee);
 
-            System.out.println("Checking if employee email exist");
-            System.out.println(employeeDao.checkIfEmployeeExistInDB(employee.getEmail()));
-
-            employee.setClients(clients);
-            //session.save(employee); //this saves another employee
-            //session.update(employee); this updates existing employee with new client
-            // TODO: Need to create a method to just add on to existing employee
+            session.saveOrUpdate(employee);
             tx.commit();
         } catch (HibernateException he) {
             log.error("Hibernate exception error: ", he);
@@ -102,7 +91,5 @@ public class AssignClientToEmployee extends HttpServlet{
                 session.close();
             }
         }
-
-
     }
 }

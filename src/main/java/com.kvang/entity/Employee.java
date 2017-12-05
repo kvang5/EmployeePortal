@@ -1,6 +1,5 @@
 package com.kvang.entity;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,7 +18,6 @@ import java.util.Set;
 @Accessors
 @ToString
 @Entity
-@EqualsAndHashCode
 @Table(name = "Employee")
 public class Employee implements java.io.Serializable {
 
@@ -83,4 +81,7 @@ public class Employee implements java.io.Serializable {
                     nullable = false, updatable = false) })
     private Set<Client> clients = new HashSet<Client>(0);
 
+    public void addClient(Client client) {
+        this.clients.add(client);
+    }
 }
