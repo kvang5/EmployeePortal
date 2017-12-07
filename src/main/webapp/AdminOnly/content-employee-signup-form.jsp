@@ -197,4 +197,4 @@
 </div>
 <!--/span-->
 
-<script src="JSFiles/signupValidation.js"></script>
+<script src="JSFiles/formValidation.js"></script>

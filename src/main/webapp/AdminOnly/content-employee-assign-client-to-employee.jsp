@@ -5,7 +5,23 @@
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend><h2><b>Employee/Client Assignment Form</b></h2></legend><br>
+                    <legend><h2><b>Client-Employee Assignment Form</b></h2></legend><br>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Client</label>
+                        <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-user"></i></span>
+                                <select name="client" class="form-control selectpicker">
+                                    <option value="">Select Employee Role</option>
+                                    <c:forEach var="client" items="${clients}">
+                                        <option value="${client.clientId}">${client.first_name}&nbsp;${client.last_name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Text input -- Employee -->
                     <!-- Use HTTP doGet to populate employee from employee table to select option -->
                     <div class="form-group">
@@ -23,21 +39,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Client</label>
-                        <div class="col-md-4 selectContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-user"></i></span>
-                                <select name="client" class="form-control selectpicker">
-                                    <option value="">Select Employee Role</option>
-                                    <c:forEach var="client" items="${clients}">
-                                        <option value="${client.clientId}">${client.first_name}&nbsp;${client.last_name}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label"></label>
@@ -45,10 +46,14 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" id="btn" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAssign <span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
-                    <div id="success-message" style="text-align:center; color:#5cb85c;">
+                    <!--<div id="success-message" style="text-align:center; color:#5cb85c;">
                         <strong>${message}</strong>
                         <c:remove var="message" scope="session"/>
-                    </div>
+                    </div>-->
+
+                    <!-- Success message -->
+                    <div class="alert alert-success" id="success_message" style="display: none; text-align: center;"></div>
+
                 </fieldset>
 
             </form>
@@ -57,4 +62,4 @@
 </div>
 <!--/span-->
 
-
+<script src="JSFiles/formValidation.js"></script>

@@ -66,8 +66,8 @@ INSERT into USstate (stateId, state_code, state_name) values ('1', 'AL', 'Alabam
 ('50', 'WY', 'Wyoming');
 
 /* Employee table (admin and ruser) inserts */
-INSERT into Employee (employeeId, first_name, last_name, address1, address2, city, postal_zip_code, email, home_phone, mobile_phone, password, USstate_stateId, Title_titleId) values ('1', 'admin', 'admin', '123 Admin Street', '', 'Madison', '53590', 'admin@admin.com', '828-455-6682', '828-455-6682', 'admin', '49', '1'),
-('2', 'ruser', 'ruser', '123 User Street', '', 'Madison', '53590', 'ruser@ruser.com', '828-455-6682', '828-455-6682', 'ruser', '49', '3');
+INSERT into Employee (employeeId, first_name, last_name, address1, address2, city, postal_zip_code, email, home_phone, mobile_phone, password, USstate_stateId, Title_titleId, status) values ('1', 'admin', 'admin', '123 Admin Street', '', 'Madison', '53590', 'admin@admin.com', '828-455-6682', '828-455-6682', 'admin', '49', '1', '1'),
+('2', 'ruser', 'ruser', '123 User Street', '', 'Madison', '53590', 'ruser@ruser.com', '828-455-6682', '828-455-6682', 'ruser', '49', '3', '1');
 
 /* EmployeeRole table (admin and ruser) inserts */
 INSERT into EmployeeRole (employee_rolesId, role_name, email, Employee_employeeId) values ('1', 'Administrator', 'admin@admin.com', '1'),

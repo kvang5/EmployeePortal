@@ -76,8 +76,8 @@ public class Employee implements java.io.Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "EmployeeClient", joinColumns = {
-            @JoinColumn(name = "Employee_employeeId", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "Client_clientId",
+            @JoinColumn(name = "employeeId", nullable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "clientId",
                     nullable = false, updatable = false) })
     private Set<Client> clients = new HashSet<Client>(0);
 

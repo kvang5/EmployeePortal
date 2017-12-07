@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -252,26 +251,6 @@ public class EmployeeDaoTest {
         assertEquals("Employee job title not updated", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
         assertEquals("Employee password not returned correctly", employee.getPassword(), employeeDao.getEmployeeById(newEmployee).getPassword());
         assertEquals("Employee status not returned correctly", employee.getStatus(), employeeDao.getEmployeeById(newEmployee).getStatus());
-
-    }
-
-    /**
-     * Gets employee by first name.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void getEmployeeByFirstName() throws Exception {
-        newState = stateDao.addState(state);
-        newTitle = titleDao.addTitle(title);
-        newEmployee = employeeDao.addEmployee(employee);
-
-        List<Employee> employees = new ArrayList<Employee>();
-        employees.add(employee);
-        assertEquals("Kyle", employee.getFirst_name());
-        assertEquals(1, employees.size());
-        log.info("employees.size(): " + employees.size());
-        log.info("employees: " + employees.toString());
 
     }
 

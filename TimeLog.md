@@ -59,8 +59,8 @@
 | 11/30/17 | Create new controllers for admin and client search to fix url links, added some java docs, and add google calendar iframe to jsp | 2.5 | Still need to finish java docs and calendar using employee emails |
 | 12/4/17 | Made changes to side bar output based on role, changes to employee/client form, and add employee profile jsp/controller | 3 |  |
 | 12/5/17 | Added validations to employee/client signup forms | 3 |  |
-| 12//17 |  | |  |
-| 12//17 |  | |  |
+| 12/5/17 | Client assignment to employee complete and validation for client employee assignment done | .75 |  |
+| 12/6/17 |  | |  |
 | 12//17 |  | |  |
 | 12//17 |  | |  |
 | 12//17 |  | |  |

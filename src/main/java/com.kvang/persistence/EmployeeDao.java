@@ -142,34 +142,6 @@ public class EmployeeDao {
     }
 
     /**
-     * Gets employee by first name.
-     *
-     * @param first_name the first name
-     * @return the employee by first name
-     */
-    public List<Employee> getEmployeeByFirstName(String first_name) {
-        List<Employee> employees = new ArrayList<Employee>();
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            Criteria criteria = session.createCriteria(Employee.class);
-            criteria.add(Restrictions.eq("first_name", first_name));
-            employees = criteria.list();
-        } catch (HibernateException he) {
-            log.error("Error getting employee by last name", he);
-        } catch (Exception e) {
-            log.error("General exception for getEmployeeByLastName() is caught", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-
-        return employees;
-
-    }
-
-    /**
      * Find by property list.
      *
      * @param propertyName the property name
@@ -241,4 +213,7 @@ public class EmployeeDao {
         }
         return employeeExist;
     }
+
+    //TODO: this method will pull all clients that are assigned to employee
+    //public List<Employee> getAllClient
 }

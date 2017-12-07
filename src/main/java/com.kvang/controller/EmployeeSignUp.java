@@ -141,7 +141,7 @@ public class EmployeeSignUp extends HttpServlet {
         // This is now handled by validation rules
         // When successful - redirect to servlet and prompts message
         /*String message = "New employee successfully added!";
-        httpSession.setAttribute("message", message);
-        resp.sendRedirect(req.getContextPath() + "/employeeSignUp");*/
+        httpSession.setAttribute("message", message);*/
+        //resp.sendRedirect(req.getContextPath() + "/employeeSignUp");
     }
 }

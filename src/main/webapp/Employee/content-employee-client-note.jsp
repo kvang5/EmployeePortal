@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-8">
     <div class="jumbotron">
         <div class="container">
-            <form class="well form-horizontal" action="" method="POST" id="client-note">
+            <form class="well form-horizontal" action="clientNote" method="POST" id="client-note">
                 <fieldset>
 
                     <!-- Form Name -->
@@ -80,3 +80,6 @@
     </div><!-- /.container -->
 </div>
 <!--/span-->
+
+
+<script src="JSFiles/formValidation.js"></script>

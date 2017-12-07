@@ -291,3 +291,57 @@ $(document).ready(function() {
             $('#client-form').bootstrapValidator("resetForm", true);
         });
 });
+
+// Client assignment to employee
+$(document).ready(function() {
+    $('#assign-form').bootstrapValidator({
+        button: {
+            selector: '[type="submit"]'
+        },
+        //message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            client: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select a client'
+                    }
+                }
+            },
+            employee: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select an employee'
+                    }
+                }
+            }
+        }
+    })
+
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow");
+            $('#assign-form').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+
+            $form.find('.alert').html("Successfully assign client to employee.");
+
+            $('#assign-form').bootstrapValidator("resetForm", true);
+        });
+});

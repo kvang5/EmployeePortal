@@ -245,30 +245,33 @@
       <RefTableName>Title</RefTableName>
       <RefColNames>titleId</RefColNames>
     </foreign-key>
-    <column id="70" parent="20" name="Employee_employeeId">
+    <column id="70" parent="20" name="employeeId">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="71" parent="20" name="Client_clientId">
+    <column id="71" parent="20" name="clientId">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="72" parent="20" name="fk_EmployeeClient_Client1_idx">
-      <ColNames>Client_clientId</ColNames>
+      <ColNames>clientId</ColNames>
     </index>
-    <index id="73" parent="20" name="fk_EmployeeClient_Employee_idx">
-      <ColNames>Employee_employeeId</ColNames>
-    </index>
-    <foreign-key id="74" parent="20" name="fk_EmployeeClient_Employee">
-      <ColNames>Employee_employeeId</ColNames>
+    <key id="73" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>employeeId
+clientId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="74" parent="20" name="fk_EmployeeClient_Employee1">
+      <ColNames>employeeId</ColNames>
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Employee</RefTableName>
       <RefColNames>employeeId</RefColNames>
     </foreign-key>
     <foreign-key id="75" parent="20" name="fk_EmployeeClient_Client1">
-      <ColNames>Client_clientId</ColNames>
+      <ColNames>clientId</ColNames>
       <RefSchemaName>employeeportal</RefSchemaName>
       <RefTableName>Client</RefTableName>
       <RefColNames>clientId</RefColNames>

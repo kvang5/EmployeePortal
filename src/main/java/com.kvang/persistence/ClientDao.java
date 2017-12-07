@@ -2,11 +2,9 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.Client;
+import com.kvang.entity.Employee;
 import lombok.extern.log4j.Log4j;
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
@@ -32,6 +30,30 @@ public class ClientDao {
             clients = session.createCriteria(Client.class).list();
         } catch (HibernateException he) {
             log.error("Error getting all clients", he);
+        } catch (Exception e) {
+            log.error("General exception is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return clients;
+    }
+
+    public List<Client> getAllClientByEmployee(Employee employee) {
+        List<Client> clients = new ArrayList<Client>();
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            String sql = "SELECT c.clientId, c.first_name, c.last_name FROM EmployeeClient ec \n" +
+                    "JOIN Employee e on e.employeeId = ec.Employee_employeeId \n" +
+                    "JOIN Client c on c.clientId = ec.Client_clientId \n" +
+                    "WHERE e.employeeId = " + employee;
+            //Query query = session.createQuery(sql);
+            //query.setParameter("employee", employee);
+            //clients = query.list();
+        } catch (HibernateException he) {
+            log.error("Error getting all clients by employee", he);
         } catch (Exception e) {
             log.error("General exception is caught", e);
         } finally {
