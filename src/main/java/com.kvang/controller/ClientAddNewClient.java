@@ -1,13 +1,8 @@
 package com.kvang.controller;
 
-import com.kvang.entity.Client;
-import com.kvang.entity.State;
-import com.kvang.persistence.SessionFactoryProvider;
+import com.kvang.persistence.ClientDao;
 import com.kvang.persistence.StateDao;
 import lombok.extern.log4j.Log4j;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +23,7 @@ import java.io.IOException;
 public class ClientAddNewClient extends HttpServlet {
 
     private StateDao stateDao;
+    private ClientDao clientDao;
     private Boolean statusChecked = false;
 
 
@@ -73,38 +69,10 @@ public class ClientAddNewClient extends HttpServlet {
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
 
-        log.info("sId: " + sId);
+        clientDao = new ClientDao();
 
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Transaction tx = null;
-
-        try {
-            tx = session.beginTransaction();
-            State state = (State) session.get(State.class, sId);
-            Client client = new Client();
-            client.setFirst_name(first_name);
-            client.setLast_name(last_name);
-            client.setAddress1(address1);
-            client.setAddress2(address2);
-            client.setCity(city);
-            client.setState(state);
-            client.setPostal_zip_code(postal_zip_code);
-            client.setEmail(email);
-            client.setHome_phone(home_phone);
-            client.setMobile_phone(mobile_phone);
-            client.setStatus(statusChecked);
-            session.save(client);
-            tx.commit();
-        } catch (HibernateException he) {
-            if (tx != null) tx.rollback();
-            log.info("Error saving client: ", he);
-        } catch (Exception e) {
-            log.error("Client was not added through sign up form: ", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        clientDao.addNewClient(first_name, last_name, address1, address2, city, sId, postal_zip_code,
+                email, home_phone, mobile_phone, statusChecked);
 
         // When successful - redirect to servlet and prompts message
         /*String message = "New client successfully added!";

@@ -3,6 +3,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.Client;
 import com.kvang.entity.Employee;
+import com.kvang.entity.State;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
@@ -194,4 +195,47 @@ public class ClientDao {
         return items;
     }
 
+    //TODO: write test for this method
+    public Boolean addNewClient(String first_name, String last_name, String address1, String address2, String city, int sId,
+                             String postal_zip_code, String email, String home_phone, String mobile_phone, boolean statusChecked) {
+        Session session = null;
+        Transaction tx = null;
+        State state;
+        Client client;
+        boolean diditgoin = false;
+
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            state = (State) session.get(State.class, sId);
+            client = new Client();
+            client.setFirst_name(first_name);
+            client.setLast_name(last_name);
+            client.setAddress1(address1);
+            client.setAddress2(address2);
+            client.setCity(city);
+            client.setState(state);
+            client.setPostal_zip_code(postal_zip_code);
+            client.setEmail(email);
+            client.setHome_phone(home_phone);
+            client.setMobile_phone(mobile_phone);
+            client.setStatus(statusChecked);
+            session.save(client);
+            tx.commit();
+            diditgoin = true;
+        } catch (HibernateException he) {
+            if (tx != null) tx.rollback();
+            log.info("Error saving client: ", he);
+            diditgoin = false;
+        } catch (Exception e) {
+            log.error("Client was not added through sign up form: ", e);
+            diditgoin = false;
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+        return diditgoin;
+    }
 }

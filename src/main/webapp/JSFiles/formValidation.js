@@ -148,7 +148,7 @@ $(document).ready(function() {
             }, 'json');
 
             $form.find('.alert').html("Successfully added new employee.");
-            $('#signup-form').bootstrapValidator("resetForm", true);
+            $('#signup-form').data('bootstrapValidator').resetForm();
         });
 });
 
@@ -288,7 +288,7 @@ $(document).ready(function() {
             }, 'json');
 
             $form.find('.alert').html("Successfully added new client.");
-            $('#client-form').bootstrapValidator("resetForm", true);
+            $('#client-form').data('bootstrapValidator').resetForm();
         });
 });
 
@@ -342,6 +342,6 @@ $(document).ready(function() {
 
             $form.find('.alert').html("Successfully assign client to employee.");
 
-            $('#assign-form').bootstrapValidator("resetForm", true);
+            $('#assign-form').data('bootstrapValidator').resetForm();
         });
 });

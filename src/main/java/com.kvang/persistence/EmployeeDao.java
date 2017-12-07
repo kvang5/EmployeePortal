@@ -1,7 +1,7 @@
 package com.kvang.persistence;
 
 
-import com.kvang.entity.Employee;
+import com.kvang.entity.*;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
@@ -214,6 +214,91 @@ public class EmployeeDao {
         return employeeExist;
     }
 
+    //TODO: write test class for this method
+    public void addNewEmployee(int sId, int tId, String first_name, String last_name, String address1, String address2,
+                               String city, String postal_zip_code, String home_phone, String mobile_phone, String email,
+                               boolean statusChecked, String employeeRoleName) {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Transaction tx = null;
+        State state;
+        Title title;
+        Employee employee;
+        EmployeeRole employeeRole;
+
+        try {
+            tx = session.beginTransaction();
+            state = (State) session.get(State.class, sId);
+            title = (Title) session.get(Title.class, tId);
+            employee = new Employee();
+            employee.setFirst_name(first_name);
+            employee.setLast_name(last_name);
+            employee.setAddress1(address1);
+            employee.setAddress2(address2);
+            employee.setCity(city);
+            employee.setState(state);
+            employee.setPostal_zip_code(postal_zip_code);
+            employee.setHome_phone(home_phone);
+            employee.setMobile_phone(mobile_phone);
+            employee.setTitle(title);
+            employee.setEmail(email);
+            employee.setPassword("GoldenSun1");
+            employee.setStatus(statusChecked);
+            employeeRole = new EmployeeRole();
+            employeeRole.setEmail(email);
+            employeeRole.setRole_name(employeeRoleName);
+            employeeRole.setEmployee(employee);
+            session.save(employee);
+            session.save(employeeRole);
+            tx.commit();
+        } catch (HibernateException he) {
+            if (tx != null) tx.rollback();
+            log.info("Error saving employee with role: ", he);
+        } catch (Exception e) {
+            log.error("Employee was not added through sign up form: ", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+
     //TODO: this method will pull all clients that are assigned to employee
     //public List<Employee> getAllClient
+
+    //TODO: write test for this method
+    public void assignClientToEmployee(int empId, int clId) {
+        Session session = null;
+        Transaction tx = null;
+        Employee employee;
+        Client client;
+        EmployeeDao employeeDao;
+        ClientDao clientDao;
+
+        try {
+
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+
+            employeeDao = new EmployeeDao();
+            clientDao = new ClientDao();
+
+            employee = employeeDao.getEmployeeById(empId);
+            client = clientDao.getClientById(clId);
+
+            employee.addClient(client);
+            client.addEmployee(employee);
+
+            session.saveOrUpdate(employee);
+            tx.commit();
+        } catch (HibernateException he) {
+            if (tx != null) tx.rollback();
+            log.error("Hibernate exception error: ", he);
+        } catch (Exception e) {
+            log.error("Exception error: ", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
 }

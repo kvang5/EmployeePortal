@@ -1,14 +1,8 @@
 package com.kvang.controller;
 
-import com.kvang.entity.Client;
-import com.kvang.entity.Employee;
 import com.kvang.persistence.ClientDao;
 import com.kvang.persistence.EmployeeDao;
-import com.kvang.persistence.SessionFactoryProvider;
 import lombok.extern.log4j.Log4j;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -65,31 +59,12 @@ public class AssignClientToEmployee extends HttpServlet{
         int empId = Integer.parseInt(employeeId);
         int clId = Integer.parseInt(clientId);
 
-        Session session = null;
-        Transaction tx;
-        Employee employee;
-        Client client;
+        employeeDao = new EmployeeDao();
+        employeeDao.assignClientToEmployee(empId, clId);
 
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-
-            employee = employeeDao.getEmployeeById(empId);
-            client = clientDao.getClientById(clId);
-
-            employee.addClient(client);
-            client.addEmployee(employee);
-
-            session.saveOrUpdate(employee);
-            tx.commit();
-        } catch (HibernateException he) {
-            log.error("Hibernate exception error: ", he);
-        } catch (Exception e) {
-            log.error("Exception error: ", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        // When successful - redirect to servlet and prompts message
+        //String message = "Client " + clientDao.getClientById(clId).getFirst_name() + " is assigned to employee " + employeeDao.getEmployeeById(empId).getFirst_name() +  "!";
+        //httpSession.setAttribute("message", message);
+        //resp.sendRedirect(req.getContextPath() + "/assignClientToEmployee");
     }
 }

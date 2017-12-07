@@ -1,14 +1,10 @@
 package com.kvang.controller;
 
-import com.kvang.entity.Employee;
-import com.kvang.entity.EmployeeRole;
-import com.kvang.entity.State;
-import com.kvang.entity.Title;
-import com.kvang.persistence.*;
+import com.kvang.persistence.EmployeeDao;
+import com.kvang.persistence.EmployeeRoleDao;
+import com.kvang.persistence.StateDao;
+import com.kvang.persistence.TitleDao;
 import lombok.extern.log4j.Log4j;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,8 +27,7 @@ public class EmployeeSignUp extends HttpServlet {
     private StateDao stateDao;
     private TitleDao titleDao;
     private EmployeeRoleDao employeeRoleDao;
-    private Employee employee;
-    //private EmployeeDao employeeDao;
+    private EmployeeDao employeeDao;
     private Boolean statusChecked = false;
 
 
@@ -99,44 +94,9 @@ public class EmployeeSignUp extends HttpServlet {
         int sId = Integer.parseInt(stateId);
         int tId = Integer.parseInt(titleId);
 
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
-        Transaction tx = null;
-
-        try {
-            tx = session.beginTransaction();
-            State state = (State) session.get(State.class, sId);
-            Title title = (Title) session.get(Title.class, tId);
-            employee = new Employee();
-            employee.setFirst_name(first_name);
-            employee.setLast_name(last_name);
-            employee.setAddress1(address1);
-            employee.setAddress2(address2);
-            employee.setCity(city);
-            employee.setState(state);
-            employee.setPostal_zip_code(postal_zip_code);
-            employee.setHome_phone(home_phone);
-            employee.setMobile_phone(mobile_phone);
-            employee.setTitle(title);
-            employee.setEmail(email);
-            employee.setPassword("GoldenSun1");
-            employee.setStatus(statusChecked);
-            EmployeeRole employeeRole = new EmployeeRole();
-            employeeRole.setEmail(email);
-            employeeRole.setRole_name(employeeRoleName);
-            employeeRole.setEmployee(employee);
-            session.save(employee);
-            session.save(employeeRole);
-            tx.commit();
-        } catch (HibernateException he) {
-            if (tx != null) tx.rollback();
-            log.info("Error saving employee with role: ", he);
-        } catch (Exception e) {
-            log.error("Employee was not added through sign up form: ", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        employeeDao = new EmployeeDao();
+        employeeDao.addNewEmployee(sId, tId, first_name, last_name, address1, address2, city,
+                postal_zip_code, home_phone, mobile_phone, email, statusChecked, employeeRoleName);
 
         // This is now handled by validation rules
         // When successful - redirect to servlet and prompts message
