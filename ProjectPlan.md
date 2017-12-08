@@ -110,7 +110,7 @@
 
 ### Week 14
 - [X] Sign up for final presentation
-- [ ] Peer code review (Sarah)
+- [X] Peer code review (Sarah)
 - [X] Time log entries
 - [ ] Create final presentation
 

@@ -60,8 +60,8 @@
 | 12/4/17 | Made changes to side bar output based on role, changes to employee/client form, and add employee profile jsp/controller | 3 |  |
 | 12/5/17 | Added validations to employee/client signup forms | 3 |  |
 | 12/5/17 | Client assignment to employee complete and validation for client employee assignment done | .75 |  |
-| 12/6/17 |  | |  |
-| 12//17 |  | |  |
+| 12/7/17 | Created Dao methods for doPost insert/assignment for client/employee daos and fixed aws login issue | 1.5 |  |
+| 12/8/17 | Finished jsp/controller functionality for Assign client to employee and clientnote, new dao for join query, and delete unnecessary methods in daos| 8 | All working perfectly |
 | 12//17 |  | |  |
 | 12//17 |  | |  |
 
