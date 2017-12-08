@@ -11,7 +11,7 @@
             <li><a href="#">Link</a></li>
             <li>Employee Tools</li>
             <li><a href="clientSearch">Client Search</a></li>
-            <li><a href="/employeeportal/Employee/employeeClientNote.jsp">Client Note</a></li>
+            <li><a href="clientNote">Client Note</a></li>
         </ul>
     </div>
     <!--/.well -->

@@ -2,7 +2,6 @@ package com.kvang.persistence;
 
 
 import com.kvang.entity.Client;
-import com.kvang.entity.Employee;
 import com.kvang.entity.State;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
@@ -41,18 +40,28 @@ public class ClientDao {
         return clients;
     }
 
-    public List<Client> getAllClientByEmployee(Employee employee) {
+    //TODO: write testing for this method
+    public List<Client> getAllClientByEmployee(String email) {
         List<Client> clients = new ArrayList<Client>();
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
-            String sql = "SELECT c.clientId, c.first_name, c.last_name FROM EmployeeClient ec \n" +
-                    "JOIN Employee e on e.employeeId = ec.Employee_employeeId \n" +
-                    "JOIN Client c on c.clientId = ec.Client_clientId \n" +
-                    "WHERE e.employeeId = " + employee;
-            //Query query = session.createQuery(sql);
-            //query.setParameter("employee", employee);
-            //clients = query.list();
+            Query query = session.createQuery("select c from Client c inner join c.employeeSet e where e.email = :email");
+            query.setParameter("email", email);
+            clients = query.list();
+            if (clients.isEmpty()) {
+                log.info("clients list is empty");
+                return null;
+            } else {
+                //log.info("Inside the else");
+                for (Client c : clients) {
+                    //log.info("inside the for loop");
+                    log.info(c.getClientId() + " " + c.getFirst_name());
+                }
+                //log.info("outside the for loop");
+                //log.info("clients size : " + clients.size());
+                return clients;
+            }
         } catch (HibernateException he) {
             log.error("Error getting all clients by employee", he);
         } catch (Exception e) {
@@ -196,14 +205,12 @@ public class ClientDao {
     }
 
     //TODO: write test for this method
-    public Boolean addNewClient(String first_name, String last_name, String address1, String address2, String city, int sId,
+    public void addNewClient(String first_name, String last_name, String address1, String address2, String city, int sId,
                              String postal_zip_code, String email, String home_phone, String mobile_phone, boolean statusChecked) {
         Session session = null;
         Transaction tx = null;
         State state;
         Client client;
-        boolean diditgoin = false;
-
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             tx = session.beginTransaction();
@@ -222,20 +229,15 @@ public class ClientDao {
             client.setStatus(statusChecked);
             session.save(client);
             tx.commit();
-            diditgoin = true;
         } catch (HibernateException he) {
             if (tx != null) tx.rollback();
             log.info("Error saving client: ", he);
-            diditgoin = false;
         } catch (Exception e) {
             log.error("Client was not added through sign up form: ", e);
-            diditgoin = false;
         } finally {
             if (session != null) {
                 session.close();
             }
         }
-
-        return diditgoin;
     }
 }

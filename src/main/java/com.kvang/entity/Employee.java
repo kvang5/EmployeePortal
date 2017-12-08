@@ -79,9 +79,9 @@ public class Employee implements java.io.Serializable {
             @JoinColumn(name = "employeeId", nullable = false, updatable = false) },
             inverseJoinColumns = { @JoinColumn(name = "clientId",
                     nullable = false, updatable = false) })
-    private Set<Client> clients = new HashSet<Client>(0);
+    private Set<Client> clientSet = new HashSet<Client>(0);
 
-    public void addClient(Client client) {
+    /*public void addClient(Client client) {
         this.clients.add(client);
-    }
+    }*/
 }

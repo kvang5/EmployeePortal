@@ -1,6 +1,8 @@
 package com.kvang.persistence;
 
+import com.kvang.entity.Client;
 import com.kvang.entity.ClientNote;
+import com.kvang.entity.Employee;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.*;
 import org.hibernate.criterion.MatchMode;
@@ -195,6 +197,41 @@ public class ClientNoteDao {
         }
 
         return clientNotes;
+
+    }
+
+    //TODO: This method will save client note entered by employee
+    public void addClientNoteFromEmployee(int cId, LocalDate careDate, Double careTime, String desc, String comments, int eId) {
+        Session session = null;
+        Transaction tx = null;
+        Client client;
+        ClientNote clientNote;
+        Employee employee;
+
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            client = (Client) session.get(Client.class, cId);
+            employee = (Employee) session.get(Employee.class, eId);
+            clientNote = new ClientNote();
+            clientNote.setClient(client);
+            clientNote.setDate(careDate);
+            clientNote.setCare_time(careTime);
+            clientNote.setDescription(desc);
+            clientNote.setComments(comments);
+            clientNote.setEmployee(employee);
+            session.save(clientNote);
+            tx.commit();
+        } catch (HibernateException he) {
+            if (tx != null) tx.rollback();
+            log.error("Hibernate exception error: ", he);
+        } catch (Exception e) {
+            log.error("Exception error: ", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
 
     }
 }

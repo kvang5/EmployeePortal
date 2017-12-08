@@ -262,9 +262,6 @@ public class EmployeeDao {
         }
     }
 
-    //TODO: this method will pull all clients that are assigned to employee
-    //public List<Employee> getAllClient
-
     //TODO: write test for this method
     public void assignClientToEmployee(int empId, int clId) {
         Session session = null;
@@ -285,8 +282,12 @@ public class EmployeeDao {
             employee = employeeDao.getEmployeeById(empId);
             client = clientDao.getClientById(clId);
 
-            employee.addClient(client);
-            client.addEmployee(employee);
+            log.info(employee.getFirst_name());
+            log.info(client.getFirst_name());
+
+            employee.getClientSet().add(client);
+
+            log.info(employee.getClientSet().size());
 
             session.saveOrUpdate(employee);
             tx.commit();
@@ -301,4 +302,96 @@ public class EmployeeDao {
             }
         }
     }
+
+    /*
+    session = SessionFactoryProvider.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+
+            employeeDao = new EmployeeDao();
+            clientDao = new ClientDao();
+
+            employee = employeeDao.getEmployeeById(empId);
+            client = clientDao.getClientById(clId);
+
+            employee.addClient(client);
+            client.addEmployee(employee);
+
+            session.saveOrUpdate(employee);
+            tx.commit();
+    */
+
+    //TODO: write testing for this method
+    //Maybe get by email or ID ????
+    public List<Employee> getAllEmployeeByClient(String email) {
+        List<Employee> employees = new ArrayList<Employee>();
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Query query = session.createQuery("select e from Employee e inner join e.clientSet c where e.email = :email");
+            query.setParameter("email", email);
+            employees = query.list();
+            if (employees.isEmpty()) {
+                log.info("employees list is empty");
+                return null;
+            } else {
+                log.info("Inside the else");
+                for (Employee emp : employees) {
+                    log.info("inside the for loop");
+                    log.info(emp.getEmployeeId() + " " + emp.getFirst_name());
+                }
+                log.info("outside the for loop");
+                log.info("employees size : " + employees.size());
+                return employees;
+            }
+        } catch (HibernateException he) {
+            log.error("Error getting all employee by client", he);
+        } catch (Exception e) {
+            log.error("General exception is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return employees;
+    }
+
+    //TODO: this does not work, not getting id
+    public int getEmployeeId(String email) {
+        List<Integer> employeeIdList = new ArrayList<Integer>();
+        int empId = 0;
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Query query = session.createQuery("select e.employeeId from Employee e where e.email = :email");
+            query.setParameter("email", email);
+            employeeIdList = query.list();
+        } catch (HibernateException he) {
+            log.info("Error saving client: ", he);
+        } catch (Exception e) {
+            log.error("Client was not added through sign up form: ", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return empId;
+    }
+
+    /*public int getUserById(String email) {
+        Session session = null;
+        Employee employee = null;
+        int eId = 0;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            int = (Integer) session.load(Employee.class, email);
+            Hibernate.initialize(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return user;
+    }*/
 }

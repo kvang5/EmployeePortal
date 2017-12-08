@@ -62,11 +62,11 @@ public class Client {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
     private Set<ClientNote> clientNotes = new HashSet<ClientNote>(0);
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "clients", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Set<Employee> employees = new HashSet<Employee>(0);
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "clientSet", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Employee> employeeSet = new HashSet<Employee>(0);
 
-    public void addEmployee(Employee employee) {
+    /*public void addEmployee(Employee employee) {
         this.employees.add(employee);
-    }
+    }*/
 
 }

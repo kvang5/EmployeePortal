@@ -345,3 +345,95 @@ $(document).ready(function() {
             $('#assign-form').data('bootstrapValidator').resetForm();
         });
 });
+
+// Employee enter about care of client
+$(document).ready(function() {
+    $('#client-note').bootstrapValidator({
+        button: {
+            selector: '[type="submit"]'
+        },
+        //message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            client: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select a client'
+                    }
+                }
+            },
+            date: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select date of care'
+                    },
+                    date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The value is not a valid date'
+                    }
+                }
+            },
+            care_time: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please enter care time'
+                    }
+                    //numeric: {
+                    //    message: 'The value is not a number',
+                        // The default separators
+                    //    thousandsSeparator: '',
+                    //    decimalSeparator: '.'
+                    //}
+                }
+            },
+            description: {
+                validators: {
+                    stringLength: {
+                        min: 10,
+                    },
+                    notEmpty: {
+                        message: 'Please enter description of care'
+                    }
+                }
+            },
+            comments: {
+                optional: true,
+                validators: {
+                    stringLength: {
+                        min: 2,
+                    }
+                }
+            }
+        }
+    })
+
+        .on('success.form.bv', function(e) {
+            $('#success_message').slideDown({ opacity: "show" }, "slow");
+            $('#client-note').data('bootstrapValidator').resetForm();
+
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+
+            $form.find('.alert').html("Successfully added note for care to client.");
+
+            $('#client-note').data('bootstrapValidator').resetForm();
+            $('#success_message').slideDown({ opacity: "hide" }, "slow");
+        });
+});
+
+
