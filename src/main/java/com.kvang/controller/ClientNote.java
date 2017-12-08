@@ -64,45 +64,15 @@ public class ClientNote extends HttpServlet {
         String desc = req.getParameter("description");
         String comments = req.getParameter("comments");
 
-        log.info("clientId: " + clientId);
-        log.info("careDate: " + careDate);
-        log.info("careTime: " + careTime);
-        log.info("desc: " + desc);
-        log.info("comments: " + comments);
-
         int cId = Integer.parseInt(clientId);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-
-        //convert String to LocalDate
         LocalDate date = LocalDate.parse(careDate, formatter);
         Double time = Double.parseDouble(careTime);
 
-        log.info("cId: " + cId);
-        log.info("date: " + date);
-        log.info("time: " + time);
-        log.info("desc: " + desc);
-        log.info("comments: " + comments);
-        /*if (careTime != "") {
-            try {
-                time = Double.parseDouble(careTime);
-            } catch (NumberFormatException nfe) {
-                log.error("Number formate exception", nfe);
-            }
-        } else {
-            log.info("care time is empty");
-        }*/
 
-        // get employee id
         String empEmail = req.getRemoteUser();
 
-        log.info("empEmail: " + empEmail);
-
-        clientDao = new ClientDao();
         clientNoteDao = new ClientNoteDao();
-        employeeDao = new EmployeeDao();
-        int eId = employeeDao.getEmployeeId(empEmail);
-        log.info("eId: " + eId);
-        clientNoteDao.addClientNoteFromEmployee(cId, date, time, desc, comments, eId);
-        //TOdo: finish this first before everything else
+        clientNoteDao.addClientNoteFromEmployee(cId, date, time, desc, comments, empEmail);
     }
 }

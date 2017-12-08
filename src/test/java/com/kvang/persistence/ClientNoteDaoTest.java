@@ -277,21 +277,4 @@ public class ClientNoteDaoTest {
 
         //List<ClientNote> clientNotes = clientNoteDao.findByProperty("Clien_clientId", "")
     }
-
-    /**
-     * Gets client notes by date.
-     *
-     * @throws Exception the exception
-     */
-    @Test
-    public void getClientNotesByDate() throws Exception {
-        List<ClientNote> clientNotes = clientNoteDao.getClientNotesByDate(LocalDate.of(2017, 12, 1));
-
-        //log.info(clientNotes.size());
-        assertTrue(clientNotes.size() > 0);
-
-
-    }
-
-
 }

@@ -28,7 +28,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                                <input  name="date" class="form-control" type="text">
+                                <input  name="date" class="form-control" type="text" placeholder="2017/01/30">
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                                <input  name="care_time" class="form-control" type="text">
+                                <input  name="care_time" class="form-control" type="text" placeholder="1.5">
                             </div>
                         </div>
                     </div>

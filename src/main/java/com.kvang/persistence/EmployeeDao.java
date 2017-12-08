@@ -272,7 +272,6 @@ public class EmployeeDao {
         ClientDao clientDao;
 
         try {
-
             session = SessionFactoryProvider.getSessionFactory().openSession();
             tx = session.beginTransaction();
 
@@ -302,23 +301,6 @@ public class EmployeeDao {
             }
         }
     }
-
-    /*
-    session = SessionFactoryProvider.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-
-            employeeDao = new EmployeeDao();
-            clientDao = new ClientDao();
-
-            employee = employeeDao.getEmployeeById(empId);
-            client = clientDao.getClientById(clId);
-
-            employee.addClient(client);
-            client.addEmployee(employee);
-
-            session.saveOrUpdate(employee);
-            tx.commit();
-    */
 
     //TODO: write testing for this method
     //Maybe get by email or ID ????
@@ -354,44 +336,4 @@ public class EmployeeDao {
         }
         return employees;
     }
-
-    //TODO: this does not work, not getting id
-    public int getEmployeeId(String email) {
-        List<Integer> employeeIdList = new ArrayList<Integer>();
-        int empId = 0;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            Query query = session.createQuery("select e.employeeId from Employee e where e.email = :email");
-            query.setParameter("email", email);
-            employeeIdList = query.list();
-        } catch (HibernateException he) {
-            log.info("Error saving client: ", he);
-        } catch (Exception e) {
-            log.error("Client was not added through sign up form: ", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return empId;
-    }
-
-    /*public int getUserById(String email) {
-        Session session = null;
-        Employee employee = null;
-        int eId = 0;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            int = (Integer) session.load(Employee.class, email);
-            Hibernate.initialize(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
-        }
-        return user;
-    }*/
 }

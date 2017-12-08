@@ -172,54 +172,30 @@ public class ClientNoteDao {
         return items;
     }
 
-    /**
-     * Gets client notes by date.
-     *
-     * @param date the date
-     * @return the client notes by date
-     */
-    public List<ClientNote> getClientNotesByDate(LocalDate date) {
-        List<ClientNote> clientNotes = new ArrayList<ClientNote>();
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            Criteria criteria = session.createCriteria(ClientNote.class);
-            criteria.add(Restrictions.eq("date", date));
-            clientNotes = criteria.list();
-        } catch (HibernateException he) {
-            log.error("Error getting client notes by date", he);
-        } catch (Exception e) {
-            log.error("General exception for getClientNotesByDate() is caught", e);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
 
-        return clientNotes;
-
-    }
-
-    //TODO: This method will save client note entered by employee
-    public void addClientNoteFromEmployee(int cId, LocalDate careDate, Double careTime, String desc, String comments, int eId) {
+    //TODO: Write test method for this method
+    // This method will save client note entered by employee
+    public void addClientNoteFromEmployee(int cId, LocalDate careDate, Double careTime, String desc, String comments, String empEmail) {
         Session session = null;
         Transaction tx = null;
         Client client;
         ClientNote clientNote;
-        Employee employee;
+        EmployeeDao employeeDao;
+        List<Employee> employeeList;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             tx = session.beginTransaction();
+            employeeDao = new EmployeeDao();
+            employeeList = employeeDao.findByProperty("email", empEmail, MatchMode.EXACT);
             client = (Client) session.get(Client.class, cId);
-            employee = (Employee) session.get(Employee.class, eId);
             clientNote = new ClientNote();
             clientNote.setClient(client);
             clientNote.setDate(careDate);
             clientNote.setCare_time(careTime);
             clientNote.setDescription(desc);
             clientNote.setComments(comments);
-            clientNote.setEmployee(employee);
+            clientNote.setEmployee(employeeList.get(0));
             session.save(clientNote);
             tx.commit();
         } catch (HibernateException he) {
