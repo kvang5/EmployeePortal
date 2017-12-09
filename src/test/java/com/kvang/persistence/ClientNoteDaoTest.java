@@ -2,7 +2,7 @@ package com.kvang.persistence;
 
 import com.kvang.entity.*;
 import lombok.extern.log4j.Log4j;
-import org.junit.After;
+import org.hibernate.criterion.MatchMode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,75 +16,21 @@ import static org.junit.Assert.*;
  */
 @Log4j
 public class ClientNoteDaoTest {
-    /**
-     * The Now.
-     */
     LocalDate now = LocalDate.now();
-
-    /**
-     * The State dao.
-     */
     StateDao stateDao;
-    /**
-     * The State.
-     */
     State state;
-
-    /**
-     * The Title dao.
-     */
     TitleDao titleDao;
-    /**
-     * The Title.
-     */
     Title title;
-
-    /**
-     * The Employee dao.
-     */
     EmployeeDao employeeDao;
-    /**
-     * The Employee.
-     */
     Employee employee;
-
-    /**
-     * The Client dao.
-     */
     ClientDao clientDao;
-    /**
-     * The Client.
-     */
     Client client;
-
-    /**
-     * The Client note dao.
-     */
     ClientNoteDao clientNoteDao;
-    /**
-     * The Client note.
-     */
     ClientNote clientNote;
-
-    /**
-     * The New state.
-     */
     int newState;
-    /**
-     * The New title.
-     */
     int newTitle;
-    /**
-     * The New employee.
-     */
     int newEmployee;
-    /**
-     * The New client.
-     */
     int newClient;
-    /**
-     * The New client note.
-     */
     int newClientNote;
 
     /**
@@ -94,7 +40,6 @@ public class ClientNoteDaoTest {
      */
     @Before
     public void setUp() throws Exception {
-
         stateDao = new StateDao();
         state = new State();
         state.setState_code("WI");
@@ -107,13 +52,13 @@ public class ClientNoteDaoTest {
         employeeDao = new EmployeeDao();
 
         employee = new Employee();
-        employee.setFirst_name("Kyle");
-        employee.setLast_name("Vang");
+        employee.setFirst_name("ruser");
+        employee.setLast_name("ruser");
         employee.setAddress1("123 State St.");
         employee.setCity("Madison");
         employee.setState(state);
         employee.setPostal_zip_code("12345");
-        employee.setEmail("kvang5@madisoncollege.edu");
+        employee.setEmail("ruser@ruser.com");
         employee.setHome_phone("828-455-6682");
         employee.setMobile_phone("828-455-6682");
         employee.setState(state);
@@ -124,15 +69,14 @@ public class ClientNoteDaoTest {
         clientDao = new ClientDao();
 
         client = new Client();
-        client.setFirst_name("John");
+        client.setFirst_name("Patty");
         client.setLast_name("Smith");
-        client.setAddress1("123 Client St.");
+        client.setAddress1("908 Washington Street");
         client.setCity("Madison");
-        client.setState(state);
-        client.setPostal_zip_code("12345");
-        client.setEmail("jsmith@mail.com");
-        client.setHome_phone("608-123-6122");
-        client.setMobile_phone("608-123-6123");
+        client.setPostal_zip_code("53590");
+        client.setEmail("psmith@gmail.com");
+        client.setHome_phone("608-222-2345");
+        client.setMobile_phone("608-223-2323");
         client.setState(state);
         client.setStatus(true);
 
@@ -145,16 +89,6 @@ public class ClientNoteDaoTest {
         clientNote.setComments("N/A");
         clientNote.setEmployee(employee);
         clientNote.setClient(client);
-
-    }
-
-    /**
-     * Tear down.
-     *
-     * @throws Exception the exception
-     */
-    @After
-    public void tearDown() throws Exception {
     }
 
     /**
@@ -211,7 +145,6 @@ public class ClientNoteDaoTest {
         assertEquals("Client note comments not returned correctly", clientNote.getComments(), clientNoteDao.getClientNoteById(newClientNote).getComments());
         assertEquals("Client note client id not returned correctly", clientNote.getClient().getClientId(), clientNoteDao.getClientNoteById(newClientNote).getClient().getClientId());
         assertEquals("Client note employee id not returned correctly", clientNote.getEmployee().getEmployeeId(), clientNoteDao.getClientNoteById(newClientNote).getEmployee().getEmployeeId());
-
     }
 
     /**
@@ -230,7 +163,6 @@ public class ClientNoteDaoTest {
         assertNotNull("Client note is null", clientNoteDao.getClientNoteById(clientNote.getClient_noteId()));
 
         clientNoteDao.deleteClientNote(clientNote.getClient_noteId());
-
     }
 
     /**
@@ -255,8 +187,8 @@ public class ClientNoteDaoTest {
 
         clientNoteDao.updateClientNote(clientNote);
 
-        log.info("#1 " + clientNote.getDate());
-        log.info("#2 " + clientNoteDao.getClientNoteById(newClientNote).getDate());
+        //log.info("#1 " + clientNote.getDate());
+        //log.info("#2 " + clientNoteDao.getClientNoteById(newClientNote).getDate());
 
         assertEquals("Client note date not updated", clientNote.getDate(), clientNoteDao.getClientNoteById(newClientNote).getDate());
         assertEquals("Client note care time not updated", clientNote.getCare_time(), clientNoteDao.getClientNoteById(newClientNote).getCare_time());
@@ -264,7 +196,6 @@ public class ClientNoteDaoTest {
         assertEquals("Client note comments not updated", clientNote.getComments(), clientNoteDao.getClientNoteById(newClientNote).getComments());
         assertEquals("Client note client id not updated", clientNote.getClient().getClientId(), clientNoteDao.getClientNoteById(newClientNote).getClient().getClientId());
         assertEquals("Client note employee id not updated", clientNote.getEmployee().getEmployeeId(), clientNoteDao.getClientNoteById(newClientNote).getEmployee().getEmployeeId());
-
     }
 
     /**
@@ -274,7 +205,19 @@ public class ClientNoteDaoTest {
      */
     @Test
     public void findByProperty() throws Exception {
+        List<ClientNote> clientNotes1 = clientNoteDao.findByProperty("comments", "A", MatchMode.ANYWHERE);
+        assertTrue(clientNotes1.size() > 0);
 
-        //List<ClientNote> clientNotes = clientNoteDao.findByProperty("Clien_clientId", "")
+        List<ClientNote> clientNotes2 = clientNoteDao.findByProperty("comments", "N/A", MatchMode.EXACT);
+        assertTrue(clientNotes2.size() > 0);
+
+    }
+
+    @Test
+    public void addClientNoteFromEmployee() throws Exception {
+        List<ClientNote> clientNotes = clientNoteDao.getAllClientNotes();
+        clientNoteDao.addClientNoteFromEmployee(1, now, 2.2, "Testing description", "Testing comments", "ruser@ruser.com");
+
+        assertTrue(clientNotes.size() > 0);
     }
 }

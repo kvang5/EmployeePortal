@@ -3,7 +3,6 @@ package com.kvang.persistence;
 import com.kvang.entity.State;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.criterion.MatchMode;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,18 +15,8 @@ import static org.junit.Assert.*;
  */
 @Log4j
 public class StateDaoTest {
-
-    /**
-     * The State dao.
-     */
     StateDao stateDao;
-    /**
-     * The State.
-     */
     State state;
-    /**
-     * The New state.
-     */
     int newState = 0;
 
     /**
@@ -41,19 +30,7 @@ public class StateDaoTest {
         state = new State();
         state.setState_code("WI");
         state.setState_name("Wisconsin");
-
-    }
-
-    /**
-     * Tear down.
-     *
-     * @throws Exception the exception
-     */
-    @After
-    public void tearDown() throws Exception {
-        if (newState != 0) {
-            stateDao.deleteState(newState);
-        }
+        newState = stateDao.addState(state);
     }
 
     /**
@@ -63,7 +40,6 @@ public class StateDaoTest {
      */
     @Test
     public void getAllStates() throws Exception {
-        newState = stateDao.addState(state);
         List<State> states = stateDao.getAllStates();
         assertTrue(states.size() > 0);
     }
@@ -75,12 +51,11 @@ public class StateDaoTest {
      */
     @Test
     public void getStateById() throws Exception {
-        newState = stateDao.addState(state);
-        assertNotNull("No state returned", stateDao.getStateById(newState));
-        log.info("state id is: " + stateDao.getStateById(newState).getStateId() + ", state code is: " + stateDao.getStateById(newState).getState_code() + ", state name is: " + stateDao.getStateById(newState).getState_name());
-        assertEquals("State Id not return correctly", state.getStateId(), stateDao.getStateById(newState).getStateId());
-        assertEquals("State code not return correctly", state.getState_code(), stateDao.getStateById(newState).getState_code());
-        assertEquals("State name not return correctly", state.getState_name(), stateDao.getStateById(newState).getState_name());
+        List<State> states = stateDao.getAllStates();
+        assertNotNull("No state returned", states.get(32));
+        log.info("State id: " + states.get(32).getStateId() + ", State code: " + states.get(32).getState_code() + " State name: " + states.get(32).getState_name());
+        assertEquals("State code not return correctly", "NC", states.get(32).getState_code());
+        assertEquals("State name not return correctly", "North Carolina", states.get(32).getState_name());
 
     }
 
@@ -92,6 +67,8 @@ public class StateDaoTest {
     @Test
     public void addState() throws Exception {
         newState = stateDao.addState(state);
+        log.info(newState);
+        log.info("State id: " + newState + ", State code: " + stateDao.getStateById(newState).getState_code() + ", State name: " + stateDao.getStateById(newState).getState_name());
         assertNotNull("No state returned", stateDao.getStateById(newState));
         assertEquals("State Id not return correctly", state.getStateId(), stateDao.getStateById(newState).getStateId());
         assertEquals("State code not return correctly", state.getState_code(), stateDao.getStateById(newState).getState_code());
@@ -107,9 +84,9 @@ public class StateDaoTest {
      */
     @Test
     public void deleteState() throws Exception {
-        stateDao.addState(state);
-        assertNotNull("user is null", stateDao.getStateById(state.getStateId()));
-        stateDao.deleteState(state.getStateId());
+        List<State> states = stateDao.getAllStates();
+        assertNotNull("state is null", stateDao.getStateById(states.get(33).getStateId()));
+        stateDao.deleteState(states.get(40).getStateId());
     }
 
     /**

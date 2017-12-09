@@ -16,17 +16,8 @@ import static org.junit.Assert.*;
 @Log4j
 public class TitleDaoTest {
 
-    /**
-     * The Title dao.
-     */
     TitleDao titleDao;
-    /**
-     * The Title.
-     */
     Title title;
-    /**
-     * The New title.
-     */
     int newTitle = 0;
 
     /**
@@ -39,15 +30,9 @@ public class TitleDaoTest {
         titleDao = new TitleDao();
         title = new Title();
         title.setJobTitle("Registered Nurse");
+        titleDao.addTitle(title);
 
     }
-
-    /*@After
-    public void tearDown() throws Exception {
-        if (newTitle != 0) {
-            titleDao.deleteTitle(newTitle);
-        }
-    }*/
 
     /**
      * Gets all titles.
@@ -68,12 +53,11 @@ public class TitleDaoTest {
      */
     @Test
     public void getTitleById() throws Exception {
-        newTitle = titleDao.addTitle(title);
-        assertNotNull("No title returned", titleDao.getTitleById(newTitle));
-        log.info("title id is: " + titleDao.getTitleById(newTitle).getTitleId() +  ", job title is: " + titleDao.getTitleById(newTitle).getJobTitle());
-        assertEquals("Title Id not return correctly", title.getTitleId(), titleDao.getTitleById(newTitle).getTitleId());
-        assertEquals("Job title not return correctly", title.getJobTitle(), titleDao.getTitleById(newTitle).getJobTitle());
-
+        List<Title> titles = titleDao.getAllTitles();
+        assertNotNull("No title returned", titles.get(1));
+        log.info("title id is: " + titles.get(0).getTitleId() +  ", job title is: " + titles.get(0).getJobTitle());
+        assertEquals("Title Id not return correctly", 1, titles.get(0).getTitleId());
+        assertEquals("Job title not return correctly", "Agency Director", titles.get(0).getJobTitle());
     }
 
     /**
@@ -84,6 +68,8 @@ public class TitleDaoTest {
     @Test
     public void addTitle() throws Exception {
         newTitle = titleDao.addTitle(title);
+        log.info(newTitle);
+        log.info("Title id: " + newTitle + ", Job Title: " + titleDao.getTitleById(newTitle).getJobTitle());
         assertNotNull("No title returned", titleDao.getTitleById(newTitle));
         assertEquals("Title Id not return correctly", title.getTitleId(), titleDao.getTitleById(newTitle).getTitleId());
         assertEquals("Job title not return correctly", title.getJobTitle(), titleDao.getTitleById(newTitle).getJobTitle());

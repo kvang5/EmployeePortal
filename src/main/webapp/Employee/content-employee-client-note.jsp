@@ -14,7 +14,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-user"></i></span>
                                 <select name="client" id="client" class="form-control selectpicker">
                                     <option value="">Select Client</option>
-                                    <c:forEach var="client" items="${clients}"> <!-- TODO: have clients output baseed on Employee -->
+                                    <c:forEach var="client" items="${clients}">
                                         <option value="${client.clientId}">${client.first_name}&nbsp;${client.last_name}</option>
                                     </c:forEach>
                                 </select>

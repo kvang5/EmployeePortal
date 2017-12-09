@@ -40,7 +40,12 @@ public class ClientDao {
         return clients;
     }
 
-    //TODO: write testing for this method
+    /**
+     * Gets all client by querying with employee email.
+     *
+     * @param email the email
+     * @return the all client by employee
+     */
     public List<Client> getAllClientByEmployee(String email) {
         List<Client> clients = new ArrayList<Client>();
         Session session = null;
@@ -87,6 +92,7 @@ public class ClientDao {
             session = SessionFactoryProvider.getSessionFactory().openSession();
             client = (Client) session.get(Client.class, id);
             Hibernate.initialize(client.getState());
+            Hibernate.initialize(client.getEmployeeSet());
         } catch (HibernateException he) {
             log.error("Error getting client by id", he);
         } catch (Exception e) {
@@ -204,12 +210,27 @@ public class ClientDao {
         return items;
     }
 
-    //TODO: write test for this method
-    public void addNewClient(String first_name, String last_name, String address1, String address2, String city, int sId,
+    /**
+     * Add new client from client sign up form.
+     *
+     * @param first_name      the first name
+     * @param last_name       the last name
+     * @param address1        the address 1
+     * @param address2        the address 2
+     * @param city            the city
+     * @param sId             the s id
+     * @param postal_zip_code the postal zip code
+     * @param email           the email
+     * @param home_phone      the home phone
+     * @param mobile_phone    the mobile phone
+     * @param statusChecked   the status checked
+     */
+    public int addNewClient(String first_name, String last_name, String address1, String address2, String city, int sId,
                              String postal_zip_code, String email, String home_phone, String mobile_phone, boolean statusChecked) {
         Session session = null;
         Transaction tx = null;
         State state;
+        int newclient = 0;
         Client client;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -227,7 +248,7 @@ public class ClientDao {
             client.setHome_phone(home_phone);
             client.setMobile_phone(mobile_phone);
             client.setStatus(statusChecked);
-            session.save(client);
+            newclient = (int) session.save(client);
             tx.commit();
         } catch (HibernateException he) {
             if (tx != null) tx.rollback();
@@ -239,5 +260,6 @@ public class ClientDao {
                 session.close();
             }
         }
+        return newclient;
     }
 }

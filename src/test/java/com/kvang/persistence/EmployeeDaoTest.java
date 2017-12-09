@@ -1,11 +1,11 @@
 package com.kvang.persistence;
 
+import com.kvang.entity.Client;
 import com.kvang.entity.Employee;
 import com.kvang.entity.State;
 import com.kvang.entity.Title;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.criterion.MatchMode;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,45 +18,17 @@ import static org.junit.Assert.*;
  */
 @Log4j
 public class EmployeeDaoTest {
-
-    /**
-     * The State dao.
-     */
     StateDao stateDao;
-    /**
-     * The State.
-     */
     State state;
-
-    /**
-     * The Title dao.
-     */
     TitleDao titleDao;
-    /**
-     * The Title.
-     */
     Title title;
-
-    /**
-     * The Employee dao.
-     */
     EmployeeDao employeeDao;
-    /**
-     * The Employee.
-     */
     Employee employee;
-
-    /**
-     * The New state.
-     */
+    ClientDao clientDao;
+    Client client;
+    int newClient = 0;
     int newState = 0;
-    /**
-     * The New title.
-     */
     int newTitle = 0;
-    /**
-     * The New employee.
-     */
     int newEmployee = 0;
 
     /**
@@ -80,42 +52,19 @@ public class EmployeeDaoTest {
         employeeDao = new EmployeeDao();
 
         employee = new Employee();
-        employee.setFirst_name("Kyle");
-        employee.setLast_name("Vang");
-        employee.setAddress1("123 Some Street");
+        employee.setFirst_name("ruser");
+        employee.setLast_name("ruser");
+        employee.setAddress1("123 State St.");
         employee.setCity("Madison");
-        employee.setPostal_zip_code("53590");
-        employee.setEmail("kvang5@madisoncollege.edu");
+        employee.setState(state);
+        employee.setPostal_zip_code("12345");
+        employee.setEmail("ruser@ruser.com");
         employee.setHome_phone("828-455-6682");
         employee.setMobile_phone("828-455-6682");
         employee.setState(state);
         employee.setTitle(title);
         employee.setPassword("test");
         employee.setStatus(true);
-
-    }
-
-
-    /**
-     * Tear down.
-     *
-     * @throws Exception the exception
-     */
-    @After
-    public void tearDown() throws Exception {
-        /*if (newState != 0) {
-            stateDao.deleteState(newState);
-        }
-
-        if (newTitle != 0) {
-            titleDao.deleteTitle(newTitle);
-        }
-
-        if (newEmployee != 0) {
-            employeeDao.deleteEmployee(newEmployee);
-        }*/
-
-
     }
 
     /**
@@ -188,7 +137,6 @@ public class EmployeeDaoTest {
         assertEquals("Employee job title not returned correctly", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
         assertEquals("Employee password not returned correctly", employee.getPassword(), employeeDao.getEmployeeById(newEmployee).getPassword());
         assertEquals("Employee status not returned correctly", employee.getStatus(), employeeDao.getEmployeeById(newEmployee).getStatus());
-
     }
 
     /**
@@ -223,7 +171,7 @@ public class EmployeeDaoTest {
         title.setJobTitle(titleDao.getTitleById(3).getJobTitle());
 
         newEmployee = employeeDao.addEmployee(employee);
-        employee.setFirst_name("Peyton");
+        employee.setFirst_name("");
         employee.setLast_name("Vang");
         employee.setAddress1("2020 Peyton Ln");
         employee.setAddress2("Apt. 2");
@@ -251,7 +199,6 @@ public class EmployeeDaoTest {
         assertEquals("Employee job title not updated", employee.getTitle().getJobTitle(), employeeDao.getEmployeeById(newEmployee).getTitle().getJobTitle());
         assertEquals("Employee password not returned correctly", employee.getPassword(), employeeDao.getEmployeeById(newEmployee).getPassword());
         assertEquals("Employee status not returned correctly", employee.getStatus(), employeeDao.getEmployeeById(newEmployee).getStatus());
-
     }
 
     /**
@@ -261,10 +208,10 @@ public class EmployeeDaoTest {
      */
     @Test
     public void findByProperty() throws Exception {
-        List<Employee> employees1 = employeeDao.findByProperty("first_name", "k", MatchMode.ANYWHERE);
+        List<Employee> employees1 = employeeDao.findByProperty("first_name", "r", MatchMode.ANYWHERE);
         assertTrue(employees1.size() > 0);
 
-        List<Employee> employees2 = employeeDao.findByProperty("first_name", "Kyle", MatchMode.EXACT);
+        List<Employee> employees2 = employeeDao.findByProperty("first_name", "ruser", MatchMode.EXACT);
         assertTrue(employees2.size() > 0);
     }
 
@@ -277,13 +224,47 @@ public class EmployeeDaoTest {
     public void checkIfEmployeeExistInDB() throws Exception {
         // compare with a email that exist in BD
         Boolean isValid1 = employeeDao.checkIfEmployeeExistInDB("admin@admin.com");
-        log.info("test 1: " + isValid1);
+        //log.info("test 1: " + isValid1);
         assertTrue(isValid1 == true);
 
         // compare with a not exist email in DB
         Boolean isValid2 = employeeDao.checkIfEmployeeExistInDB("empNotExist@notExist.com");
-        log.info("test 2: " + isValid2);
+        //log.info("test 2: " + isValid2);
         assertTrue(isValid2 == false);
+
+    }
+
+    @Test
+    public void addNewEmployee() throws Exception {
+        int empid = 0;
+        empid = employeeDao.addNewEmployee(33, 2, "test", "test", "111 street", "","Hickory", "12344",
+                "111-222-3333", "", "test@test.com", true, "Registered-user");
+
+        assertTrue(empid != 0);
+    }
+
+    @Test
+    public void assignClientToEmployee() throws Exception {
+        newState = stateDao.addState(state);
+        newTitle = titleDao.addTitle(title);
+        newEmployee = employeeDao.addEmployee(employee);
+        clientDao = new ClientDao();
+
+        client = new Client();
+        client.setFirst_name("Patty");
+        client.setLast_name("Smith");
+        client.setAddress1("908 Washington Street");
+        client.setCity("Madison");
+        client.setPostal_zip_code("53590");
+        client.setEmail("psmith@gmail.com");
+        client.setHome_phone("608-222-2345");
+        client.setMobile_phone("608-223-2323");
+        client.setState(state);
+        client.setStatus(true);
+        newClient = clientDao.addClient(client);
+
+        employeeDao.assignClientToEmployee(2, 1);
+
 
     }
 }

@@ -55,6 +55,7 @@ public class EmployeeDao {
             employee = (Employee) session.get(Employee.class, id);
             Hibernate.initialize(employee.getState());
             Hibernate.initialize(employee.getTitle());
+            Hibernate.initialize(employee.getClientSet());
         } catch (HibernateException he) {
             log.error("Error getting employee by id", he);
         } catch (Exception e) {
@@ -180,8 +181,6 @@ public class EmployeeDao {
      */
     public boolean checkIfEmployeeExistInDB(String email) {
         boolean employeeExist = true;
-        //String emailExistMessage = "";
-
         Session session = null;
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -201,7 +200,6 @@ public class EmployeeDao {
                 log.info("Email exists.");
                 employeeExist = true;
             }
-
         } catch (HibernateException he) {
             log.error("Hibernate Exception error", he);
         } catch (Exception e) {
@@ -214,18 +212,35 @@ public class EmployeeDao {
         return employeeExist;
     }
 
-    //TODO: write test class for this method
-    public void addNewEmployee(int sId, int tId, String first_name, String last_name, String address1, String address2,
+    /**
+     * Add new employee from employee sign up form.
+     *
+     * @param sId              the s id
+     * @param tId              the t id
+     * @param first_name       the first name
+     * @param last_name        the last name
+     * @param address1         the address 1
+     * @param address2         the address 2
+     * @param city             the city
+     * @param postal_zip_code  the postal zip code
+     * @param home_phone       the home phone
+     * @param mobile_phone     the mobile phone
+     * @param email            the email
+     * @param statusChecked    the status checked
+     * @param employeeRoleName the employee role name
+     */
+    public int addNewEmployee(int sId, int tId, String first_name, String last_name, String address1, String address2,
                                String city, String postal_zip_code, String home_phone, String mobile_phone, String email,
                                boolean statusChecked, String employeeRoleName) {
-        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        Session session = null;
         Transaction tx = null;
         State state;
         Title title;
         Employee employee;
         EmployeeRole employeeRole;
-
+        int empId = 0;
         try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
             tx = session.beginTransaction();
             state = (State) session.get(State.class, sId);
             title = (Title) session.get(Title.class, tId);
@@ -247,7 +262,7 @@ public class EmployeeDao {
             employeeRole.setEmail(email);
             employeeRole.setRole_name(employeeRoleName);
             employeeRole.setEmployee(employee);
-            session.save(employee);
+            empId = (int) session.save(employee);
             session.save(employeeRole);
             tx.commit();
         } catch (HibernateException he) {
@@ -260,9 +275,15 @@ public class EmployeeDao {
                 session.close();
             }
         }
+        return empId;
     }
 
-    //TODO: write test for this method
+    /**
+     * Assign client to employee using form.
+     *
+     * @param empId the emp id
+     * @param clId  the cl id
+     */
     public void assignClientToEmployee(int empId, int clId) {
         Session session = null;
         Transaction tx = null;
@@ -302,9 +323,9 @@ public class EmployeeDao {
         }
     }
 
-    //TODO: write testing for this method
+    //TODO: write testing for this method .. Let's see if I need this???
     //Maybe get by email or ID ????
-    public List<Employee> getAllEmployeeByClient(String email) {
+    /*public List<Employee> getAllEmployeeByClient(String email) {
         List<Employee> employees = new ArrayList<Employee>();
         Session session = null;
         try {
@@ -335,5 +356,5 @@ public class EmployeeDao {
             }
         }
         return employees;
-    }
+    }*/
 }

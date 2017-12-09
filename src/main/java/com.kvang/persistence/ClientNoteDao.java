@@ -172,9 +172,17 @@ public class ClientNoteDao {
         return items;
     }
 
-
-    //TODO: Write test method for this method
-    // This method will save client note entered by employee
+    /**
+     * Employee adds client note about client
+     *
+     * @param cId      the c id
+     * @param careDate the care date
+     * @param careTime the care time
+     * @param desc     the desc
+     * @param comments the comments
+     * @param empEmail the emp email
+     */
+// This method will save client note entered by employee
     public void addClientNoteFromEmployee(int cId, LocalDate careDate, Double careTime, String desc, String comments, String empEmail) {
         Session session = null;
         Transaction tx = null;
@@ -182,6 +190,7 @@ public class ClientNoteDao {
         ClientNote clientNote;
         EmployeeDao employeeDao;
         List<Employee> employeeList;
+        int id = 0;
 
         try {
             session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -196,18 +205,17 @@ public class ClientNoteDao {
             clientNote.setDescription(desc);
             clientNote.setComments(comments);
             clientNote.setEmployee(employeeList.get(0));
-            session.save(clientNote);
+            id = (int) session.save(clientNote);
             tx.commit();
         } catch (HibernateException he) {
             if (tx != null) tx.rollback();
-            log.error("Hibernate exception error: ", he);
+            log.error("Hibernate exception error adding client note from employee: ", he);
         } catch (Exception e) {
-            log.error("Exception error: ", e);
+            log.error("Exception error adding client note from employee: ", e);
         } finally {
             if (session != null) {
                 session.close();
             }
         }
-
     }
 }

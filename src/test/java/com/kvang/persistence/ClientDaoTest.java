@@ -3,7 +3,7 @@ package com.kvang.persistence;
 import com.kvang.entity.Client;
 import com.kvang.entity.State;
 import lombok.extern.log4j.Log4j;
-import org.junit.After;
+import org.hibernate.criterion.MatchMode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,31 +16,11 @@ import static org.junit.Assert.*;
  */
 @Log4j
 public class ClientDaoTest {
-    /**
-     * The State dao.
-     */
     StateDao stateDao;
-    /**
-     * The State.
-     */
     State state;
-
-    /**
-     * The Client dao.
-     */
     ClientDao clientDao;
-    /**
-     * The Client.
-     */
     Client client;
-
-    /**
-     * The New state.
-     */
     int newState = 0;
-    /**
-     * The New client.
-     */
     int newClient = 0;
 
     /**
@@ -69,22 +49,6 @@ public class ClientDaoTest {
         client.setMobile_phone("608-223-2323");
         client.setState(state);
         client.setStatus(true);
-    }
-
-    /**
-     * Tear down.
-     *
-     * @throws Exception the exception
-     */
-    @After
-    public void tearDown() throws Exception {
-        /*if (newState != 0) {
-            stateDao.deleteState(newState);
-        }
-
-        if (newClient != 0) {
-            clientDao.deleteClient(newClient);
-        }*/
     }
 
     /**
@@ -123,8 +87,6 @@ public class ClientDaoTest {
         assertEquals("Client mobile phone not returned correctly", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not returned correctly", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
         assertEquals("Client status not returned correctly", client.getStatus(), clientDao.getClientById(newClient).getStatus());
-
-
     }
 
     /**
@@ -135,7 +97,7 @@ public class ClientDaoTest {
     @Test
     public void addClient() throws Exception {
         newState = stateDao.addState(state);
-        log.info("newState: " + newState);
+        //log.info("newState: " + newState);
         newClient = clientDao.addClient(client);
 
         assertNotEquals("No new client added", 0, newClient);
@@ -151,7 +113,6 @@ public class ClientDaoTest {
         assertEquals("Client mobile phone not returned correctly", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not returned correctly", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
         assertEquals("Client status not returned correctly", client.getStatus(), clientDao.getClientById(newClient).getStatus());
-
     }
 
     /**
@@ -205,6 +166,31 @@ public class ClientDaoTest {
         assertEquals("Client mobile phone name not updated", client.getMobile_phone(), clientDao.getClientById(newClient).getMobile_phone());
         assertEquals("Client state not updated", client.getState().getState_code(), clientDao.getClientById(newClient).getState().getState_code());
         assertEquals("Client status not returned correctly", client.getStatus(), clientDao.getClientById(newClient).getStatus());
+    }
 
+    @Test
+    public void getAllClientByEmployee() throws Exception {
+        List<Client> clients = clientDao.getAllClients();
+        clientDao.getAllClientByEmployee(clients.get(0).getEmail());
+        //log.info(clients.size());
+        assertTrue(clients.size() > 0);
+    }
+
+    @Test
+    public void findByProperty() throws Exception {
+        List<Client> clients1 = clientDao.findByProperty("first_name", "p", MatchMode.ANYWHERE);
+        assertTrue(clients1.size() > 0);
+
+        List<Client> clients2 = clientDao.findByProperty("first_name", "Patty", MatchMode.EXACT);
+        assertTrue(clients2.size() > 0);
+    }
+
+    @Test
+    public void addNewClient() throws Exception {
+        int nc = 0;
+        nc = clientDao.addNewClient("ruser", "ruser", "123 setter street", "", "city",
+                33, "12333", "ruser@ruser.com", "828-222-2222", "", true);
+
+        assertTrue(nc != 0);
     }
 }
