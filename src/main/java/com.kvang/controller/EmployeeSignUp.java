@@ -29,6 +29,7 @@ public class EmployeeSignUp extends HttpServlet {
     private EmployeeRoleDao employeeRoleDao;
     private EmployeeDao employeeDao;
     private Boolean statusChecked = false;
+    private Boolean emailExist = false;
 
 
     @Override
@@ -90,13 +91,22 @@ public class EmployeeSignUp extends HttpServlet {
             statusChecked = true;
         }
 
+
         // Parse String to Int for use of Id's
         int sId = Integer.parseInt(stateId);
         int tId = Integer.parseInt(titleId);
 
         employeeDao = new EmployeeDao();
-        employeeDao.addNewEmployee(sId, tId, first_name, last_name, address1, address2, city,
-                postal_zip_code, home_phone, mobile_phone, email, statusChecked, employeeRoleName);
+        //emailExist = employeeDao.checkIfEmployeeExistInDB(email);
+        //log.info(emailExist);
+        //if (emailExist == false) {
+            employeeDao.addNewEmployee(sId, tId, first_name, last_name, address1, address2, city,
+                    postal_zip_code, home_phone, mobile_phone, email, statusChecked, employeeRoleName);
+        //} else {
+            //log.info("Email exist!!!");
+            //log.info("Did not add to Database!!!");
+        //}
+
 
         // This is now handled by validation rules
         // When successful - redirect to servlet and prompts message

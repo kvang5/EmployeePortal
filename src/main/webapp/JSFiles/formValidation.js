@@ -128,7 +128,6 @@ $(document).ready(function() {
             }
         }
     })
-
         .on('success.form.bv', function(e) {
             $('#success_message').slideDown({ opacity: "show" }, "slow");
             $('#signup-form').data('bootstrapValidator').resetForm();
@@ -426,13 +425,12 @@ $(document).ready(function() {
 
             // Use Ajax to submit form data
             $.post($form.attr('action'), $form.serialize(), function(result) {
-                console.log(result);
+                console.log("The result is: " + result);
             }, 'json');
 
             $form.find('.alert').html("Successfully added note for care to client.");
 
             $('#client-note').data('bootstrapValidator').resetForm();
-            $('#success_message').slideDown({ opacity: "hide" }, "slow");
         });
 });
 

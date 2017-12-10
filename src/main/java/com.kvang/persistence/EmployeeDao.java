@@ -192,12 +192,12 @@ public class EmployeeDao {
 
             if (query.uniqueResult() == null) {
                 // returns false if email DOES NOT EXIST
-                log.info("Email does not exist in the DB.");
+                //log.info("Email does not exist in the DB.");
                 employeeExist = false;
             } else {
                 // returns true if email DOES EXIST
                 //emailExistMessage = "This email is already in use, please select another one.."
-                log.info("Email exists.");
+                //log.info("Email exists.");
                 employeeExist = true;
             }
         } catch (HibernateException he) {

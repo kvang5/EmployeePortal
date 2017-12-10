@@ -7,7 +7,7 @@
 <div class="col-xs-12 col-sm-8">
     <div class="jumbotron">
         <div class="container">
-            <form class="well form-horizontal" action="employeeSignUp" method="POST" id="signup-form">
+            <form class="well form-horizontal" action="employeeSignUp" method="POST" id="signup-form" onsubmit="checkEmailAvailability();">
                 <fieldset>
 
                     <!-- Form Name -->
@@ -141,7 +141,7 @@
                         <div class="col-md-4 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input name="email" placeholder="jsmith@mail.com" class="form-control" type="text">
+                                <input name="email" id="email" placeholder="jsmith@mail.com" class="form-control" type="text">
                             </div>
                         </div>
                     </div>
@@ -179,7 +179,6 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" id="btn" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
-
                     <!-- TODO:
                         Need to add validation for form in order to output correct message,
                         ex: if validated correctly and email does not exist in DB then success message is shown
@@ -196,5 +195,23 @@
 
 </div>
 <!--/span-->
+<!--<script type="text/javascript">
+    function checkEmailAvailability() {
+        $('#btn').click(function () {
+            var email = $('#email').val();
+            $.ajax({
+                type: 'POST',
+                data: {email: email},
+                url: '/checkEmail',
+                success: function (result) {
+                    $('#result1').html(result);
+                }
+
+            })
+        });
+    }
+</script>-->
 
 <script src="JSFiles/formValidation.js"></script>
+
+
