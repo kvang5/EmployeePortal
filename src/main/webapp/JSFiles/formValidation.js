@@ -105,7 +105,6 @@ $(document).ready(function() {
                     }
                 }
             },
-            //ToDo: Still need to make sure email does not exit in BD
             email: {
                 validators: {
                     notEmpty: {
@@ -251,7 +250,6 @@ $(document).ready(function() {
                 }
 
             },
-            //ToDo: Still need to make sure email does not exit in BD
             email: {
                 validators: {
                     notEmpty: {

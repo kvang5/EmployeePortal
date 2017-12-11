@@ -26,17 +26,14 @@ public class AuthServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //System.out.println("In the auth servlet");
-
-        // TODO: Auth servlet sends admin and registered user to calender
         RequestDispatcher requestDispatcher;
-        String googleCalender = "/Employee/googleCalendar.jsp"; // test calendar
+        String dashboardUrl = "/Employee/employeeDashboard.jsp"; // test calendar
         String notAdminOrEmployeeUrl = "/loginError.jsp";
         if (req.isUserInRole("Administrator")) {
-            requestDispatcher = getServletContext().getRequestDispatcher(googleCalender);
+            requestDispatcher = getServletContext().getRequestDispatcher(dashboardUrl);
             requestDispatcher.forward(req, resp);
         } else if (req.isUserInRole("Registered-user")) {
-            requestDispatcher = getServletContext().getRequestDispatcher(googleCalender);
+            requestDispatcher = getServletContext().getRequestDispatcher(dashboardUrl);
             requestDispatcher.forward(req, resp);
         } else {
             requestDispatcher = getServletContext().getRequestDispatcher(notAdminOrEmployeeUrl);

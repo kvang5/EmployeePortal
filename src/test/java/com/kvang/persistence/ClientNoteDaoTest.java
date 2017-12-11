@@ -220,4 +220,26 @@ public class ClientNoteDaoTest {
 
         assertTrue(clientNotes.size() > 0);
     }
+
+    @Test
+    public void getClientNotesByDate() throws Exception {
+        List<ClientNote> clientNotes = clientNoteDao.getAllClientNotes();
+
+        //log.info("clientNotes.size(): " + clientNotes.size());
+
+        assertTrue(clientNotes.size() > 0);
+
+        List<ClientNote> clientNotesReturned1 = clientNoteDao.getClientNotesByDate(LocalDate.of(2017,12, 1));
+
+        //log.info("clientNotesReturned1.size(): " + clientNotesReturned1.size());
+
+        assertEquals("note in list of returns did not match ",1, clientNotesReturned1.size());
+
+        List<ClientNote> clientNotesReturned2 = clientNoteDao.getClientNotesByDate(now);
+
+        //log.info("clientNotesReturned2.size(): " + clientNotesReturned2.size());
+
+        assertEquals("note in list of returns did not match ",3, clientNotesReturned2.size());
+
+    }
 }

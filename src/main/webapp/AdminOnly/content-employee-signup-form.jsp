@@ -179,11 +179,6 @@
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" id="btn" class="btn btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
                         </div>
                     </div>
-                    <!-- TODO:
-                        Need to add validation for form in order to output correct message,
-                        ex: if validated correctly and email does not exist in DB then success message is shown
-                            else if email exist in DB then output emailExistMessage.
-                    -->
 
                     <!-- Success message -->
                     <div class="alert alert-success" id="success_message" style="display: none; text-align: center;"></div>

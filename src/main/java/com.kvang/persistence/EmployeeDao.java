@@ -323,7 +323,7 @@ public class EmployeeDao {
         }
     }
 
-    //TODO: write testing for this method .. Let's see if I need this???
+    //TODO: write testing for this method .. Let's see if I need this first???
     //Maybe get by email or ID ????
     /*public List<Employee> getAllEmployeeByClient(String email) {
         List<Employee> employees = new ArrayList<Employee>();

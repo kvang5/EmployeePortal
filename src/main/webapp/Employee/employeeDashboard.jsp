@@ -10,11 +10,22 @@
     <div class="row row-offcanvas row-offcanvas-left">
         <div class="row-offcanvas row-offcanvas-right">
 
-            <%@include file="../Includes/leftSideBar-Employee.jsp"%>
+            <c:choose>
+                <c:when test="${pageContext.request.isUserInRole('Administrator')}">
+                    <%@include file="../Includes/leftSideBar-Admin.jsp"%>
 
-            <%@include file="content-employee-dashboard.jsp"%>
+                    <%@include file="content-employee-dashboard.jsp"%>
 
-            <%@include file="../Includes/rightSideBar-Employee.jsp"%>
+                    <%@include file="../Includes/rightSideBar-Admin.jsp"%>
+                </c:when>
+                <c:when test="${pageContext.request.isUserInRole('Registered-user')}">
+                    <%@include file="../Includes/leftSideBar-Employee.jsp"%>
+
+                    <%@include file="content-employee-dashboard.jsp"%>
+
+                    <%@include file="../Includes/rightSideBar-Employee.jsp"%>
+                </c:when>
+            </c:choose>
 
         </div>
     </div>
