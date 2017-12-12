@@ -242,4 +242,22 @@ public class ClientNoteDaoTest {
         assertEquals("note in list of returns did not match ",3, clientNotesReturned2.size());
 
     }
+
+    @Test
+    public void getClientNotesByClientId() throws Exception {
+        List<ClientNote> clientNotes = clientNoteDao.getAllClientNotes();
+
+        log.info("clientNotes.size(): " + clientNotes.size());
+
+        assertTrue(clientNotes.size() > 0);
+
+        List<ClientNote> clientNoteList = clientNoteDao.getClientNotesByClientId(1);
+
+        log.info(clientNoteList.size());
+
+        assertEquals(2, clientNoteList.size());
+
+    }
+
+
 }

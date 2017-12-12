@@ -183,6 +183,10 @@ public class ClientDaoTest {
 
         List<Client> clients2 = clientDao.findByProperty("first_name", "Patty", MatchMode.EXACT);
         assertTrue(clients2.size() > 0);
+
+        List<Client> clients3 = clientDao.findByProperty("email", "ruser@ruser.com", MatchMode.EXACT);
+        assertTrue(clients3.size() == 1);
+        //log.info(clients3.get(0).getFirst_name());
     }
 
     @Test

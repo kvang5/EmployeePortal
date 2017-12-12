@@ -5,9 +5,8 @@
                 <h2>Search Results: </h2>
                 <table id="clientTable" class="display" cellspacing="0" width="100%">
                     <thead>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <!--
+                    <th>Client Name</th>
+                    <!--<th>Last Name</th>
                     <th>Address</th>
                     <th>Apartment</th>
                     <th>City</th>
@@ -21,9 +20,8 @@
                     <tbody>
                     <c:forEach var="client" items="${clients}">
                         <tr>
-                            <td>${client.first_name}</td>
-                            <td>${client.last_name}</td>
-                            <!--
+                            <td><a href="clientProfile?email=${client.email}&id=${client.clientId}">${client.first_name}&nbsp;${client.last_name}</a></td>
+                            <!--<td>${client.last_name}</td>
                             <td>${client.address1}</td>
                             <td>${client.address2}</td>
                             <td>${client.city}</td>

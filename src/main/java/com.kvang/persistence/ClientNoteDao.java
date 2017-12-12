@@ -242,8 +242,39 @@ public class ClientNoteDao {
                 session.close();
             }
         }
-
         return clientNotes;
+    }
 
+    public List<ClientNote> getClientNotesByClientId(int id) {
+        List<ClientNote> clientNotes = new ArrayList<ClientNote>();
+        Session session = null;
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            Query query = session.createQuery("SELECT cn from ClientNote cn INNER JOIN cn.client c WHERE cn.client.id = :id ORDER BY cn.date DESC");
+            query.setParameter("id", id);
+            clientNotes = query.list();
+            if (clientNotes.isEmpty()) {
+                log.info("employees list is empty");
+                return null;
+            } else {
+                /*log.info("Inside the else");
+                for (ClientNote cn : clientNotes) {
+                    log.info("inside the for loop");
+                    log.info("client note id: " + cn.getClient_noteId() + ", client id: " + cn.getClient().getClientId() + ", client first name: " + cn.getClient().getFirst_name());
+                }
+                log.info("outside the for loop");
+                log.info("clientNotes size : " + clientNotes.size());*/
+                return clientNotes;
+            }
+        } catch (HibernateException he) {
+            log.error("Error getting client notes by Client id", he);
+        } catch (Exception e) {
+            log.error("General exception for getClientNotesByDate() is caught", e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return clientNotes;
     }
 }
