@@ -97,7 +97,7 @@
 ### Week 12
 - [X] Team Project Presentation
 - [X] Create JSP and controller for new client and working
-- [ ] Add search employee/client controllers and jsps
+- [X] Add search employee/client controllers and jsps
 - [X] Create dao methods for searching
 - [ ] Add asynchronous messaging (if needed - might use for employee messaging)
 - [X] Time log entries
@@ -110,9 +110,11 @@
 
 ### Week 14
 - [X] Sign up for final presentation
+- [X] Create Client profile jsp/controller
+- [X] Remove unnecessary methods and clean up project
 - [X] Peer code review (Sarah)
 - [X] Time log entries
-- [ ] Create final presentation
+- [X] Create final presentation
 
 ### Week 15
 - [ ] Final Presentation

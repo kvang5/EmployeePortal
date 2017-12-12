@@ -63,7 +63,8 @@
 | 12/7/17 | Created Dao methods for doPost insert/assignment for client/employee daos and fixed aws login issue | 1.5 |  |
 | 12/8/17 | Finished jsp/controller functionality for Assign client to employee and clientnote, new dao for join query, and delete unnecessary methods in daos| 8 | All working perfectly |
 | 12/9/17 | Test classes and minor changes to servlets/jsps | 6 |  |
-| 12//17 |  | |  |
+| 12/10/17 | Finish Power Point presentation | 2 |  |
+| 12/11/17 | Added client profile jsp/controller, made changes to other jsps/controller, wrote new dao methods and test, and minor clean up | 6 |  |
 
 
 
