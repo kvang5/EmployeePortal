@@ -103,9 +103,7 @@
 - [X] Time log entries
 
 ### Week 13
-- [ ] 
-- [ ] 
-- [ ] 
+- [X] Work on Project
 - [X] Time log entries
 
 ### Week 14
@@ -117,10 +115,15 @@
 - [X] Create final presentation
 
 ### Week 15
-- [ ] Final Presentation
-- [ ] Time log entries
+- [X] Final Presentation
+- [X] Make demostration video and post link onto github
+- [X] Time log entries
 
 ### Week 16
+- [ ] Time log entries
+
+### Future
+- [ ] Learn Spring Framework and convert web app to Spring
 - [ ] Time log entries
 
 

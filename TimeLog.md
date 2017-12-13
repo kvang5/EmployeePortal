@@ -65,6 +65,7 @@
 | 12/9/17 | Test classes and minor changes to servlets/jsps | 6 |  |
 | 12/10/17 | Finish Power Point presentation | 2 |  |
 | 12/11/17 | Added client profile jsp/controller, made changes to other jsps/controller, wrote new dao methods and test, and minor clean up | 6 |  |
+| 12/12/17 | Made some changes to testing/daos, make demo video and post youtube link to github readme | 2 |  |
 
 
 
