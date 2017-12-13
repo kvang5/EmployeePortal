@@ -44,6 +44,7 @@ public class TitleDaoTest {
         newTitle = titleDao.addTitle(title);
         List<Title> titles = titleDao.getAllTitles();
         assertTrue(titles.size() > 0);
+
     }
 
     /**
@@ -59,6 +60,7 @@ public class TitleDaoTest {
         assertEquals("Title Id not return correctly", 1, titles.get(0).getTitleId());
         assertEquals("Job title not return correctly", "Agency Director", titles.get(0).getJobTitle());
     }
+
 
     /**
      * Add title.

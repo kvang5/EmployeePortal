@@ -255,7 +255,7 @@ public class ClientNoteDaoTest {
 
         log.info(clientNoteList.size());
 
-        assertEquals(2, clientNoteList.size());
+        assertEquals(1, clientNoteList.size());
 
     }
 

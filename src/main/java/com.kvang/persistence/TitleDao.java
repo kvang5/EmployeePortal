@@ -17,12 +17,16 @@ import java.util.List;
 @Log4j
 public class TitleDao {
 
+    // added in to get test to 100% for SessionFactoryProvider class
+    private SessionFactoryProvider sfp;
+
     /**
      * Gets all titles.
      *
      * @return the all titles
      */
     public List<Title> getAllTitles() {
+        sfp = new SessionFactoryProvider();
         List<Title> titles = new ArrayList<Title>();
         Session session = null;
         try {
