@@ -43,3 +43,5 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
 ### [Project Plan](ProjectPlan.md)
 
 ### [Time Log](TimeLog.md) 
+
+### [Amazon Web Services Host Project Link](http://18.221.201.85:8080/employeeportal/)
