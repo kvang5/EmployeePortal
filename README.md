@@ -21,9 +21,9 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
   * Store employee time sheet
   * Store client information and care description
 * Web Services or APIs
-  * Replicon API for timesheet
+  * TBD
 * Independent research topic
-  * Apache Shiro - Web application authentication
+  * Project Lombok
 * Logging
   * Configurable logging using Log4J. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
 * UI Framework Styling and Responsive application
@@ -43,3 +43,5 @@ The solution to help Golden Sun Home Care is to set a Web Application employee p
 ### [Project Plan](ProjectPlan.md)
 
 ### [Time Log](TimeLog.md) 
+
+### [Amazon Web Services Host Project Link](http://18.221.201.85:8080/employeeportal/)
